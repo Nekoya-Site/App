@@ -13,11 +13,11 @@ class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1b1c1e),
+      backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
         title: const Text('Nekoya'),
         centerTitle: true,
-        backgroundColor: Color(0xff212226),
+        backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
         future: getProducts(),
