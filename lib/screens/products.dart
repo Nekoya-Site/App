@@ -10,13 +10,14 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      backgroundColor: Color(0xff1b1c1e),
       appBar: AppBar(
-        title: const Text('Nekoya')
+        title: const Text('Nekoya'),
+        centerTitle: true,
+        backgroundColor: Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
         future: getProducts(),
@@ -27,9 +28,9 @@ class _ProductsState extends State<Products> {
               itemCount: data!.length,
               itemBuilder: (context, index) {
                 return ProductBox(
-                  imageUrl: 'https://nekoya.moe.team/img/' + data[index]['IMAGE'],
-                  title: data[index]['TITLE']
-                );
+                    imageUrl:
+                        'https://nekoya.moe.team/img/' + data[index]['IMAGE'],
+                    title: data[index]['TITLE']);
               },
             );
           }
@@ -37,7 +38,7 @@ class _ProductsState extends State<Products> {
             child: CircularProgressIndicator(),
           );
         },
-      )
+      ),
     );
   }
 }
