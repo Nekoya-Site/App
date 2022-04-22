@@ -1,0 +1,1 @@
+const host = "https://nekoya.moe.team/api";
