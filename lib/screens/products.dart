@@ -24,16 +24,18 @@ class _ProductsState extends State<Products> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = snapshot.data;
-            return ListView.builder(
-              itemCount: data!.length,
-              itemBuilder: (context, index) {
+            return GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(data!.length, (index) {
                 return ProductBox(
                     imageUrl:
                         'https://nekoya.moe.team/img/' + data[index]['IMAGE'],
-                    title: data[index]['TITLE']);
-              },
+                    title: data[index]['TITLE']
+                );
+              }),
             );
           }
+
           return const Center(
             child: CircularProgressIndicator(
               color: Color(0xff8B0000),

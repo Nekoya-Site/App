@@ -15,39 +15,51 @@ class ProductBox extends StatefulWidget {
 class _ProductBoxState extends State<ProductBox> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xff212226),
-      child: InkWell(
-        onTap: () {},
-        splashColor: Color(0xff8B0000),
-        highlightColor: Color(0xff8B0000),
-        child: Column(
-          children: [
-            CachedNetworkImage(
-              imageUrl: widget.imageUrl,
-              placeholder: (context, url) => const CircularProgressIndicator(
-                color: Color(0xff8B0000),
+    return Container(
+      margin: const EdgeInsets.all(8.0),
+      child: Card(
+        color: const Color(0xff212226),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: InkWell(
+          onTap: () {},
+          splashColor: const Color(0xff8B0000),
+          highlightColor: const Color(0xff8B0000),
+          child: Column(
+            children: [
+              Flexible(
+                flex: 4,
+                child: CachedNetworkImage(
+                  imageUrl: widget.imageUrl,
+                  placeholder: (context, url) => const CircularProgressIndicator(
+                    color: Color(0xff8B0000),
+                  ),
+                  errorWidget: (context, url, error) =>
+                      Image.asset('assets/image-error.webp'),
+                  fadeOutDuration: const Duration(milliseconds: 5),
+                  imageBuilder: (context, imageProvider) => Container(
+                    width: 300,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: imageProvider, fit: BoxFit.cover)),
+                  ),
+                ),
               ),
-              errorWidget: (context, url, error) =>
-                  Image.asset('assets/image-error.webp'),
-              fadeOutDuration: const Duration(milliseconds: 5),
-              imageBuilder: (context, imageProvider) => Container(
-                width: 300,
-                height: 210,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: imageProvider, fit: BoxFit.cover)),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(10),
-              child: Text(
-                widget.title,
-                style: const TextStyle(fontSize: 12, color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-            )
-          ],
+              Flexible(
+                flex: 1,
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  child: Text(
+                    widget.title,
+                    style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
