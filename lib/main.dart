@@ -1,11 +1,14 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 import 'package:nekoya_flutter/screens/products.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
     runApp(const MyApp());
   });
 }
@@ -15,9 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        home: Products(),
-        debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      home: AnimatedSplashScreen(
+        splash: 'assets/logo_transparent.webp',
+        pageTransitionType: PageTransitionType.fade,
+        backgroundColor: Color(0xff1b1c1e),
+        splashIconSize: 150,
+        nextScreen: Products(),
+      ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
