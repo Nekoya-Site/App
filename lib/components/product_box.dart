@@ -24,6 +24,7 @@ class _ProductBoxState extends State<ProductBox> {
         ),
         child: InkWell(
           onTap: () {},
+          borderRadius: BorderRadius.circular(10),
           splashColor: const Color(0xff8B0000),
           highlightColor: const Color(0xff8B0000),
           child: Column(
@@ -32,7 +33,8 @@ class _ProductBoxState extends State<ProductBox> {
                 flex: 4,
                 child: CachedNetworkImage(
                   imageUrl: widget.imageUrl,
-                  placeholder: (context, url) => const CircularProgressIndicator(
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(
                     color: Color(0xff8B0000),
                   ),
                   errorWidget: (context, url, error) =>
@@ -53,7 +55,10 @@ class _ProductBoxState extends State<ProductBox> {
                   margin: const EdgeInsets.all(10),
                   child: Text(
                     widget.title,
-                    style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
+                    style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600),
                     textAlign: TextAlign.center,
                   ),
                 ),
