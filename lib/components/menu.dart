@@ -27,11 +27,11 @@ class _MenuState extends State<Menu> {
       body: _selectedWidget,
       bottomNavigationBar: Navigation(
         itemIcons: const [
-            Icons.settings_rounded,
-            Icons.list_alt_rounded,
-            Icons.shopping_cart,
-            Icons.account_circle,
-          ],
+          Icons.settings_rounded,
+          Icons.list_alt_rounded,
+          Icons.shopping_cart,
+          Icons.account_circle,
+        ],
         centerIcon: Icons.home,
         selectedIndex: _selectedIndex,
         onItemPressed: onPressed,
@@ -44,13 +44,13 @@ class _MenuState extends State<Menu> {
       _selectedIndex = index;
       if (index == 0) {
         _selectedWidget = const Products();
-      }else if (index == 1) {
+      } else if (index == 1) {
         _selectedWidget = const Products();
-      }else if (index == 2) {
+      } else if (index == 2) {
         _selectedWidget = const Products();
-      }else if (index == 3) {
+      } else if (index == 3) {
         _selectedWidget = const Products();
-      }else if (index == 4) {
+      } else if (index == 4) {
         _selectedWidget = const Products();
       }
     });
@@ -73,9 +73,9 @@ class Navigation extends StatelessWidget {
     required this.selectedIndex,
     required this.onItemPressed,
     this.height,
-    this.selectedColor = const Color(0xff46BDFA),
-    this.unselectedColor = const Color(0xffB5C8E7),
-    this.selectedLightColor = const Color(0xff77E2FE),
+    this.selectedColor = const Color(0xff8B0000),
+    this.unselectedColor = Colors.white,
+    this.selectedLightColor = const Color(0xff8B0000),
   })  : assert(itemIcons.length == 4 || itemIcons.length == 2,
             "Item must equal 4 or 2"),
         super(key: key);
