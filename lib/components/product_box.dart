@@ -19,14 +19,14 @@ class _ProductBoxState extends State<ProductBox> {
       color: const Color(0xff212226),
       child: InkWell(
         onTap: () {},
-        splashColor: Colors.red.shade900,
-        highlightColor: Colors.red.shade900,
+        splashColor: Color(0xff8B0000),
+        highlightColor: Color(0xff8B0000),
         child: Column(
           children: [
             CachedNetworkImage(
               imageUrl: widget.imageUrl,
               placeholder: (context, url) => const CircularProgressIndicator(
-                color: Colors.red,
+                color: Color(0xff8B0000),
               ),
               errorWidget: (context, url, error) =>
                   Image.asset('assets/image-error.webp'),

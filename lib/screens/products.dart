@@ -36,7 +36,7 @@ class _ProductsState extends State<Products> {
           }
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.red,
+              color: Color(0xff8B0000),
             ),
           );
         },
