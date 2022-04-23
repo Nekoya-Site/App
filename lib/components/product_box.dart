@@ -16,7 +16,7 @@ class _ProductBoxState extends State<ProductBox> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xff212226),
+      color: const Color(0xff212226),
       child: InkWell(
         onTap: () {},
         splashColor: Colors.red.shade900,
