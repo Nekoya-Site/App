@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: 'assets/logo_transparent.webp',
         pageTransitionType: PageTransitionType.fade,
-        backgroundColor: Color(0xff1b1c1e),
+        backgroundColor: const Color(0xff1b1c1e),
         splashIconSize: 150,
-        nextScreen: Products(),
+        nextScreen: const Products(),
       ),
       debugShowCheckedModeBanner: false,
     );
