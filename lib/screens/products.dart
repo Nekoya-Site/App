@@ -35,7 +35,9 @@ class _ProductsState extends State<Products> {
             );
           }
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.red,
+            ),
           );
         },
       ),
