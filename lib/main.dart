@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
-import 'package:nekoya_flutter/screens/products.dart';
+import 'package:nekoya_flutter/components/menu.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         pageTransitionType: PageTransitionType.fade,
         backgroundColor: const Color(0xff1b1c1e),
         splashIconSize: 150,
-        nextScreen: const Products(),
+        nextScreen: const Menu(),
       ),
       debugShowCheckedModeBanner: false,
     );
