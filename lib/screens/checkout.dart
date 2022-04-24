@@ -10,6 +10,14 @@ class Checkout extends StatefulWidget {
 class _CheckoutState extends State<Checkout> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: const Color(0xff1b1c1e),
+      appBar: AppBar(
+        title: const Text('Nekoya'),
+        centerTitle: true,
+        backgroundColor: const Color(0xff212226),
+      ),
+      body: Text('Checkout'),
+    );
   }
 }
