@@ -33,11 +33,20 @@ dependencies:
   dio: ^4.0.6
   flutter:
     sdk: flutter
+  flutter_launcher_icons_maker: ^0.10.2
 
 dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  macos: true
+  windows: true
+  web: true
+  image_path: "assets/logo.webp"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
