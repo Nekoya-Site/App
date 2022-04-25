@@ -2,11 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProductBox extends StatefulWidget {
-  const ProductBox({Key? key, required this.imageUrl, required this.title})
+  const ProductBox({Key? key, required this.imageUrl, required this.title, required this.callback})
       : super(key: key);
 
   final String imageUrl;
   final String title;
+  final Function() callback;
 
   @override
   State<ProductBox> createState() => _ProductBoxState();
@@ -23,7 +24,7 @@ class _ProductBoxState extends State<ProductBox> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () => widget.callback(),
           borderRadius: BorderRadius.circular(10),
           splashColor: const Color(0xff8B0000),
           highlightColor: const Color(0xff8B0000),

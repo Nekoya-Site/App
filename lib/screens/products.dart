@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/api/products.dart';
+import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/product_box.dart';
+import 'package:nekoya_flutter/components/product_detail.dart';
 
 class Products extends StatefulWidget {
   const Products({Key? key}) : super(key: key);
@@ -30,7 +31,15 @@ class _ProductsState extends State<Products> {
                 return ProductBox(
                     imageUrl:
                         'https://nekoya.moe.team/img/' + data[index]['IMAGE'],
-                    title: data[index]['TITLE']
+                    title: data[index]['TITLE'],
+                    callback: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) => productDetail(context, data[index]['ID']),
+                      );
+                    },
                 );
               }),
             );
