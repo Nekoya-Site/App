@@ -30,7 +30,7 @@ class _Register_VerifyState extends State<Register_Verify> {
                   Column(
                     children: [
                       const SizedBox(
-                        height: 20,
+                        height: 50,
                       ),
                       const Text(
                         "Verify Your Email Address",
@@ -41,7 +41,7 @@ class _Register_VerifyState extends State<Register_Verify> {
                             fontSize: 35),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 45,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,18 +56,18 @@ class _Register_VerifyState extends State<Register_Verify> {
                         ],
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 75,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
-                            "Before proceeding, please check your email\n for a verification link to verify \nyour email address.",
+                            "Before proceeding,\n please check your email\n for a verification link to verify \nyour email address.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 15),
+                                fontSize: 25),
                           ),
                         ],
                       )
