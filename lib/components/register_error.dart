@@ -30,7 +30,7 @@ class _Register_ErrorState extends State<Register_Error> {
                   Column(
                     children: [
                       const SizedBox(
-                        height: 20,
+                        height: 50,
                       ),
                       const Text(
                         "Error",
@@ -38,10 +38,10 @@ class _Register_ErrorState extends State<Register_Error> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 40),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 45,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,18 +56,18 @@ class _Register_ErrorState extends State<Register_Error> {
                         ],
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 70,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
-                            "An error has occured\nMake sure to check\nif your email has been registered before.",
+                            "An error has occured\nMake sure to check\nif your email has been \nregistered before.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 17),
+                                fontSize: 25),
                           ),
                         ],
                       )
