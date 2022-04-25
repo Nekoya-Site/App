@@ -13,14 +13,14 @@ Future<dynamic> getProduct(id) async {
   return res;
 }
 
-Future<dynamic> RegisterPost({email, password, first_name, last_name}) async {
+Future<dynamic> registerPost({email, password, firstName, lastName}) async {
   Response req = await Dio().post(
     (host + '/register'),
     data: {
       'email': email,
       'password': password,
-      'first_name': first_name,
-      'last_name': last_name
+      'first_name': firstName,
+      'last_name': lastName
     },
     options: Options(
       contentType: Headers.formUrlEncodedContentType,

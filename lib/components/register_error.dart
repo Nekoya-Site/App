@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class Register_Error extends StatefulWidget {
-  Register_Error({Key? key}) : super(key: key);
+class RegisterError extends StatefulWidget {
+  const RegisterError({Key? key}) : super(key: key);
 
   @override
-  State<Register_Error> createState() => _Register_ErrorState();
+  State<RegisterError> createState() => RegisterErrorState();
 }
 
-class _Register_ErrorState extends State<Register_Error> {
+class RegisterErrorState extends State<RegisterError> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

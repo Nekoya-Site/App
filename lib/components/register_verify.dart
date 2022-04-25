@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class Register_Verify extends StatefulWidget {
-  Register_Verify({Key? key}) : super(key: key);
+class RegisterVerify extends StatefulWidget {
+  const RegisterVerify({Key? key}) : super(key: key);
 
   @override
-  State<Register_Verify> createState() => _Register_VerifyState();
+  State<RegisterVerify> createState() => RegisterVerifyState();
 }
 
-class _Register_VerifyState extends State<Register_Verify> {
+class RegisterVerifyState extends State<RegisterVerify> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

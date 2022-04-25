@@ -5,16 +5,16 @@ import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/register_error.dart';
 import 'package:nekoya_flutter/components/register_verify.dart';
 
-class Register_Form extends StatefulWidget {
-  Register_Form({Key? key}) : super(key: key);
+class RegisterForm extends StatefulWidget {
+  const RegisterForm({Key? key}) : super(key: key);
 
   @override
-  State<Register_Form> createState() => _Register_FormState();
+  State<RegisterForm> createState() => RegisterFormState();
 }
 
 final _formKey = GlobalKey<FormBuilderState>();
 
-class _Register_FormState extends State<Register_Form> {
+class RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -84,10 +84,10 @@ class _Register_FormState extends State<Register_Form> {
                                       '') {
                                 showAlertDialog(context);
                               } else {
-                                var statusCode = await RegisterPost(
-                                    first_name: _formKey.currentState!
+                                var statusCode = await registerPost(
+                                    firstName: _formKey.currentState!
                                         .fields["First Name"]!.value,
-                                    last_name: _formKey.currentState!
+                                    lastName: _formKey.currentState!
                                         .fields["Last Name"]!.value,
                                     email: _formKey.currentState!
                                         .fields["Email Address"]!.value,
@@ -99,13 +99,13 @@ class _Register_FormState extends State<Register_Form> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              Register_Verify()));
+                                              const RegisterVerify()));
                                 } else {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              Register_Error()));
+                                              const RegisterError()));
                                 }
                               }
                             },
@@ -209,7 +209,7 @@ showAlertDialog(BuildContext context) {
     ),
     content: const Text(
       "Make sure to fill all text fields",
-      style: const TextStyle(color: Colors.white70),
+      style: TextStyle(color: Colors.white70),
     ),
     actions: [
       okButton,

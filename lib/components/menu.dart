@@ -51,9 +51,9 @@ class _MenuState extends State<Menu> {
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
-        _selectedWidget = Checkout();
+        _selectedWidget = const Checkout();
       } else if (index == 4) {
-        _selectedWidget = Register();
+        _selectedWidget = const Register();
       }
     });
   }

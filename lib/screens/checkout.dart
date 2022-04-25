@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Checkout extends StatefulWidget {
-  Checkout({Key? key}) : super(key: key);
+  const Checkout({Key? key}) : super(key: key);
 
   @override
   State<Checkout> createState() => _CheckoutState();
@@ -17,7 +17,7 @@ class _CheckoutState extends State<Checkout> {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
-      body: Text('Checkout'),
+      body: const Text('Checkout'),
     );
   }
 }
