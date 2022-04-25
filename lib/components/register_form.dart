@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Register_Form extends StatefulWidget {
   Register_Form({Key? key}) : super(key: key);
@@ -29,6 +30,18 @@ class _Register_FormState extends State<Register_Form> {
                 children: [
                   Column(
                     children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Lottie.network(
+                            "https://assets10.lottiefiles.com/datafiles/JAmX1SNojoncImC/data.json",
+                            frameRate: FrameRate.max,
+                            alignment: Alignment.center,
+                            fit: BoxFit.fitHeight,
+                            height: 250,
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 35),
                         child: Container(
