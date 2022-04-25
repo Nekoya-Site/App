@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(accentColor: Color(0xff8B0000))),
       home: AnimatedSplashScreen(
         splash: 'assets/logo_transparent.webp',
         pageTransitionType: PageTransitionType.fade,
