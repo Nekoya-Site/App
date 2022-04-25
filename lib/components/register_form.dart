@@ -66,7 +66,22 @@ class _Register_FormState extends State<Register_Form> {
                           child: MaterialButton(
                             minWidth: double.infinity,
                             height: 35,
-                            onPressed: () {},
+                            onPressed: () async {
+                              if (_formKey.currentState!.fields["First Name"]!
+                                          .value ==
+                                      '' ||
+                                  _formKey.currentState!.fields["Last Name"]!
+                                          .value ==
+                                      '' ||
+                                  _formKey.currentState!
+                                          .fields["Email Address"]!.value ==
+                                      '' ||
+                                  _formKey.currentState!.fields["Password"]!
+                                          .value ==
+                                      '') {
+                                showAlertDialog(context);
+                              } else {}
+                            },
                             color: const Color(0xff8B0000),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40)),
@@ -146,5 +161,37 @@ Widget makeInput({label, obscureText = false}) {
         height: 10,
       )
     ],
+  );
+}
+
+showAlertDialog(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("OK", style: TextStyle(color: Colors.red)),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    backgroundColor: const Color(0xff1b1c1e),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    title: const Text(
+      "Error",
+      style: TextStyle(color: Colors.white),
+    ),
+    content: const Text(
+      "Make sure to fill all text fields",
+      style: const TextStyle(color: Colors.white70),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
   );
 }
