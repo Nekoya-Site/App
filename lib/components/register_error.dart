@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Register_Error extends StatefulWidget {
   Register_Error({Key? key}) : super(key: key);
@@ -38,6 +39,21 @@ class _Register_ErrorState extends State<Register_Error> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 35),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Lottie.network(
+                            "https://assets5.lottiefiles.com/temp/lf20_QYm9j9.json",
+                            frameRate: FrameRate.max,
+                            alignment: Alignment.center,
+                            height: 350,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 50,
