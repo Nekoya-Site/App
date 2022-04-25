@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class Register_Form extends StatefulWidget {
   Register_Form({Key? key}) : super(key: key);
@@ -7,6 +8,8 @@ class Register_Form extends StatefulWidget {
   @override
   State<Register_Form> createState() => _Register_FormState();
 }
+
+final _formKey = GlobalKey<FormBuilderState>();
 
 class _Register_FormState extends State<Register_Form> {
   @override
@@ -41,6 +44,20 @@ class _Register_FormState extends State<Register_Form> {
                             height: 250,
                           ),
                         ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: FormBuilder(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              makeInput(label: "First Name"),
+                              makeInput(label: "Last Name"),
+                              makeInput(label: "Email Address"),
+                              makeInput(label: "Password", obscureText: true)
+                            ],
+                          ),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 35),
@@ -90,4 +107,44 @@ class _Register_FormState extends State<Register_Form> {
       ),
     );
   }
+}
+
+Widget makeInput({label, obscureText = false}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        label,
+        style: const TextStyle(
+            fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+      ),
+      const SizedBox(
+        height: 5,
+      ),
+      FormBuilderTextField(
+        initialValue: "",
+        name: label,
+        obscureText: obscureText,
+        style: const TextStyle(color: Colors.white),
+        decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
+          ),
+          border:
+              OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+        ),
+      ),
+      const SizedBox(
+        height: 10,
+      )
+    ],
+  );
 }
