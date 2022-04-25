@@ -38,7 +38,7 @@ class _Register_VerifyState extends State<Register_Verify> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 40),
                       ),
                       const SizedBox(
                         height: 45,
@@ -67,7 +67,7 @@ class _Register_VerifyState extends State<Register_Verify> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 25),
+                                fontSize: 20),
                           ),
                         ],
                       )
