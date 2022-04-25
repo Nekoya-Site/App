@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/components/register_error.dart';
+import 'package:nekoya_flutter/components/register_verify.dart';
 
 class Register_Form extends StatefulWidget {
   Register_Form({Key? key}) : super(key: key);
@@ -80,7 +83,31 @@ class _Register_FormState extends State<Register_Form> {
                                           .value ==
                                       '') {
                                 showAlertDialog(context);
-                              } else {}
+                              } else {
+                                var statusCode = await RegisterPost(
+                                    first_name: _formKey.currentState!
+                                        .fields["First Name"]!.value,
+                                    last_name: _formKey.currentState!
+                                        .fields["Last Name"]!.value,
+                                    email: _formKey.currentState!
+                                        .fields["Email Address"]!.value,
+                                    password: _formKey.currentState!
+                                        .fields["Password"]!.value);
+
+                                if (statusCode == 200) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Register_Verify()));
+                                } else {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Register_Error()));
+                                }
+                              }
                             },
                             color: const Color(0xff8B0000),
                             shape: RoundedRectangleBorder(
