@@ -84,15 +84,18 @@ class RegisterFormState extends State<RegisterForm> {
                                       '') {
                                 showAlertDialog(context);
                               } else {
-                                var statusCode = await registerPost(
-                                    firstName: _formKey.currentState!
-                                        .fields["First Name"]!.value,
-                                    lastName: _formKey.currentState!
-                                        .fields["Last Name"]!.value,
-                                    email: _formKey.currentState!
-                                        .fields["Email Address"]!.value,
-                                    password: _formKey.currentState!
-                                        .fields["Password"]!.value);
+                                Map<String, dynamic> data = {
+                                  "first_name": _formKey.currentState!
+                                      .fields["First Name"]!.value,
+                                  "last_name": _formKey
+                                      .currentState!.fields["Last Name"]!.value,
+                                  "email": _formKey.currentState!
+                                      .fields["Email Address"]!.value,
+                                  "password": _formKey
+                                      .currentState!.fields["Password"]!.value
+                                };
+
+                                var statusCode = await registerPost(data);
 
                                 if (statusCode == 200) {
                                   Navigator.push(
