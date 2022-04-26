@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/data/cart.dart';
 
 Widget makeDismissible({required context, required Widget child}) => GestureDetector(
   behavior: HitTestBehavior.opaque,
@@ -13,6 +14,8 @@ Widget makeDismissible({required context, required Widget child}) => GestureDete
 );
 
 Widget productDetail(context, id) {
+  GlobalKey _cartToolTipKey = GlobalKey();
+
   return makeDismissible(
     context: context,
     child: DraggableScrollableSheet(
@@ -58,18 +61,38 @@ Widget productDetail(context, id) {
                   Text('Stock : ' + data[0]['STOCK'].toString(), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                   Text('Size : ' + data[0]['SIZE'], style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                   const SizedBox(height: 30.0),
-                  ElevatedButton.icon(
-                    onPressed: (){},
-                    icon: const Icon(Icons.add_shopping_cart),
-                    label: const Text('Add to Cart', style: TextStyle(color: Colors.white, fontSize: 18.0),),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0)
+                  Tooltip(
+                    key: _cartToolTipKey,
+                    triggerMode: TooltipTriggerMode.manual,
+                    showDuration: const Duration(seconds: 3),
+                    waitDuration: const Duration(seconds: 3),
+                    message: 'Successfully added to Cart ~',
+                    padding: const EdgeInsets.all(30),
+                    margin: const EdgeInsets.only(top: 30, left:30,right: 30),
+                    decoration: BoxDecoration(
+                        color: const Color(0xff212226),
+                        borderRadius: BorderRadius.circular(22)),
+                    textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white),
+                    child: ElevatedButton.icon(
+                      onPressed: (){
+                        addToCart(id);
+                        final dynamic _cartToolTip = _cartToolTipKey.currentState;
+                        _cartToolTip.ensureTooltipVisible();
+                      },
+                      icon: const Icon(Icons.add_shopping_cart),
+                      label: const Text('Add to Cart', style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0)
+                          )
                         )
                       )
-                    )
+                    ),
                   )
                 ],
               )
