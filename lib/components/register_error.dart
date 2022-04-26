@@ -61,13 +61,15 @@ class RegisterErrorState extends State<RegisterError> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text(
-                            "An error has occured\nMake sure to check\nif your email has been \nregistered before.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25),
+                          Flexible(
+                            child: Text(
+                              "An error has occured Make sure to check if your email has been registered before.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25),
+                            ),
                           ),
                         ],
                       )
