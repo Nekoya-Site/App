@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/checkout.dart';
+<<<<<<< HEAD
 import 'package:nekoya_flutter/screens/payment.dart';
+=======
+import 'package:nekoya_flutter/screens/cart.dart';
+import 'package:nekoya_flutter/screens/login.dart';
+>>>>>>> 620e01fe7abd27cb77fbd0cb8586a12722911a08
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -49,11 +53,15 @@ class _MenuState extends State<Menu> {
       if (index == 0) {
         _selectedWidget = const Login();
       } else if (index == 1) {
+<<<<<<< HEAD
         _selectedWidget = const Payment();
+=======
+        _selectedWidget = const Checkout();
+>>>>>>> 620e01fe7abd27cb77fbd0cb8586a12722911a08
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
-        _selectedWidget = const Checkout();
+        _selectedWidget = const Cart();
       } else if (index == 4) {
         _selectedWidget = const Register();
       }

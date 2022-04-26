@@ -68,8 +68,8 @@ class LoginFormState extends State<LoginForm> {
                             minWidth: double.infinity,
                             height: 35,
                             onPressed: () async {
-                              if (_formKey.currentState!
-                                          .fields["Email Address"]!.value ==
+                              if (_formKey.currentState!.fields["Email"]!
+                                          .value ==
                                       '' ||
                                   _formKey.currentState!.fields["Password"]!
                                           .value ==
@@ -77,8 +77,8 @@ class LoginFormState extends State<LoginForm> {
                                 showAlertDialog(context);
                               } else {
                                 var statusCode = await loginPost(
-                                    email: _formKey.currentState!
-                                        .fields["Email Address"]!.value,
+                                    email: _formKey
+                                        .currentState!.fields["Email"]!.value,
                                     password: _formKey.currentState!
                                         .fields["Password"]!.value);
 
