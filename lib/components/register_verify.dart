@@ -61,13 +61,15 @@ class RegisterVerifyState extends State<RegisterVerify> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text(
-                            "Before proceeding,\n please check your email\n for a verification link to verify \nyour email address.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20),
+                          Flexible(
+                            child: Text(
+                              "Before proceeding, please check your email for a verification link to verify your email address.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20),
+                            ),
                           ),
                         ],
                       )
