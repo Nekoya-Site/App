@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/checkout.dart';
+import 'package:nekoya_flutter/screens/payment.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _MenuState extends State<Menu> {
       if (index == 0) {
         _selectedWidget = const Login();
       } else if (index == 1) {
-        _selectedWidget = const Products();
+        _selectedWidget = const Payment();
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {

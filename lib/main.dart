@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(accentColor: const Color(0xff8B0000))),
+          colorScheme:
+              ColorScheme.fromSwatch(accentColor: const Color(0xff8B0000))),
       home: AnimatedSplashScreen(
         splash: 'assets/logo_transparent.webp',
         pageTransitionType: PageTransitionType.fade,
