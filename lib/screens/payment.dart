@@ -18,6 +18,6 @@ class _PaymentState extends State<Payment> {
           centerTitle: true,
           backgroundColor: const Color(0xff212226),
         ),
-        body: PaymentBody());
+        body: const PaymentBody());
   }
 }

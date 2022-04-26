@@ -11,8 +11,8 @@ class _PaymentBodyState extends State<PaymentBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints.expand(height: 150.0),
-      decoration: BoxDecoration(color: Colors.transparent),
+      constraints: const BoxConstraints.expand(height: 150.0),
+      decoration: const BoxDecoration(color: Colors.transparent),
       child: Column(
         children: [
           Row(
