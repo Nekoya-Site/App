@@ -39,3 +39,10 @@ Future<void> removeFromCart(productId, bool batch) async {
   }
   await prefs.setString('cart', jsonEncode(cart).toString());
 }
+
+Future<dynamic> viewCart(productId, bool batch) async {
+  final prefs = await SharedPreferences.getInstance();
+
+  var cart = jsonDecode(prefs.getString('cart') ?? '[]');
+  return cart;
+}
