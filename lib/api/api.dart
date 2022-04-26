@@ -31,3 +31,20 @@ Future<dynamic> registerPost({email, password, firstName, lastName}) async {
   );
   return req.statusCode;
 }
+
+Future<dynamic> loginPost({email, password}) async {
+  Response req = await Dio().post(
+    (host + '/login'),
+    data: {
+      'email': email,
+      'password': password,
+    },
+    options: Options(
+      contentType: Headers.formUrlEncodedContentType,
+      validateStatus: (status) {
+        return status! < 400;
+      },
+    ),
+  );
+  return req.statusCode;
+}

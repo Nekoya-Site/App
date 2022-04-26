@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nekoya_flutter/screens/login.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/screens/products.dart';
@@ -45,7 +46,7 @@ class _MenuState extends State<Menu> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        _selectedWidget = const Products();
+        _selectedWidget = const Login();
       } else if (index == 1) {
         _selectedWidget = const Products();
       } else if (index == 2) {
