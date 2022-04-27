@@ -12,6 +12,8 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
+  Future<dynamic> _viewCart = viewCart();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _CartState extends State<Cart> {
         backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
-        future: viewCart(),
+        future: _viewCart,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = snapshot.data;
@@ -41,12 +43,21 @@ class _CartState extends State<Cart> {
                           quantity: data[index]["quantity"],
                           plus: () {
                             addToCart(data[index]["product_id"]);
+                            setState(() {
+                              _viewCart = viewCart();
+                            });
                           },
                           minus: () {
                             removeFromCart(data[index]["product_id"], false);
+                            setState(() {
+                              _viewCart = viewCart();
+                            });
                           },
                           remove: () {
                             removeFromCart(data[index]["product_id"], true);
+                            setState(() {
+                              _viewCart = viewCart();
+                            });
                           }
                         );
                       }

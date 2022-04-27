@@ -19,7 +19,6 @@ class _CartBoxState extends State<CartBox> {
 
   @override
   Widget build(BuildContext context) {
-    var currentQuantity = widget.quantity;
 
     return Container(
       margin: const EdgeInsets.all(8.0),
@@ -71,13 +70,11 @@ class _CartBoxState extends State<CartBox> {
                     children: [
                       ElevatedButton(
                         onPressed: (){
-                          currentQuantity++;
                           widget.plus();
-                          setState(() {});
                         },
                         child: const Text("+")
                       ),
-                      Text(currentQuantity.toString(),
+                      Text(widget.quantity.toString(),
                         style: const TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -85,9 +82,7 @@ class _CartBoxState extends State<CartBox> {
                       ),
                       ElevatedButton(
                         onPressed: (){
-                          currentQuantity--;
                           widget.minus();
-                          setState(() {});
                         },
                         child: const Text("-")
                       )
