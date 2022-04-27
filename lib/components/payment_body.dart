@@ -17,7 +17,7 @@ class _PaymentBodyState extends State<PaymentBody> {
             shrinkWrap: true,
             children: [
               Container(
-                padding: EdgeInsets.only(top: 40, bottom: 30),
+                padding: const EdgeInsets.only(top: 40, bottom: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -44,11 +44,11 @@ class _PaymentBodyState extends State<PaymentBody> {
                 collapsedBackgroundColor: Colors.blue.shade800,
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: Text('BCA'),
-                children: [
+                title: const Text('BCA'),
+                children: const [
                   ListTile(
                     textColor: Colors.white,
-                    title: const Text(
+                    title: Text(
                         '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                   )
                 ],
@@ -58,11 +58,11 @@ class _PaymentBodyState extends State<PaymentBody> {
                 collapsedBackgroundColor: Colors.blue.shade800,
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: Text('BNI'),
-                children: [
+                title: const Text('BNI'),
+                children: const [
                   ListTile(
                     textColor: Colors.white,
-                    title: const Text(
+                    title: Text(
                         '1. Login pada alamat Internet Banking BNI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                   )
                 ],
@@ -72,11 +72,11 @@ class _PaymentBodyState extends State<PaymentBody> {
                 collapsedBackgroundColor: Colors.blue.shade800,
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: Text('BRI'),
-                children: [
+                title: const Text('BRI'),
+                children: const [
                   ListTile(
                     textColor: Colors.white,
-                    title: const Text(
+                    title: Text(
                         '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                   )
                 ],

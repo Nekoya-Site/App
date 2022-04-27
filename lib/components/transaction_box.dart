@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
@@ -48,7 +47,6 @@ class _TransactionBoxState extends State<TransactionBox> {
 
     return ExpansionTile(
       backgroundColor: const Color(0xff212226),
-      // trailing: const Text('-', style: TextStyle(color: Colors.white),),
       iconColor: Colors.white,
       collapsedIconColor: Colors.white,
       title: Row(
@@ -87,7 +85,6 @@ class _TransactionBoxState extends State<TransactionBox> {
                       const Text('Logistic', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),),
                       const SizedBox(height: 5,),
                       Text(widget.logistic, style: const TextStyle(color: Colors.white),),
-                      // const SizedBox(height: 55,)
                     ],
                   ),
                 ),

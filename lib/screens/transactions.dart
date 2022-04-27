@@ -43,7 +43,6 @@ class _TransactionsState extends State<Transactions> {
                   logistic: data[index]['logistic'],
                   data: data[index]['data'],
                 );
-                // return Text(data[index]['firstName'] + ' ' + data[index]['lastName'], style: const TextStyle(color: Colors.white),);
               }
             );
           }
