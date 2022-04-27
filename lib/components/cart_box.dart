@@ -72,7 +72,10 @@ class _CartBoxState extends State<CartBox> {
                         onPressed: (){
                           widget.plus();
                         },
-                        child: const Text("+")
+                        child: const Text("+"),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                        )
                       ),
                       Text(widget.quantity.toString(),
                         style: const TextStyle(
@@ -84,7 +87,10 @@ class _CartBoxState extends State<CartBox> {
                         onPressed: (){
                           widget.minus();
                         },
-                        child: const Text("-")
+                        child: const Text("-"),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                        )
                       )
                     ],
                   )
