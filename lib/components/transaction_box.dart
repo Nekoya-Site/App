@@ -103,6 +103,7 @@ class _TransactionBoxState extends State<TransactionBox> {
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: orderData.length,
               itemBuilder: (context, index) {
                 return FutureBuilder<dynamic>(
