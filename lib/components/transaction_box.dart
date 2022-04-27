@@ -78,14 +78,18 @@ class _TransactionBoxState extends State<TransactionBox> {
               ),
               Flexible(
                 flex: 1,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text('Logistic', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),),
-                    const SizedBox(height: 5,),
-                    Text(widget.logistic, style: const TextStyle(color: Colors.white),),
-                    const SizedBox(height: 55,)
-                  ],
+                child: Container(
+                  margin: const EdgeInsets.only(left: 25.0, right: 25.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text('Logistic', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),),
+                      const SizedBox(height: 5,),
+                      Text(widget.logistic, style: const TextStyle(color: Colors.white),),
+                      // const SizedBox(height: 55,)
+                    ],
+                  ),
                 ),
               )
             ],
