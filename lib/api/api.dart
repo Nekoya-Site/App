@@ -43,3 +43,10 @@ Future<dynamic> loginPost({email, password}) async {
   );
   return req.statusCode;
 }
+
+Future<dynamic> getTransactions() async {
+  String tempKey = 'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
+  var req = await Dio().post(host + '/transaction', queryParameters: {'key': tempKey});
+  var res = req.data;
+  return res;
+}
