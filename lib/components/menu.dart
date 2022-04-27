@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/screens/products.dart';
-import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/screens/login.dart';
+import 'package:nekoya_flutter/screens/cart.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 
 class Menu extends StatefulWidget {
@@ -53,9 +53,9 @@ class _MenuState extends State<Menu> {
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
-        _selectedWidget = const Transactions();
+        _selectedWidget = const Cart();
       } else if (index == 4) {
-        _selectedWidget = const Register();
+        _selectedWidget = const Transactions();
       }
     });
   }
