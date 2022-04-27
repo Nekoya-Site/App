@@ -32,7 +32,7 @@ class _CartState extends State<Cart> {
                 return FutureBuilder<dynamic>(
                   future: getProduct(data[index]["product_id"]),
                   builder: (context, snapshotx) {
-                    if (snapshot.hasData) {
+                    if (snapshotx.hasData) {
                       var productData = snapshotx.data;
                       if (productData != null) {
                         return CartBox(
