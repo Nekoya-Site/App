@@ -19,7 +19,7 @@ class LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+        margin: const EdgeInsets.fromLTRB(10, 15, 10, 5),
         child: Card(
           color: const Color(0xff212226),
           shape: RoundedRectangleBorder(
@@ -40,7 +40,7 @@ class LoginFormState extends State<LoginForm> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Lottie.network(
-                            "https://assets3.lottiefiles.com/packages/lf20_myor1trh.json",
+                            "https://assets5.lottiefiles.com/packages/lf20_mjlh3hcy.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             fit: BoxFit.fitHeight,
