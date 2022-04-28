@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/register_error.dart';
 import 'package:nekoya_flutter/components/register_verify.dart';
+import 'package:nekoya_flutter/screens/login.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -131,14 +132,25 @@ class RegisterFormState extends State<RegisterForm> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            "Already have an account?? \nClick here to Sign In !!",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                        children: [
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.transparent,
+                            ),
+                            child: const Text(
+                              "Already have an account?? \nClick here to Sign In !!",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()));
+                            },
                           ),
                         ],
                       )
