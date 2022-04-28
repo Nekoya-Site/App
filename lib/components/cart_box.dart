@@ -2,8 +2,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CartBox extends StatefulWidget {
-  const CartBox({Key? key, required this.imageUrl, required this.title, required this.quantity, required this.plus, required this.minus, required this.remove}) : super(key: key);
+  const CartBox({
+    Key? key,
+    required this.controller,
+    required this.imageUrl,
+    required this.title,
+    required this.quantity,
+    required this.plus,
+    required this.minus,
+    required this.remove
+  }) : super(key: key);
 
+  final bool controller;
   final String imageUrl;
   final String title;
   final int quantity;
@@ -54,7 +64,7 @@ class _CartBoxState extends State<CartBox> {
               child: Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    margin: const EdgeInsets.only(left:10.0, right: 10.0),
                     child: Text(
                       widget.title,
                       style: const TextStyle(
@@ -65,35 +75,51 @@ class _CartBoxState extends State<CartBox> {
                     ),
                   ),
                   const SizedBox(height: 10,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ElevatedButton(
-                        onPressed: (){
-                          widget.plus();
-                        },
-                        child: const Text("+"),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                  widget.controller == true ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                          onPressed: (){
+                            widget.plus();
+                          },
+                          child: const Text("+"),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                          )
+                        ),
+                        Text(widget.quantity.toString(),
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400)
+                        ),
+                        ElevatedButton(
+                          onPressed: (){
+                            widget.minus();
+                          },
+                          child: const Text("-"),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
+                          )
                         )
-                      ),
-                      Text(widget.quantity.toString(),
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400)
-                      ),
-                      ElevatedButton(
-                        onPressed: (){
-                          widget.minus();
-                        },
-                        child: const Text("-"),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
-                        )
-                      )
-                    ],
-                  )
+                      ],
+                    )
+                  : Container(
+                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Quantity : ${widget.quantity.toString()}",
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -38,6 +38,7 @@ class _CartState extends State<Cart> {
                       var productData = snapshotx.data;
                       if (productData != null) {
                         return CartBox(
+                          controller: true,
                           imageUrl: 'https://nekoya.moe.team/img/' + productData[0]['IMAGE'],
                           title: productData[0]['TITLE'],
                           quantity: data[index]["quantity"],
@@ -64,6 +65,7 @@ class _CartState extends State<Cart> {
                     }
 
                     return CartBox(
+                      controller: true,
                       imageUrl: 'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
                       title: 'Loading...',
                       quantity: 0,
