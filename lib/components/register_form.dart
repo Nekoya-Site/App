@@ -39,8 +39,8 @@ class RegisterFormState extends State<RegisterForm> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Lottie.network(
-                            "https://assets10.lottiefiles.com/datafiles/JAmX1SNojoncImC/data.json",
+                          Lottie.asset(
+                            "assets/lottieanims/register_form.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             fit: BoxFit.fitHeight,
