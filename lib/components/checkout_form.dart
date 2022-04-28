@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
@@ -202,7 +203,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                       'SiCepat')) {
                             showAlertDialog(context);
                           } else {
-                            // var currentCart = await viewCart();
+                            var currentCart = await viewCart();
+                            var cartData = jsonEncode(currentCart).toString();
 
                             Map<String, dynamic> data = {
                               "firstName": _formKey
@@ -229,8 +231,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                   .currentState!.fields["Postal Code"]!.value,
                               "logistic": _formKey.currentState!
                                   .fields["Shipping Method"]!.value,
-                              "data":
-                                  '[{"product_id": "306842_02", "quantity": "4"}]',
+                              "data": cartData,
                             };
                             var statusCode = await checkoutPost(data);
 
