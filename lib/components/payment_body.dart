@@ -41,29 +41,27 @@ class _PaymentBodyState extends State<PaymentBody> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: Container(
-                child: ExpansionTile(
-                  backgroundColor: Colors.blue,
-                  collapsedBackgroundColor: Colors.blue.shade800,
-                  textColor: Colors.white,
-                  collapsedTextColor: Colors.white,
-                  title: const Text('BCA'),
-                  children: const [
-                    ListTile(
-                      textColor: Colors.white,
-                      title: Text(
-                          '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
-                    )
-                  ],
-                ),
+              child: ExpansionTile(
+                backgroundColor: Colors.blue,
+                collapsedBackgroundColor: Colors.blue.shade800,
+                textColor: Colors.white,
+                collapsedTextColor: Colors.white,
+                title: const Text('BCA'),
+                children: const [
+                  ListTile(
+                    textColor: Colors.white,
+                    title: Text(
+                        '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                  )
+                ],
               ),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: ExpansionTile(
@@ -82,31 +80,29 @@ class _PaymentBodyState extends State<PaymentBody> {
               ),
             ),
           ),
-          Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: ExpansionTile(
-                backgroundColor: Colors.blue,
-                collapsedBackgroundColor: Colors.blue.shade800,
-                textColor: Colors.white,
-                collapsedTextColor: Colors.white,
-                title: const Text('BRI'),
-                children: const [
-                  ListTile(
-                    textColor: Colors.white,
-                    title: Text(
-                        '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
-                  )
-                ],
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(18),
+            child: ExpansionTile(
+              backgroundColor: Colors.blue,
+              collapsedBackgroundColor: Colors.blue.shade800,
+              textColor: Colors.white,
+              collapsedTextColor: Colors.white,
+              title: const Text('BRI'),
+              children: const [
+                ListTile(
+                  textColor: Colors.white,
+                  title: Text(
+                      '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                )
+              ],
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 40),
             color: Colors.transparent,
           ),
           Container(
-            child: Text(
+            child: const Text(
               '13000000',
               style: TextStyle(
                 fontSize: 30,
@@ -120,28 +116,26 @@ class _PaymentBodyState extends State<PaymentBody> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 40),
             color: Colors.transparent,
           ),
-          Container(
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all(Colors.red.shade800),
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.red.shade800),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.red)))),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Transactions()));
-              },
-              child: Text(
-                'Transaction',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-              ),
+          ElevatedButton(
+            style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.red.shade800),
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.red.shade800),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: const BorderSide(color: Colors.red)))),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Transactions()));
+            },
+            child: const Text(
+              'Transaction',
+              style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
         ],

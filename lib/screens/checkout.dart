@@ -22,7 +22,7 @@ class _CheckoutState extends State<Checkout> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: const [
               CheckoutItems(),
               CheckoutForm(),
             ],

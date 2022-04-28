@@ -4,14 +4,13 @@ import 'package:nekoya_flutter/data/cart.dart';
 import 'package:nekoya_flutter/components/cart_box.dart';
 
 class CheckoutItems extends StatefulWidget {
-  CheckoutItems({Key? key}) : super(key: key);
+  const CheckoutItems({Key? key}) : super(key: key);
 
   @override
   State<CheckoutItems> createState() => _CheckoutItemsState();
 }
 
 class _CheckoutItemsState extends State<CheckoutItems> {
-  Future<dynamic> _viewCart = viewCart();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +35,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
               ),
             ),
             FutureBuilder<dynamic>(
-              future: _viewCart,
+              future: viewCart(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   var data = snapshot.data;

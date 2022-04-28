@@ -5,7 +5,7 @@ import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
 
 class CheckoutForm extends StatefulWidget {
-  CheckoutForm({Key? key}) : super(key: key);
+  const CheckoutForm({Key? key}) : super(key: key);
 
   @override
   State<CheckoutForm> createState() => _CheckoutFormState();
@@ -233,13 +233,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                   .fields["Shipping Method"]!.value,
                               "data": cartData,
                             };
-                            var statusCode = await checkoutPost(data);
-
-                            if (statusCode == 201) {
-                              print("StatusCode" + statusCode.toString());
-                            } else {
-                              print("StatusCode" + statusCode.toString());
-                            }
+                            
+                            await checkoutPost(data);
                           }
                         },
                         color: const Color(0xff8B0000),
