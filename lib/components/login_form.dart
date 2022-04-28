@@ -38,8 +38,8 @@ class LoginFormState extends State<LoginForm> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Lottie.network(
-                            "https://assets5.lottiefiles.com/packages/lf20_mjlh3hcy.json",
+                          Lottie.asset(
+                            "assets/lottieanims/login_form.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             fit: BoxFit.fitHeight,
