@@ -45,8 +45,27 @@ Future<dynamic> loginPost({email, password}) async {
 }
 
 Future<dynamic> getTransactions() async {
-  String tempKey = 'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
-  var req = await Dio().post(host + '/transaction', queryParameters: {'key': tempKey});
+  String tempKey =
+      'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
+  var req = await Dio()
+      .post(host + '/transaction', queryParameters: {'key': tempKey});
   var res = req.data;
   return res;
+}
+
+Future<dynamic> checkoutPost(data) async {
+  String tempKey =
+      'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
+  Response req = await Dio().post(
+    (host + '/checkout'),
+    queryParameters: {'key': tempKey},
+    data: data,
+    options: Options(
+      contentType: Headers.formUrlEncodedContentType,
+      validateStatus: (status) {
+        return status! < 500;
+      },
+    ),
+  );
+  return req.statusCode;
 }
