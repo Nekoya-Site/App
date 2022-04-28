@@ -46,8 +46,8 @@ class RegisterVerifyState extends State<RegisterVerify> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Lottie.network(
-                            "https://assets1.lottiefiles.com/packages/lf20_IUWMcw.json",
+                          Lottie.asset(
+                            "assets/lottieanims/register_verify.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             height: 350,
