@@ -19,7 +19,13 @@ class _CheckoutState extends State<Checkout> {
         backgroundColor: const Color(0xff212226),
       ),
       body: SafeArea(
-        child: Text('Checkout'),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CheckoutForm(),
+            ],
+          ),
+        ),
       ),
     );
   }
