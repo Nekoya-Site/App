@@ -3,7 +3,6 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/login_error.dart';
-import 'package:nekoya_flutter/components/login_verify.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -83,11 +82,6 @@ class LoginFormState extends State<LoginForm> {
                                         .fields["Password"]!.value);
 
                                 if (statusCode == 200) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const LoginVerify()));
                                 } else {
                                   Navigator.push(
                                       context,
