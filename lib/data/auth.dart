@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String getSession(userId, sessionToken) {
   var sessionData = {
@@ -8,4 +9,18 @@ String getSession(userId, sessionToken) {
   var sessionRaw = jsonEncode(sessionData).toString();
   var sessionEncoded = base64.encode(utf8.encode(sessionRaw));
   return sessionEncoded;
+}
+
+Future<void> addSession(userId, sessionToken) async {
+  final prefs = await SharedPreferences.getInstance();
+
+  String session = getSession(userId, sessionToken);
+
+  await prefs.setString('session', session);
+}
+
+Future<void> removeSession() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  await prefs.remove('session');
 }
