@@ -157,7 +157,90 @@ class _CheckoutFormState extends State<CheckoutForm> {
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 35,
-                        onPressed: () async {},
+                        onPressed: () async {
+                          if (_formKey.currentState!.fields["First Name"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Last Name"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Phone Number"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Street Address"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Street Address 2"]!
+                                      .value ==
+                                  '' ||
+                              _formKey
+                                      .currentState!.fields["Region"]!.value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Province"]!
+                                      .value ==
+                                  '' ||
+                              _formKey
+                                      .currentState!.fields["City"]!.value ==
+                                  '' ||
+                              _formKey.currentState!.fields["District"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Subdistrict"]!
+                                      .value ==
+                                  '' ||
+                              _formKey.currentState!.fields["Postal Code"]!
+                                      .value ==
+                                  '' ||
+                              !(_formKey.currentState!
+                                          .fields["Shipping Method"]!.value ==
+                                      'JNE' ||
+                                  _formKey.currentState!
+                                          .fields["Shipping Method"]!.value ==
+                                      'JNT' ||
+                                  _formKey.currentState!
+                                          .fields["Shipping Method"]!.value ==
+                                      'SiCepat')) {
+                            showAlertDialog(context);
+                          } else {
+                            // var currentCart = await viewCart();
+
+                            Map<String, dynamic> data = {
+                              "firstName": _formKey
+                                  .currentState!.fields["First Name"]!.value,
+                              "lastName": _formKey
+                                  .currentState!.fields["Last Name"]!.value,
+                              "phoneNumber": _formKey
+                                  .currentState!.fields["Phone Number"]!.value,
+                              "streetAddress1": _formKey.currentState!
+                                  .fields["Street Address"]!.value,
+                              "streetAddress2": _formKey.currentState!
+                                  .fields["Street Address 2"]!.value,
+                              "region": _formKey
+                                  .currentState!.fields["Region"]!.value,
+                              "province": _formKey
+                                  .currentState!.fields["Province"]!.value,
+                              "city":
+                                  _formKey.currentState!.fields["City"]!.value,
+                              "district": _formKey
+                                  .currentState!.fields["District"]!.value,
+                              "subDistrict": _formKey
+                                  .currentState!.fields["Subdistrict"]!.value,
+                              "postalCode": _formKey
+                                  .currentState!.fields["Postal Code"]!.value,
+                              "logistic": _formKey.currentState!
+                                  .fields["Shipping Method"]!.value,
+                              "data":
+                                  '[{"product_id": "306842_02", "quantity": "4"}]',
+                            };
+                            var statusCode = await checkoutPost(data);
+
+                            if (statusCode == 201) {
+                              print("StatusCode" + statusCode.toString());
+                            } else {
+                              print("StatusCode" + statusCode.toString());
+                            }
+                          }
+                        },
                         color: const Color(0xff8B0000),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40)),
