@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/screens/transactions.dart';
+
+import 'package:nekoya_flutter/components/menu.dart';
 
 class PaymentBody extends StatefulWidget {
   const PaymentBody({Key? key}) : super(key: key);
@@ -130,8 +131,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.red)))),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Transactions()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Menu(initialScreen: 4)));
             },
             child: const Text(
               'Transaction',
