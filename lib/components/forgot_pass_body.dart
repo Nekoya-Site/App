@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/otp.dart';
 
@@ -15,7 +14,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       child: ListView(
         children: [
           Container(
@@ -23,17 +22,17 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                 'https://assets5.lottiefiles.com/packages/lf20_xvrofzfk.json'),
           ),
           Container(
-            padding: EdgeInsets.only(top: 25),
-            child: Text(
+            padding: const EdgeInsets.only(top: 25),
+            child: const Text(
               'Enter your email to receive instructions on how to reset your password.',
               style: TextStyle(color: Colors.white),
               textAlign: TextAlign.center,
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 25, bottom: 20),
+            padding: const EdgeInsets.only(top: 25, bottom: 20),
             child: Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.mail_sharp,
                   color: Colors.white,
@@ -43,8 +42,8 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 20),
-            child: TextField(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: const TextField(
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -52,46 +51,42 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                   fillColor: Colors.white),
             ),
           ),
-          Container(
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all(Colors.blue.shade800),
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.blue.shade800),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.blue)))),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Otp()));
-              },
-              child: Text(
-                'Reset Password',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
+          ElevatedButton(
+            style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.blue.shade800),
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.blue.shade800),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: const BorderSide(color: Colors.blue)))),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const Otp()));
+            },
+            child: const Text(
+              'Reset Password',
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
-          Container(
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all(Colors.blue.shade800),
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.blue.shade800),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.blue)))),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Login()));
-              },
-              child: Text(
-                'Back to Login',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
+          ElevatedButton(
+            style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.blue.shade800),
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.blue.shade800),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: const BorderSide(color: Colors.blue)))),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const Login()));
+            },
+            child: const Text(
+              'Back to Login',
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           )
         ],
