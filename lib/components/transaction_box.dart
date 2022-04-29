@@ -45,6 +45,19 @@ class _TransactionBoxState extends State<TransactionBox> {
   Widget build(BuildContext context) {
     var orderData = jsonDecode(widget.data);
 
+    Future<dynamic> getTotal() async {
+      dynamic totalPrice = 0;
+
+      await orderData.forEach((x) async {
+        var product = await getProduct(x['product_id']);
+        totalPrice += product[0]['PRICE'] * x['quantity'];
+      });
+
+      return Future.delayed(const Duration(seconds: 5), (){
+        return totalPrice;
+      });
+    }
+
     return ExpansionTile(
       backgroundColor: const Color(0xff212226),
       iconColor: Colors.white,
@@ -100,35 +113,85 @@ class _TransactionBoxState extends State<TransactionBox> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: orderData.length,
-              itemBuilder: (context, index) {
-                return FutureBuilder<dynamic>(
-                  future: getProduct(orderData[index]['product_id']),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      var productData = snapshot.data;
-                      return TransactionProductBox(
-                        imageUrl: 'https://nekoya.moe.team/img/' + productData[0]['IMAGE'],
-                        title: productData[0]['TITLE'],
-                        quantity: orderData[index]["quantity"],
-                      );
-                    }
+            child: Column(
+              children: [
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: orderData.length,
+                  itemBuilder: (context, index) {
+                    return FutureBuilder<dynamic>(
+                      future: getProduct(orderData[index]['product_id']),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          var productData = snapshot.data;
+                          return TransactionProductBox(
+                            imageUrl: 'https://nekoya.moe.team/img/' + productData[0]['IMAGE'],
+                            title: productData[0]['TITLE'],
+                            quantity: orderData[index]["quantity"],
+                          );
+                        }
 
-                    return const TransactionProductBox(
-                      imageUrl: 'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
-                      title: 'Loading...',
-                      quantity: 0,
+                        return const TransactionProductBox(
+                          imageUrl: 'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
+                          title: 'Loading...',
+                          quantity: 0,
+                        );
+                      }
                     );
                   }
-                );
-              }
+                ),
+
+                Container(
+                  margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  child: const Divider(
+                    color: Colors.white,
+                  ),
+                ),
+
+                Container(
+                  margin: const EdgeInsets.only(top: 15.0, right: 15.0, bottom: 20.0),
+                  child: FutureBuilder<dynamic>(
+                    future: getTotal(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        var price = snapshot.data;
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Total : ${price.toString()}",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600
+                              ),
+                            )
+                          ],
+                        );
+                      }
+              
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: const [
+                          Text(
+                            "Total : -",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600
+                            ),
+                          )
+                        ],
+                      );
+                    }
+                  ),
+                ),
+              ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
