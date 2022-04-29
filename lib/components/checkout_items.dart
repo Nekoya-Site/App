@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
 import 'package:nekoya_flutter/components/cart_box.dart';
+import 'package:intl/intl.dart';
 
 class CheckoutItems extends StatefulWidget {
   const CheckoutItems({Key? key}) : super(key: key);
@@ -11,8 +12,27 @@ class CheckoutItems extends StatefulWidget {
 }
 
 class _CheckoutItemsState extends State<CheckoutItems> {
+  late var orderData;
+
+  getData() async {
+    orderData = await viewCart();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Future<dynamic> getTotal() async {
+      dynamic totalPrice = 0;
+      await getData();
+      await orderData.forEach((x) async {
+        var product = await getProduct(x['product_id']);
+        totalPrice += product[0]['PRICE'] * x['quantity'];
+      });
+
+      return Future.delayed(const Duration(seconds: 5), () {
+        return totalPrice;
+      });
+    }
+
     return Container(
       margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
       child: Card(
@@ -85,6 +105,43 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                   ),
                 );
               },
+            ),
+            Container(
+              margin:
+                  const EdgeInsets.only(top: 15.0, right: 15.0, bottom: 20.0),
+              child: FutureBuilder<dynamic>(
+                future: getTotal(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var price = snapshot.data;
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Total : Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    );
+                  }
+
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        "Total : -",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),
