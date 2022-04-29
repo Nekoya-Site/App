@@ -8,7 +8,9 @@ import 'package:nekoya_flutter/screens/cart.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 
 class Menu extends StatefulWidget {
-  const Menu({Key? key}) : super(key: key);
+  const Menu({Key? key, required this.initialScreen}) : super(key: key);
+
+  final int initialScreen;
 
   @override
   State<Menu> createState() => _MenuState();
@@ -20,7 +22,17 @@ class _MenuState extends State<Menu> {
 
   @override
   void initState() {
-    _selectedWidget = const Products();
+    if (widget.initialScreen == 0) {
+      _selectedWidget = const Checkout();
+    } else if (widget.initialScreen == 1) {
+      _selectedWidget = const Payment();
+    } else if (widget.initialScreen == 2) {
+      _selectedWidget = const Products();
+    } else if (widget.initialScreen == 3) {
+      _selectedWidget = const Cart();
+    } else if (widget.initialScreen == 4) {
+      _selectedWidget = const Transactions();
+    }
     super.initState();
   }
 

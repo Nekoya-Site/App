@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         pageTransitionType: PageTransitionType.fade,
         backgroundColor: const Color(0xff1b1c1e),
         splashIconSize: 150,
-        nextScreen: const Menu(),
+        nextScreen: const Menu(initialScreen: 2,),
       ),
       debugShowCheckedModeBanner: false,
     );
