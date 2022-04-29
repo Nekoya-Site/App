@@ -53,13 +53,13 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
           ElevatedButton(
             style: ButtonStyle(
                 foregroundColor:
-                    MaterialStateProperty.all(Colors.blue.shade800),
+                    MaterialStateProperty.all(const Color(0xff8B0000)),
                 backgroundColor:
-                    MaterialStateProperty.all(Colors.blue.shade800),
+                    MaterialStateProperty.all(const Color(0xff8B0000)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Colors.blue)))),
+                        side: const BorderSide(color: Colors.red)))),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Otp()));
@@ -72,13 +72,13 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
           ElevatedButton(
             style: ButtonStyle(
                 foregroundColor:
-                    MaterialStateProperty.all(Colors.blue.shade800),
+                    MaterialStateProperty.all(const Color(0xff8B0000)),
                 backgroundColor:
-                    MaterialStateProperty.all(Colors.blue.shade800),
+                    MaterialStateProperty.all(const Color(0xff8B0000)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Colors.blue)))),
+                        side: const BorderSide(color: Colors.red)))),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Login()));
