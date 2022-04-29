@@ -352,6 +352,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  responsify:
+    dependency: "direct main"
+    description:
+      name: responsify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+5"
   rxdart:
     dependency: transitive
     description:
