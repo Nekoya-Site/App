@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
@@ -161,7 +162,7 @@ class _TransactionBoxState extends State<TransactionBox> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Total : ${price.toString()}",
+                              "Total : Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
