@@ -18,8 +18,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
       child: ListView(
         children: [
           Container(
-            child: Lottie.network(
-                'https://assets5.lottiefiles.com/packages/lf20_xvrofzfk.json'),
+            child: Lottie.asset('assets/lottieanims/forgot_pass_body.json'),
           ),
           Container(
             padding: const EdgeInsets.only(top: 25),
@@ -62,8 +61,8 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.blue)))),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Otp()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Otp()));
             },
             child: const Text(
               'Reset Password',
@@ -81,8 +80,8 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.blue)))),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const Login()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Login()));
             },
             child: const Text(
               'Back to Login',
