@@ -45,13 +45,13 @@ class _PaymentBodyState extends State<PaymentBody> {
             padding: const EdgeInsets.only(bottom: 20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: ExpansionTile(
-                backgroundColor: const Color(0xff8B0000),
-                collapsedBackgroundColor: const Color(0xff8B0000),
+              child: const ExpansionTile(
+                backgroundColor: Color(0xff8B0000),
+                collapsedBackgroundColor: Color(0xff8B0000),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: const Text('BCA'),
-                children: const [
+                title: Text('BCA'),
+                children: [
                   ListTile(
                     textColor: Colors.white,
                     title: Text(
@@ -65,13 +65,13 @@ class _PaymentBodyState extends State<PaymentBody> {
             padding: const EdgeInsets.only(bottom: 20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: ExpansionTile(
-                backgroundColor: const Color(0xff8B0000),
-                collapsedBackgroundColor: const Color(0xff8B0000),
+              child: const ExpansionTile(
+                backgroundColor: Color(0xff8B0000),
+                collapsedBackgroundColor: Color(0xff8B0000),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: const Text('BNI'),
-                children: const [
+                title: Text('BNI'),
+                children: [
                   ListTile(
                     textColor: Colors.white,
                     title: Text(
@@ -83,13 +83,13 @@ class _PaymentBodyState extends State<PaymentBody> {
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(18),
-            child: ExpansionTile(
-              backgroundColor: const Color(0xff8B0000),
-              collapsedBackgroundColor: const Color(0xff8B0000),
+            child: const ExpansionTile(
+              backgroundColor: Color(0xff8B0000),
+              collapsedBackgroundColor: Color(0xff8B0000),
               textColor: Colors.white,
               collapsedTextColor: Colors.white,
-              title: const Text('BRI'),
-              children: const [
+              title: Text('BRI'),
+              children: [
                 ListTile(
                   textColor: Colors.white,
                   title: Text(
@@ -130,7 +130,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side:
-                            const BorderSide(color: const Color(0xff8B0000))))),
+                            const BorderSide(color: Color(0xff8B0000))))),
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const Menu(initialScreen: 4)));
