@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
@@ -60,7 +61,7 @@ Widget productDetail(context, id) {
                     const SizedBox(height: 15.0),
                     Text(data[0]['DESCRIPTION'], style: const TextStyle(color: Colors.white, fontSize: 18.0),),
                     const SizedBox(height: 15.0),
-                    Text('Price : ' + data[0]['PRICE'].toString(), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
+                    Text('Price : Rp ' + NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE']), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                     Text('Stock : ' + data[0]['STOCK'].toString(), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                     Text('Size : ' + data[0]['SIZE'], style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                     const SizedBox(height: 30.0),
