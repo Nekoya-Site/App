@@ -32,6 +32,8 @@ class _CartState extends State<Cart> {
       });
     }
 
+    Future<dynamic> _getTotal = getTotal();
+
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
@@ -64,18 +66,21 @@ class _CartState extends State<Cart> {
                               addToCart(data[index]["product_id"]);
                               setState(() {
                                 _viewCart = viewCart();
+                                _getTotal = getTotal();
                               });
                             },
                             minus: () {
                               removeFromCart(data[index]["product_id"], false);
                               setState(() {
                                 _viewCart = viewCart();
+                                _getTotal = getTotal();
                               });
                             },
                             remove: () {
                               removeFromCart(data[index]["product_id"], true);
                               setState(() {
                                 _viewCart = viewCart();
+                                _getTotal = getTotal();
                               });
                             }
                           );
@@ -117,7 +122,7 @@ class _CartState extends State<Cart> {
           label: Row(
             children: [
               FutureBuilder<dynamic>(
-                future: getTotal(),
+                future: _getTotal,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     var price = snapshot.data;
