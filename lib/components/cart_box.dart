@@ -80,9 +80,9 @@ class _CartBoxState extends State<CartBox> {
                       children: [
                         ElevatedButton(
                           onPressed: (){
-                            widget.plus();
+                            widget.minus();
                           },
-                          child: const Text("+"),
+                          child: const Text("-"),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
                           )
@@ -95,9 +95,9 @@ class _CartBoxState extends State<CartBox> {
                         ),
                         ElevatedButton(
                           onPressed: (){
-                            widget.minus();
+                            widget.plus();
                           },
-                          child: const Text("-"),
+                          child: const Text("+"),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
                           )
