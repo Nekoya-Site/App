@@ -12,17 +12,12 @@ class CheckoutItems extends StatefulWidget {
 }
 
 class _CheckoutItemsState extends State<CheckoutItems> {
-  late var orderData;
-
-  getData() async {
-    orderData = await viewCart();
-  }
 
   @override
   Widget build(BuildContext context) {
     Future<dynamic> getTotal() async {
       dynamic totalPrice = 0;
-      await getData();
+      var orderData = await viewCart();
       await orderData.forEach((x) async {
         var product = await getProduct(x['product_id']);
         totalPrice += product[0]['PRICE'] * x['quantity'];
