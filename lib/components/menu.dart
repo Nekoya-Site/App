@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nekoya_flutter/screens/login.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/screens/cart.dart';
+import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 
@@ -59,7 +61,7 @@ class _MenuState extends State<Menu> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        _selectedWidget = const Sessions();
+        _selectedWidget = const Login();
       } else if (index == 1) {
         _selectedWidget = const Payment();
       } else if (index == 2) {
@@ -67,7 +69,7 @@ class _MenuState extends State<Menu> {
       } else if (index == 3) {
         _selectedWidget = const Cart();
       } else if (index == 4) {
-        _selectedWidget = const Transactions();
+        _selectedWidget = const Register();
       }
     });
   }

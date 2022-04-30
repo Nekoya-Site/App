@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_launcher_icons_maker/xml_templates.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/login_error.dart';
+import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -14,47 +17,241 @@ class LoginForm extends StatefulWidget {
 final _formKey = GlobalKey<FormBuilderState>();
 
 class LoginFormState extends State<LoginForm> {
+  bool _rememberMe = false;
+
+  Widget _buildEmailTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Email',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+            alignment: Alignment.centerLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'OpenSans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.white,
+                ),
+                hintText: 'Enter yout Email',
+                hintStyle: kHintTextStyle,
+              ),
+            ))
+      ],
+    );
+  }
+
+  Widget _buildPasswordTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Password',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+            alignment: Alignment.centerLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            child: TextField(
+              obscureText: true,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'OpenSans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.white,
+                ),
+                hintText: 'Enter yout Password',
+                hintStyle: kHintTextStyle,
+              ),
+            ))
+      ],
+    );
+  }
+
+  Widget _buildForgotPasswordBtn() {
+    return Container(
+        alignment: Alignment.centerRight,
+        child: FlatButton(
+          onPressed: () => print('Forgot Password Button Pressed'),
+          padding: EdgeInsets.only(right: 0.0),
+          child: Text(
+            'Forgot Password?',
+            style: kLabelStyle,
+          ),
+        ));
+  }
+
+  Widget _buildRememberMeCheckBox() {
+    return Container(
+      height: 13.0,
+      child: Row(
+        children: <Widget>[
+          Theme(
+            data: ThemeData(unselectedWidgetColor: Colors.white),
+            child: Checkbox(
+              value: _rememberMe,
+              checkColor: Colors.green,
+              activeColor: Colors.white,
+              onChanged: (value) {
+                setState(() {
+                  _rememberMe = value!;
+                });
+              },
+            ),
+          ),
+          Text(
+            'Remember me',
+            style: kLabelStyle,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLoginBtn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        onPressed: () => print('Login Button Pressed'),
+        padding: EdgeInsets.all(15.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        color: const Color(0xff8B0000),
+        child: Text(
+          'LOGIN',
+          style: TextStyle(
+            color: Colors.white,
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSignupBtn() {
+    return GestureDetector(
+      onTap: () => print('Sign Up Button Pressed'),
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: 'Don\'t have an Account? ',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            TextSpan(
+              text: 'Sign Up',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(10, 15, 10, 5),
+        margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
         child: Card(
-          color: const Color(0xff212226),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: SingleChildScrollView(
-            child: Container(
-              transform: Matrix4.translationValues(0, -35, 0),
-              padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-              height: MediaQuery.of(context).size.height,
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Lottie.asset(
-                            "assets/lottieanims/login_form.json",
-                            frameRate: FrameRate.max,
-                            alignment: Alignment.center,
-                            fit: BoxFit.fitHeight,
-                            height: 250,
-                          ),
-                        ],
-                      ),
-                      Padding(
+            color: const Color(0xff212226),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                transform: Matrix4.translationValues(0, -35, 0),
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                height: MediaQuery.of(context).size.height,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Lottie.asset(
+                      "assets/lottieanims/login_form.json",
+                      frameRate: FrameRate.max,
+                      alignment: Alignment.center,
+                      fit: BoxFit.fitHeight,
+                      height: 250,
+                    ),
+                    SizedBox(height: 10.0),
+                    _buildEmailTF(),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    _buildPasswordTF(),
+                    _buildForgotPasswordBtn(),
+                    _buildRememberMeCheckBox(),
+                    _buildLoginBtn(),
+                    _buildSignupBtn(),
+                  ],
+                ),
+              ),
+            )),
+      ),
+    );
+  }
+}
+      
+ /*       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: FormBuilder(
                           key: _formKey,
                           child: Column(
                             children: [
-                              makeInput(label: "Email"),
-                              makeInput(label: "Password", obscureText: true)
+                              TextField(
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.white,
+                                ),
+                                decoration: new InputDecoration(
+                                    hintText: "Enter your email",
+                                    labelText: "Email",
+                                    prefixIcon: Icon(Icons.email),
+                                    labelStyle: new TextStyle(
+                                        color: const Color(0xFFFFFFFF)),
+                                    border: new UnderlineInputBorder(
+                                        borderSide:
+                                            new BorderSide(color: Colors.red))),
+                              ),
+                              makeInput(
+                                label: "Password",
+                                obscureText: true,
+                              )
                             ],
                           ),
                         ),
@@ -131,9 +328,9 @@ class LoginFormState extends State<LoginForm> {
       ),
     );
   }
-}
+ */
 
-Widget makeInput({label, obscureText = false}) {
+/* Widget makeInput({label, obscureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -204,3 +401,4 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
+ */
