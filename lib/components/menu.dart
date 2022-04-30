@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/screens/cart.dart';
+import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 
 class Menu extends StatefulWidget {
@@ -23,7 +23,7 @@ class _MenuState extends State<Menu> {
   @override
   void initState() {
     if (widget.initialScreen == 0) {
-      _selectedWidget = const Login();
+      _selectedWidget = const Sessions();
     } else if (widget.initialScreen == 1) {
       _selectedWidget = const Payment();
     } else if (widget.initialScreen == 2) {
@@ -59,7 +59,7 @@ class _MenuState extends State<Menu> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        _selectedWidget = const Login();
+        _selectedWidget = const Sessions();
       } else if (index == 1) {
         _selectedWidget = const Payment();
       } else if (index == 2) {
