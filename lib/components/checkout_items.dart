@@ -23,7 +23,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
         totalPrice += product[0]['PRICE'] * x['quantity'];
       });
 
-      return Future.delayed(const Duration(seconds: 5), () {
+      return Future.delayed(const Duration(seconds: 2), () {
         return totalPrice;
       });
     }
