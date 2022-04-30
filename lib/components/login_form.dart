@@ -140,7 +140,7 @@ class LoginFormState extends State<LoginForm> {
         ),
         color: const Color(0xff8B0000),
         child: Text(
-          'LOGIN',
+          'Login',
           style: TextStyle(
             color: Colors.white,
             letterSpacing: 1.5,
