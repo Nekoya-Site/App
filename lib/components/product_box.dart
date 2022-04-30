@@ -30,8 +30,6 @@ class _ProductBoxState extends State<ProductBox> {
             child: InkWell(
               onTap: () => widget.callback(),
               borderRadius: BorderRadius.circular(10),
-              splashColor: const Color(0xff8B0000),
-              highlightColor: const Color(0xff8B0000),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
