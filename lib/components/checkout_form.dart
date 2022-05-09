@@ -268,7 +268,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
   }
 }
 
-Widget makeInput({label, obscureText = false, icon = Icons.email}) {
+Widget makeInput({label, obscureText = false, icon}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
