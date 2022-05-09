@@ -55,10 +55,15 @@ class RegisterFormState extends State<RegisterForm> {
                           key: _formKey,
                           child: Column(
                             children: [
-                              makeInput(label: "First Name"),
-                              makeInput(label: "Last Name"),
-                              makeInput(label: "Email Address"),
-                              makeInput(label: "Password", obscureText: true)
+                              makeInput(
+                                  label: "First Name", icon: Icons.person),
+                              makeInput(label: "Last Name", icon: Icons.person),
+                              makeInput(
+                                  label: "Email Address", icon: Icons.email),
+                              makeInput(
+                                  label: "Password",
+                                  obscureText: true,
+                                  icon: Icons.lock)
                             ],
                           ),
                         ),
