@@ -166,7 +166,7 @@ class RegisterFormState extends State<RegisterForm> {
   }
 }
 
-Widget makeInput({label, obscureText = false}) {
+Widget makeInput({label, obscureText = false, icon = Icons.email}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -183,7 +183,11 @@ Widget makeInput({label, obscureText = false}) {
         name: label,
         obscureText: obscureText,
         style: const TextStyle(color: Colors.white),
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            icon,
+            color: Colors.white,
+          ),
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
