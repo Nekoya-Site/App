@@ -205,12 +205,12 @@ Widget makeInput({label, obscureText = false, icon = Icons.email}) {
               icon,
               color: Colors.white,
             ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            contentPadding: EdgeInsets.only(top: 14.0),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red,
-              ),
-            ),
+                borderSide: BorderSide(
+                  color: Colors.red,
+                ),
+                borderRadius: BorderRadius.circular(10.0)),
             enabledBorder: InputBorder.none,
             border: InputBorder.none,
           ),
