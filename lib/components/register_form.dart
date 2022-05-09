@@ -171,7 +171,7 @@ class RegisterFormState extends State<RegisterForm> {
   }
 }
 
-Widget makeInput({label, obscureText = false, icon = Icons.email}) {
+Widget makeInput({label, obscureText = false, icon}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
