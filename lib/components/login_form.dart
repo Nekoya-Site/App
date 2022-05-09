@@ -28,21 +28,21 @@ class LoginFormState extends State<LoginForm> {
           'Email',
           style: kLabelStyle,
         ),
-        SizedBox(height: 10.0),
+        const SizedBox(height: 10.0),
         Container(
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
             child: TextField(
               keyboardType: TextInputType.emailAddress,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14.0),
-                prefixIcon: Icon(
+                contentPadding: const EdgeInsets.only(top: 14.0),
+                prefixIcon: const Icon(
                   Icons.email,
                   color: Colors.white,
                 ),
@@ -62,21 +62,21 @@ class LoginFormState extends State<LoginForm> {
           'Password',
           style: kLabelStyle,
         ),
-        SizedBox(height: 10.0),
+        const SizedBox(height: 10.0),
         Container(
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
             child: TextField(
               obscureText: true,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14.0),
-                prefixIcon: Icon(
+                contentPadding: const EdgeInsets.only(top: 14.0),
+                prefixIcon: const Icon(
                   Icons.lock,
                   color: Colors.white,
                 ),
@@ -93,7 +93,7 @@ class LoginFormState extends State<LoginForm> {
         alignment: Alignment.centerRight,
         child: FlatButton(
           onPressed: () => print('Forgot Password Button Pressed'),
-          padding: EdgeInsets.only(right: 0.0),
+          padding: const EdgeInsets.only(right: 0.0),
           child: Text(
             'Forgot Password?',
             style: kLabelStyle,
@@ -130,17 +130,17 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _buildLoginBtn() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
+      padding: const EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () => print('Login Button Pressed'),
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         color: const Color(0xff8B0000),
-        child: Text(
+        child: const Text(
           'Login',
           style: TextStyle(
             color: Colors.white,
@@ -161,7 +161,7 @@ class LoginFormState extends State<LoginForm> {
             context, MaterialPageRoute(builder: (context) => const Register()));
       },
       child: RichText(
-        text: TextSpan(
+        text: const TextSpan(
           children: [
             TextSpan(
               text: 'Don\'t have an Account? ',
@@ -211,9 +211,9 @@ class LoginFormState extends State<LoginForm> {
                       fit: BoxFit.fitHeight,
                       height: 250,
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     _buildEmailTF(),
-                    SizedBox(
+                    const SizedBox(
                       height: 30.0,
                     ),
                     _buildPasswordTF(),
