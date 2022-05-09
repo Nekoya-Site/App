@@ -187,7 +187,7 @@ Widget makeInput({label, obscureText = false, icon = Icons.email}) {
         decoration: BoxDecoration(
           color: const Color(0xff1b1c1e),
           borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 6.0,
@@ -205,9 +205,9 @@ Widget makeInput({label, obscureText = false, icon = Icons.email}) {
               icon,
               color: Colors.white,
             ),
-            contentPadding: EdgeInsets.only(top: 14.0),
+            contentPadding: const EdgeInsets.only(top: 14.0),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.red,
                 ),
                 borderRadius: BorderRadius.circular(10.0)),

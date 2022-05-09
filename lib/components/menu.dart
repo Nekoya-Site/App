@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nekoya_flutter/screens/checkout.dart';
 import 'package:nekoya_flutter/screens/login.dart';
 import 'dart:math' as math;
 
@@ -67,7 +68,7 @@ class _MenuState extends State<Menu> {
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
-        _selectedWidget = const Cart();
+        _selectedWidget = const Checkout();
       } else if (index == 4) {
         _selectedWidget = const Register();
       }
