@@ -65,9 +65,10 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 10,
                           ),
-                          makeInput(label: "First Name"),
-                          makeInput(label: "Last Name"),
-                          makeInput(label: "Phone Number"),
+                          makeInput(label: "First Name", icon: Icons.person),
+                          makeInput(label: "Last Name", icon: Icons.person),
+                          makeInput(
+                              label: "Phone Number", icon: Icons.phone_rounded),
                           const SizedBox(
                             height: 20,
                           ),
@@ -85,14 +86,19 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 10,
                           ),
-                          makeInput(label: "Street Address"),
-                          makeInput(label: "Street Address 2"),
-                          makeInput(label: "Region"),
-                          makeInput(label: "Province"),
-                          makeInput(label: "City"),
-                          makeInput(label: "District"),
-                          makeInput(label: "Subdistrict"),
-                          makeInput(label: "Postal Code"),
+                          makeInput(label: "Street Address", icon: Icons.home),
+                          makeInput(
+                              label: "Street Address 2", icon: Icons.home),
+                          makeInput(label: "Region", icon: Icons.location_city),
+                          makeInput(
+                              label: "Province", icon: Icons.location_city),
+                          makeInput(label: "City", icon: Icons.location_city),
+                          makeInput(
+                              label: "District", icon: Icons.location_city),
+                          makeInput(
+                              label: "Subdistrict", icon: Icons.location_city),
+                          makeInput(
+                              label: "Postal Code", icon: Icons.location_city),
                           const SizedBox(
                             height: 20,
                           ),
