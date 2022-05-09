@@ -116,40 +116,48 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 10,
                           ),
-                          FormBuilderDropdown(
-                            name: "Shipping Method",
-                            dropdownColor: const Color(0xff212226),
-                            style: const TextStyle(color: Colors.white),
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 10),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color(0xff1b1c1e),
+                              borderRadius: BorderRadius.circular(10.0),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6.0,
+                                  offset: Offset(0, 2),
                                 ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white)),
+                              ],
                             ),
-                            items: const [
-                              DropdownMenuItem(
-                                value: "JNE",
-                                child: Text("JNE"),
+                            child: FormBuilderDropdown(
+                              name: "Shipping Method",
+                              dropdownColor: const Color(0xff212226),
+                              style: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0, horizontal: 10),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                enabledBorder: InputBorder.none,
+                                border: InputBorder.none,
                               ),
-                              DropdownMenuItem(
-                                value: "JNT",
-                                child: Text("JNT"),
-                              ),
-                              DropdownMenuItem(
-                                value: "SiCepat",
-                                child: Text("SiCepat"),
-                              ),
-                            ],
+                              items: const [
+                                DropdownMenuItem(
+                                  value: "JNE",
+                                  child: Text("JNE"),
+                                ),
+                                DropdownMenuItem(
+                                  value: "JNT",
+                                  child: Text("JNT"),
+                                ),
+                                DropdownMenuItem(
+                                  value: "SiCepat",
+                                  child: Text("SiCepat"),
+                                ),
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
