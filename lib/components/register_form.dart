@@ -183,29 +183,37 @@ Widget makeInput({label, obscureText = false, icon = Icons.email}) {
       const SizedBox(
         height: 5,
       ),
-      FormBuilderTextField(
-        initialValue: "",
-        name: label,
-        obscureText: obscureText,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: Colors.white,
-          ),
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.red,
+      Container(
+        decoration: BoxDecoration(
+          color: const Color(0xff1b1c1e),
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 6.0,
+              offset: Offset(0, 2),
             ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+          ],
+        ),
+        child: FormBuilderTextField(
+          initialValue: "",
+          name: label,
+          obscureText: obscureText,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              icon,
               color: Colors.white,
             ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.red,
+              ),
+            ),
+            enabledBorder: InputBorder.none,
+            border: InputBorder.none,
           ),
-          border:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
         ),
       ),
       const SizedBox(
