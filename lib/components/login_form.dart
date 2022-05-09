@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/login_error.dart';
+import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -155,7 +156,10 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Register()));
+      },
       child: RichText(
         text: TextSpan(
           children: [
