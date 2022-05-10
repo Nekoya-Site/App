@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
