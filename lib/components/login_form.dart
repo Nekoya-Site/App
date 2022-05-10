@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nekoya_flutter/screens/register.dart';
+import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -154,8 +154,9 @@ class LoginFormState extends State<LoginForm> {
   Widget _buildSignupBtn() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Register()));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const Menu(initialScreen: 1))
+        );
       },
       child: RichText(
         text: const TextSpan(
