@@ -87,10 +87,12 @@ class LoginFormState extends State<LoginForm> {
   Widget _buildForgotPasswordBtn() {
     return Container(
         alignment: Alignment.centerRight,
-        child: FlatButton(
+        child: ElevatedButton(
           onPressed: () => print('Forgot Password Button Pressed'),
-          padding: const EdgeInsets.only(right: 0.0),
-          child: Text(
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all(const EdgeInsets.only(right: 0.0))
+          ),
+          child: const Text(
             'Forgot Password?',
             style: kLabelStyle,
           ),
@@ -128,14 +130,16 @@ class LoginFormState extends State<LoginForm> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
-        padding: const EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(5.0),
+          padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          )),
+          backgroundColor: MaterialStateProperty.all(const Color(0xff8B0000)),
         ),
-        color: const Color(0xff8B0000),
+        onPressed: (){},
         child: const Text(
           'Login',
           style: TextStyle(
