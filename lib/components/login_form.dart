@@ -11,8 +11,6 @@ class LoginForm extends StatefulWidget {
   State<LoginForm> createState() => LoginFormState();
 }
 
-final _formKey = GlobalKey<FormBuilderState>();
-
 class LoginFormState extends State<LoginForm> {
   bool _rememberMe = false;
 
@@ -20,7 +18,7 @@ class LoginFormState extends State<LoginForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
+        const Text(
           'Email',
           style: kLabelStyle,
         ),
@@ -29,16 +27,16 @@ class LoginFormState extends State<LoginForm> {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: TextField(
+            child: const TextField(
               keyboardType: TextInputType.emailAddress,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(top: 14.0),
-                prefixIcon: const Icon(
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(
                   Icons.email,
                   color: Colors.white,
                 ),
@@ -54,7 +52,7 @@ class LoginFormState extends State<LoginForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
+        const Text(
           'Password',
           style: kLabelStyle,
         ),
@@ -63,16 +61,16 @@ class LoginFormState extends State<LoginForm> {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: TextField(
+            child: const TextField(
               obscureText: true,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(top: 14.0),
-                prefixIcon: const Icon(
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(
                   Icons.lock,
                   color: Colors.white,
                 ),
@@ -88,7 +86,7 @@ class LoginFormState extends State<LoginForm> {
     return Container(
         alignment: Alignment.centerRight,
         child: ElevatedButton(
-          onPressed: () => print('Forgot Password Button Pressed'),
+          onPressed: (){},
           style: ButtonStyle(
             padding: MaterialStateProperty.all(const EdgeInsets.only(right: 0.0))
           ),
@@ -100,7 +98,7 @@ class LoginFormState extends State<LoginForm> {
   }
 
   Widget _buildRememberMeCheckBox() {
-    return Container(
+    return SizedBox(
       height: 13.0,
       child: Row(
         children: <Widget>[
@@ -117,7 +115,7 @@ class LoginFormState extends State<LoginForm> {
               },
             ),
           ),
-          Text(
+          const Text(
             'Remember me',
             style: kLabelStyle,
           )
