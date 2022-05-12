@@ -45,13 +45,16 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-android
-ios
-web
-windows
-linux
-macos
+# Platform
+android/
+ios/
+web/
+windows/
+linux/
+macos/
 
+# Test
+test/
 
 # General
 .DS_Store
