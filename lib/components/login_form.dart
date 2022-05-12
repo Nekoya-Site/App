@@ -164,6 +164,7 @@ class LoginFormState extends State<LoginForm> {
           submitForm(context).then((res) {
             if (res['statusCode'] == 200) {
               addSession(res['data']['id'], res['data']['session_token']);
+              Navigator.pop(context);
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
