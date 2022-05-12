@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/session_box.dart';
+import 'package:nekoya_flutter/data/auth.dart';
 
 class Sessions extends StatefulWidget {
   const Sessions({Key? key}) : super(key: key);
@@ -11,6 +12,17 @@ class Sessions extends StatefulWidget {
 }
 
 class _SessionsState extends State<Sessions> {
+  var session = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    getSession().then((session) async {
+      session = session;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +33,17 @@ class _SessionsState extends State<Sessions> {
         backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
-        future: getSessions(),
+        future: getSessions(session),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            var data = snapshot.data;
+            var listSessions = snapshot.data;
             return ListView.builder(
-              itemCount: data!.length,
+              itemCount: listSessions['data']!.length,
               itemBuilder: (context, index) {
                 return SessionBox(
                   icon: const Icon(Icons.key, color: Colors.white, size: 50,),
-                  ip: data[index]['ip'].split(', ')[0],
-                  userAgent: data[index]['user_agent'],
+                  ip: listSessions['data'][index]['ip'].split(', ')[0],
+                  userAgent: listSessions['data'][index]['user_agent'],
                 );
               }
             );
