@@ -17,30 +17,17 @@ final _formKey = GlobalKey<FormBuilderState>();
 
 class RegisterFormState extends State<RegisterForm> {
   Future submitForm(BuildContext context) async {
-    if (_formKey.currentState!.fields["First Name"]!
-                .value ==
-            '' ||
-        _formKey.currentState!.fields["Last Name"]!
-                .value ==
-            '' ||
-        _formKey.currentState!
-                .fields["Email Address"]!.value ==
-            '' ||
-        _formKey.currentState!.fields["Password"]!
-                .value ==
-            '') {
-      showAlertDialog(context);
-      return 400;
+    if (_formKey.currentState!.fields["First Name"]!.value.isEmpty ||
+        _formKey.currentState!.fields["Last Name"]!.value.isEmpty ||
+        _formKey.currentState!.fields["Email Address"]!.value.isEmpty ||
+        _formKey.currentState!.fields["Password"]!.value.isEmpty) {
+      return 999;
     } else {
       Map<String, dynamic> data = {
-        "first_name": _formKey.currentState!
-            .fields["First Name"]!.value,
-        "last_name": _formKey
-            .currentState!.fields["Last Name"]!.value,
-        "email": _formKey.currentState!
-            .fields["Email Address"]!.value,
-        "password": _formKey
-            .currentState!.fields["Password"]!.value
+        "first_name": _formKey.currentState!.fields["First Name"]!.value,
+        "last_name": _formKey.currentState!.fields["Last Name"]!.value,
+        "email": _formKey.currentState!.fields["Email Address"]!.value,
+        "password": _formKey.currentState!.fields["Password"]!.value
       };
 
       var statusCode = await registerPost(data);
@@ -115,6 +102,8 @@ class RegisterFormState extends State<RegisterForm> {
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               const RegisterVerify()));
+                                } else if (statusCode == 999) {
+                                  showAlertDialog(context);
                                 } else {
                                   Navigator.push(
                                       context,
@@ -157,9 +146,10 @@ class RegisterFormState extends State<RegisterForm> {
                                   fontSize: 15),
                             ),
                             onPressed: () {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                builder: (context) => const Menu(initialScreen: 0))
-                              );
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Menu(initialScreen: 0)));
                             },
                           ),
                         ],
