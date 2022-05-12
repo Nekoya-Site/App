@@ -12,15 +12,10 @@ class Transactions extends StatefulWidget {
 }
 
 class _TransactionsState extends State<Transactions> {
-  var session = '';
-
-  @override
-  void initState() {
-    super.initState();
-
-    getSession().then((session) async {
-      session = session;
-    });
+  Future<dynamic> loadTransaction() async {
+    var session = await getSession();
+    var data = await getTransactions(session);
+    return data;
   }
 
   @override
@@ -33,7 +28,7 @@ class _TransactionsState extends State<Transactions> {
         backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
-        future: getTransactions(session),
+        future: loadTransaction(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = snapshot.data;
