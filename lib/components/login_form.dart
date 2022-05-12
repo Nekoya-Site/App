@@ -62,7 +62,7 @@ class LoginFormState extends State<LoginForm> {
                   Icons.email,
                   color: Colors.white,
                 ),
-                hintText: 'Enter yout Email',
+                hintText: 'Enter your Email',
                 hintStyle: kHintTextStyle,
               ),
             ))
@@ -97,7 +97,7 @@ class LoginFormState extends State<LoginForm> {
                   Icons.lock,
                   color: Colors.white,
                 ),
-                hintText: 'Enter yout Password',
+                hintText: 'Enter your Password',
                 hintStyle: kHintTextStyle,
               ),
             ))
