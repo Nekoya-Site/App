@@ -255,7 +255,7 @@ packages:
     source: hosted
     version: "1.0.1"
   page_transition:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: page_transition
       url: "https://pub.dartlang.org"
