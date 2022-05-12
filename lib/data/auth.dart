@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-String getSession(userId, sessionToken) {
+String getEncodedSession(userId, sessionToken) {
   var sessionData = {
     "user_id": userId,
     "session_token": sessionToken
@@ -14,7 +14,7 @@ String getSession(userId, sessionToken) {
 Future<void> addSession(userId, sessionToken) async {
   final prefs = await SharedPreferences.getInstance();
 
-  String session = getSession(userId, sessionToken);
+  String session = getEncodedSession(userId, sessionToken);
 
   await prefs.setString('session', session);
 }
