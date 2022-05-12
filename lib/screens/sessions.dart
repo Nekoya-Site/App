@@ -12,15 +12,10 @@ class Sessions extends StatefulWidget {
 }
 
 class _SessionsState extends State<Sessions> {
-  var session = '';
-
-  @override
-  void initState() {
-    super.initState();
-
-    getSession().then((session) async {
-      session = session;
-    });
+  Future<dynamic> loadSessions() async {
+    var session = await getSession();
+    var data = await getSessions(session);
+    return data;
   }
 
   @override
@@ -33,7 +28,7 @@ class _SessionsState extends State<Sessions> {
         backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
-        future: getSessions(session),
+        future: loadSessions(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var listSessions = snapshot.data;
