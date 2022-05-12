@@ -18,15 +18,10 @@ class CheckoutForm extends StatefulWidget {
 final _formKey = GlobalKey<FormBuilderState>();
 
 class _CheckoutFormState extends State<CheckoutForm> {
-  var session = '';
-
-  @override
-  void initState() {
-    super.initState();
-
-    getSession().then((session) async {
-      session = session;
-    });
+  Future<dynamic> loadCheckout(checkoutData) async {
+    var session = await getSession();
+    var data = await checkoutPost(session, checkoutData);
+    return data;
   }
 
   Future submitForm(BuildContext context) async {
@@ -68,7 +63,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
         "data": cartData,
       };
 
-      var statusCode = await checkoutPost(session, data);
+      var statusCode = await loadCheckout(data);
       return statusCode;
     }
   }
