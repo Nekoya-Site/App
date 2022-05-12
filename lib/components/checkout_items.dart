@@ -68,8 +68,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                             if (productData != null) {
                               return CartBox(
                                   controller: false,
-                                  imageUrl: 'https://nekoya.moe.team/img/' +
-                                      productData[0]['IMAGE'],
+                                  imageUrl: "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                                   title: productData[0]['TITLE'],
                                   quantity: data[index]["quantity"],
                                   plus: () {},
