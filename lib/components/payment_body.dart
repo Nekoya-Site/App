@@ -103,6 +103,10 @@ class _PaymentBodyState extends State<PaymentBody> {
             color: Colors.transparent,
           ),
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(0),
+              color: const Color(0xff8B0000),
+            ),
             child: const Text(
               '13000000',
               style: TextStyle(
@@ -110,10 +114,6 @@ class _PaymentBodyState extends State<PaymentBody> {
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
-              color: const Color(0xff8B0000),
             ),
           ),
           Container(
