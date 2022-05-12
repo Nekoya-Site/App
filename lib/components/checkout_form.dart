@@ -15,6 +15,88 @@ class CheckoutForm extends StatefulWidget {
 final _formKey = GlobalKey<FormBuilderState>();
 
 class _CheckoutFormState extends State<CheckoutForm> {
+  Future submitForm(BuildContext context) async {
+    if (_formKey.currentState!.fields["First Name"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Last Name"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Phone Number"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Street Address"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Street Address 2"]!
+                .value ==
+            '' ||
+        _formKey
+                .currentState!.fields["Region"]!.value ==
+            '' ||
+        _formKey.currentState!.fields["Province"]!
+                .value ==
+            '' ||
+        _formKey
+                .currentState!.fields["City"]!.value ==
+            '' ||
+        _formKey.currentState!.fields["District"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Subdistrict"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Postal Code"]!
+                .value ==
+            '' ||
+        !(_formKey.currentState!
+                    .fields["Shipping Method"]!.value ==
+                'JNE' ||
+            _formKey.currentState!
+                    .fields["Shipping Method"]!.value ==
+                'JNT' ||
+            _formKey.currentState!
+                    .fields["Shipping Method"]!.value ==
+                'SiCepat')) {
+      showAlertDialog(context);
+      return 400;
+    } else {
+      var currentCart = await viewCart();
+      var cartData = jsonEncode(currentCart).toString();
+
+      Map<String, dynamic> data = {
+        "firstName": _formKey
+            .currentState!.fields["First Name"]!.value,
+        "lastName": _formKey
+            .currentState!.fields["Last Name"]!.value,
+        "phoneNumber": _formKey
+            .currentState!.fields["Phone Number"]!.value,
+        "streetAddress1": _formKey.currentState!
+            .fields["Street Address"]!.value,
+        "streetAddress2": _formKey.currentState!
+            .fields["Street Address 2"]!.value,
+        "region": _formKey
+            .currentState!.fields["Region"]!.value,
+        "province": _formKey
+            .currentState!.fields["Province"]!.value,
+        "city":
+            _formKey.currentState!.fields["City"]!.value,
+        "district": _formKey
+            .currentState!.fields["District"]!.value,
+        "subDistrict": _formKey
+            .currentState!.fields["Subdistrict"]!.value,
+        "postalCode": _formKey
+            .currentState!.fields["Postal Code"]!.value,
+        "logistic": _formKey.currentState!
+            .fields["Shipping Method"]!.value,
+        "data": cartData,
+      };
+
+      var statusCode = await checkoutPost(data);
+      return statusCode;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -173,90 +255,15 @@ class _CheckoutFormState extends State<CheckoutForm> {
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 35,
-                        onPressed: () async {
-                          if (_formKey.currentState!.fields["First Name"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Last Name"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Phone Number"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Street Address"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Street Address 2"]!
-                                      .value ==
-                                  '' ||
-                              _formKey
-                                      .currentState!.fields["Region"]!.value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Province"]!
-                                      .value ==
-                                  '' ||
-                              _formKey
-                                      .currentState!.fields["City"]!.value ==
-                                  '' ||
-                              _formKey.currentState!.fields["District"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Subdistrict"]!
-                                      .value ==
-                                  '' ||
-                              _formKey.currentState!.fields["Postal Code"]!
-                                      .value ==
-                                  '' ||
-                              !(_formKey.currentState!
-                                          .fields["Shipping Method"]!.value ==
-                                      'JNE' ||
-                                  _formKey.currentState!
-                                          .fields["Shipping Method"]!.value ==
-                                      'JNT' ||
-                                  _formKey.currentState!
-                                          .fields["Shipping Method"]!.value ==
-                                      'SiCepat')) {
-                            showAlertDialog(context);
-                          } else {
-                            var currentCart = await viewCart();
-                            var cartData = jsonEncode(currentCart).toString();
-
-                            Map<String, dynamic> data = {
-                              "firstName": _formKey
-                                  .currentState!.fields["First Name"]!.value,
-                              "lastName": _formKey
-                                  .currentState!.fields["Last Name"]!.value,
-                              "phoneNumber": _formKey
-                                  .currentState!.fields["Phone Number"]!.value,
-                              "streetAddress1": _formKey.currentState!
-                                  .fields["Street Address"]!.value,
-                              "streetAddress2": _formKey.currentState!
-                                  .fields["Street Address 2"]!.value,
-                              "region": _formKey
-                                  .currentState!.fields["Region"]!.value,
-                              "province": _formKey
-                                  .currentState!.fields["Province"]!.value,
-                              "city":
-                                  _formKey.currentState!.fields["City"]!.value,
-                              "district": _formKey
-                                  .currentState!.fields["District"]!.value,
-                              "subDistrict": _formKey
-                                  .currentState!.fields["Subdistrict"]!.value,
-                              "postalCode": _formKey
-                                  .currentState!.fields["Postal Code"]!.value,
-                              "logistic": _formKey.currentState!
-                                  .fields["Shipping Method"]!.value,
-                              "data": cartData,
-                            };
-
-                            var statusCode = await checkoutPost(data);
+                        onPressed: () {
+                          submitForm(context).then((statusCode) {
                             if (statusCode == 201) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => const Payment()));
                             }
-                          }
+                          });
                         },
                         color: const Color(0xff8B0000),
                         shape: RoundedRectangleBorder(
