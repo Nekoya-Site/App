@@ -9,13 +9,19 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(const MyApp());
+    runApp(const Nekoya());
   });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Nekoya extends StatefulWidget {
+  const Nekoya({Key? key}) : super(key: key);
 
+  @override
+  State<Nekoya> createState() => _NekoyaState();
+}
+
+class _NekoyaState extends State<Nekoya> {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
