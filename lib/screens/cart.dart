@@ -34,7 +34,7 @@ class _CartState extends State<Cart> {
       });
     }
 
-    Future<dynamic> _getTotal = getTotal();
+    Future<dynamic> getTotal_ = getTotal();
 
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
@@ -62,28 +62,28 @@ class _CartState extends State<Cart> {
                           if (productData != null) {
                             return CartBox(
                               controller: true,
-                              imageUrl: 'https://nekoya.moe.team/img/' + productData[0]['IMAGE'],
+                              imageUrl: "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                               title: productData[0]['TITLE'],
                               quantity: data[index]["quantity"],
                               plus: () {
                                 addToCart(data[index]["product_id"]);
                                 setState(() {
                                   _viewCart = viewCart();
-                                  _getTotal = getTotal();
+                                  getTotal_ = getTotal();
                                 });
                               },
                               minus: () {
                                 removeFromCart(data[index]["product_id"], false);
                                 setState(() {
                                   _viewCart = viewCart();
-                                  _getTotal = getTotal();
+                                  getTotal_ = getTotal();
                                 });
                               },
                               remove: () {
                                 removeFromCart(data[index]["product_id"], true);
                                 setState(() {
                                   _viewCart = viewCart();
-                                  _getTotal = getTotal();
+                                  getTotal_ = getTotal();
                                 });
                               }
                             );
@@ -126,7 +126,7 @@ class _CartState extends State<Cart> {
         ),
       ),
       floatingActionButton: FutureBuilder<dynamic>(
-        future: _getTotal,
+        future: getTotal_,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var price = snapshot.data;
