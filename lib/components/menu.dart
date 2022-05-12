@@ -60,12 +60,14 @@ class _MenuState extends State<Menu> {
 
   void onPressed(index) {
     setState(() {
+      var oldSelectedIndex = _selectedIndex;
       _selectedIndex = index;
       if (index == 0) {
         checkSessionExist().then((isLoggedIn) {
           if (isLoggedIn) {
           _selectedWidget = const Sessions();
           } else {
+            _selectedIndex = oldSelectedIndex;
             Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
           }
         });
@@ -80,6 +82,7 @@ class _MenuState extends State<Menu> {
           if (isLoggedIn) {
           _selectedWidget = const Transactions();
           } else {
+            _selectedIndex = oldSelectedIndex;
             Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
           }
         });
