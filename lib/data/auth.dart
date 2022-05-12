@@ -19,6 +19,16 @@ Future<void> addSession(userId, sessionToken) async {
   await prefs.setString('session', session);
 }
 
+Future<bool> checkSessionExist() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  if (prefs.containsKey('session')) {
+    return true;
+  }
+
+  return false;
+}
+
 Future<void> removeSession() async {
   final prefs = await SharedPreferences.getInstance();
 
