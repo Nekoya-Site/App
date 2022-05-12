@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+
 import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/data/cart.dart';
+import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 
 class CheckoutForm extends StatefulWidget {
@@ -15,6 +18,17 @@ class CheckoutForm extends StatefulWidget {
 final _formKey = GlobalKey<FormBuilderState>();
 
 class _CheckoutFormState extends State<CheckoutForm> {
+  var session = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    getSession().then((session) async {
+      session = session;
+    });
+  }
+
   Future submitForm(BuildContext context) async {
     if (_formKey.currentState!.fields["First Name"]!.value.isEmpty ||
         _formKey.currentState!.fields["Last Name"]!.value.isEmpty ||
@@ -54,7 +68,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
         "data": cartData,
       };
 
-      var statusCode = await checkoutPost(data);
+      var statusCode = await checkoutPost(session, data);
       return statusCode;
     }
   }
@@ -218,14 +232,20 @@ class _CheckoutFormState extends State<CheckoutForm> {
                         minWidth: double.infinity,
                         height: 35,
                         onPressed: () {
-                          submitForm(context).then((statusCode) {
-                            if (statusCode == 201) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Payment()));
-                            } else if (statusCode == 999) {
-                              showAlertDialog(context);
+                          checkSessionExist().then((isLoggedIn) {
+                            if (isLoggedIn) {
+                              submitForm(context).then((statusCode) {
+                                if (statusCode == 201) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const Payment()));
+                                } else if (statusCode == 999) {
+                                  showAlertDialog(context);
+                                }
+                              });
+                            } else {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
                             }
                           });
                         },
