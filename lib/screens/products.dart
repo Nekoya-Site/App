@@ -35,8 +35,7 @@ class _ProductsState extends State<Products> {
                   crossAxisCount: deviceInformation.orientation == Orientation.portrait ? 2 : 5,
                   children: List.generate(data!.length, (index) {
                     return ProductBox(
-                        imageUrl:
-                            'https://nekoya.moe.team/img/' + data[index]['IMAGE'],
+                        imageUrl: "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
                         title: data[index]['TITLE'],
                         callback: () {
                           showModalBottomSheet(
