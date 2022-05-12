@@ -41,30 +41,23 @@ Future<dynamic> loginPost(data) async {
   return {'statusCode': req.statusCode, 'data': req.data};
 }
 
-Future<dynamic> getSessions() async {
-  String tempKey =
-      'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
+Future<dynamic> getSessions(session) async {
   var req = await Dio()
-      .post('$host/sessions', queryParameters: {'key': tempKey});
+      .post('$host/sessions', queryParameters: {'session_token': session});
+  return {'statusCode': req.statusCode, 'data': req.data};
+}
+
+Future<dynamic> getTransactions(session) async {
+  var req = await Dio()
+      .post('$host/transaction', queryParameters: {'session_token': session});
   var res = req.data;
   return res;
 }
 
-Future<dynamic> getTransactions() async {
-  String tempKey =
-      'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
-  var req = await Dio()
-      .post('$host/transaction', queryParameters: {'key': tempKey});
-  var res = req.data;
-  return res;
-}
-
-Future<dynamic> checkoutPost(data) async {
-  String tempKey =
-      'rTugfHPB7Cd4I1OmsbFCHuJvBSjA2C48WOcMghviohNlNj8IZqazvtwJrdGFHDwp';
+Future<dynamic> checkoutPost(session, data) async {
   Response req = await Dio().post(
     ('$host/checkout'),
-    queryParameters: {'key': tempKey},
+    queryParameters: {'session_token': session},
     data: data,
     options: Options(
       contentType: Headers.formUrlEncodedContentType,
