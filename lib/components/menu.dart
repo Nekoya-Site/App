@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nekoya_flutter/data/auth.dart';
 import 'dart:math' as math;
 
-import 'package:nekoya_flutter/screens/checkout.dart';
 import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/screens/cart.dart';
 import 'package:nekoya_flutter/screens/register.dart';
+import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 
 class Menu extends StatefulWidget {
@@ -61,15 +62,27 @@ class _MenuState extends State<Menu> {
     setState(() {
       _selectedIndex = index;
       if (index == 0) {
-        _selectedWidget = const Login();
+        checkSessionExist().then((isLoggedIn) {
+          if (isLoggedIn) {
+          _selectedWidget = const Sessions();
+          } else {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+          }
+        });
       } else if (index == 1) {
         _selectedWidget = const Payment();
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
-        _selectedWidget = const Checkout();
+        _selectedWidget = const Cart();
       } else if (index == 4) {
-        _selectedWidget = const Register();
+        checkSessionExist().then((isLoggedIn) {
+          if (isLoggedIn) {
+          _selectedWidget = const Transactions();
+          } else {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+          }
+        });
       } 
     });
   }
