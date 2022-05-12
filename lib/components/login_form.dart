@@ -85,10 +85,10 @@ class LoginFormState extends State<LoginForm> {
     return Container(
         alignment: Alignment.centerRight,
         child: ElevatedButton(
-          onPressed: (){},
+          onPressed: () {},
           style: ButtonStyle(
-            padding: MaterialStateProperty.all(const EdgeInsets.only(right: 0.0))
-          ),
+              padding:
+                  MaterialStateProperty.all(const EdgeInsets.only(right: 0.0))),
           child: const Text(
             'Forgot Password?',
             style: kLabelStyle,
@@ -136,7 +136,7 @@ class LoginFormState extends State<LoginForm> {
           )),
           backgroundColor: MaterialStateProperty.all(const Color(0xff8B0000)),
         ),
-        onPressed: (){},
+        onPressed: () {},
         child: const Text(
           'Login',
           style: TextStyle(
@@ -155,8 +155,7 @@ class LoginFormState extends State<LoginForm> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const Menu(initialScreen: 1))
-        );
+            builder: (context) => const Menu(initialScreen: 1)));
       },
       child: RichText(
         text: const TextSpan(
