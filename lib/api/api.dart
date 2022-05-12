@@ -27,13 +27,10 @@ Future<dynamic> registerPost(data) async {
   return req.statusCode;
 }
 
-Future<dynamic> loginPost({email, password}) async {
+Future<dynamic> loginPost(data) async {
   Response req = await Dio().post(
     ('$host/login'),
-    data: {
-      'email': email,
-      'password': password,
-    },
+    data: data,
     options: Options(
       contentType: Headers.formUrlEncodedContentType,
       validateStatus: (status) {
@@ -41,7 +38,7 @@ Future<dynamic> loginPost({email, password}) async {
       },
     ),
   );
-  return req.statusCode;
+  return {'statusCode': req.statusCode, 'data': req.data};
 }
 
 Future<dynamic> getSessions() async {
