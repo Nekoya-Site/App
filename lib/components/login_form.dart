@@ -111,10 +111,11 @@ class LoginFormState extends State<LoginForm> {
         child: ElevatedButton(
           onPressed: () {},
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(const Color(0xff212226)),
-            padding: MaterialStateProperty.all(const EdgeInsets.only(right: 0.0)),
-            elevation: MaterialStateProperty.all(0.0)
-          ),
+              backgroundColor:
+                  MaterialStateProperty.all(const Color(0xff212226)),
+              padding:
+                  MaterialStateProperty.all(const EdgeInsets.only(right: 0.0)),
+              elevation: MaterialStateProperty.all(0.0)),
           child: const Text(
             'Forgot Password?',
             style: kLabelStyle,
@@ -172,11 +173,8 @@ class LoginFormState extends State<LoginForm> {
                   MaterialPageRoute(
                       builder: (context) => const Menu(initialScreen: 2)));
             } else {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const LoginError()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const LoginError()));
             }
           });
         },
@@ -198,7 +196,8 @@ class LoginFormState extends State<LoginForm> {
     return GestureDetector(
       onTap: () {
         Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const Register()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Register()));
       },
       child: RichText(
         text: const TextSpan(
@@ -258,7 +257,7 @@ class LoginFormState extends State<LoginForm> {
                     ),
                     _buildPasswordTF(),
                     _buildForgotPasswordBtn(),
-                    _buildRememberMeCheckBox(),
+                    // _buildRememberMeCheckBox(),
                     _buildLoginBtn(),
                     _buildSignupBtn(),
                   ],
