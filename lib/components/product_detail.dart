@@ -16,7 +16,7 @@ Widget makeDismissible({required context, required Widget child}) => GestureDete
 );
 
 Widget productDetail(context, id) {
-  GlobalKey _cartToolTipKey = GlobalKey();
+  GlobalKey cartToolTipKey_ = GlobalKey();
 
   return makeDismissible(
     context: context,
@@ -41,7 +41,7 @@ Widget productDetail(context, id) {
                   controller: controller,
                   children: [
                     CachedNetworkImage(
-                      imageUrl: 'https://nekoya.moe.team/img/' + data[0]['IMAGE'],
+                      imageUrl: "https://nekoya.moe.team/img/${data[0]['IMAGE']}",
                       placeholder: (context, url) =>
                         const CircularProgressIndicator(
                           color: Color(0xff8B0000),
@@ -61,12 +61,12 @@ Widget productDetail(context, id) {
                     const SizedBox(height: 15.0),
                     Text(data[0]['DESCRIPTION'], style: const TextStyle(color: Colors.white, fontSize: 18.0),),
                     const SizedBox(height: 15.0),
-                    Text('Price : Rp ' + NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE']), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
-                    Text('Stock : ' + data[0]['STOCK'].toString(), style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
-                    Text('Size : ' + data[0]['SIZE'], style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
+                    Text("Price : Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}", style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
+                    Text("Stock : ${data[0]['STOCK'].toString()}", style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
+                    Text("Size : ${data[0]['SIZE']}", style: const TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                     const SizedBox(height: 30.0),
                     Tooltip(
-                      key: _cartToolTipKey,
+                      key: cartToolTipKey_,
                       triggerMode: TooltipTriggerMode.manual,
                       showDuration: const Duration(seconds: 3),
                       waitDuration: const Duration(seconds: 3),
@@ -83,8 +83,8 @@ Widget productDetail(context, id) {
                       child: ElevatedButton.icon(
                         onPressed: (){
                           addToCart(id);
-                          final dynamic _cartToolTip = _cartToolTipKey.currentState;
-                          _cartToolTip.ensureTooltipVisible();
+                          final dynamic cartToolTip_ = cartToolTipKey_.currentState;
+                          cartToolTip_.ensureTooltipVisible();
                         },
                         icon: const Icon(Icons.add_shopping_cart),
                         label: const Text('Add to Cart', style: TextStyle(color: Colors.white, fontSize: 18.0),),
