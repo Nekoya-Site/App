@@ -66,7 +66,7 @@ class _TransactionBoxState extends State<TransactionBox> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('#' + widget.orderId.toString(), style: const TextStyle(color: Colors.white),),
+          Text('#${widget.orderId}', style: const TextStyle(color: Colors.white),),
           Text(widget.status, style: const TextStyle(color: Colors.white),)
         ],
       ),
@@ -128,7 +128,7 @@ class _TransactionBoxState extends State<TransactionBox> {
                         if (snapshot.hasData) {
                           var productData = snapshot.data;
                           return TransactionProductBox(
-                            imageUrl: 'https://nekoya.moe.team/img/' + productData[0]['IMAGE'],
+                            imageUrl: 'https://nekoya.moe.team/img/${productData[0]['IMAGE']}',
                             title: productData[0]['TITLE'],
                             quantity: orderData[index]["quantity"],
                           );
