@@ -118,10 +118,18 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 10,
                           ),
-                          makeInput(label: "First Name", icon: Icons.person),
-                          makeInput(label: "Last Name", icon: Icons.person),
                           makeInput(
-                              label: "Phone Number", icon: Icons.phone_rounded),
+                              label: "First Name",
+                              icon: Icons.person,
+                              keyboardType: TextInputType.name),
+                          makeInput(
+                              label: "Last Name",
+                              icon: Icons.person,
+                              keyboardType: TextInputType.name),
+                          makeInput(
+                              label: "Phone Number",
+                              icon: Icons.phone_rounded,
+                              keyboardType: TextInputType.phone),
                           const SizedBox(
                             height: 20,
                           ),
@@ -139,19 +147,38 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 10,
                           ),
-                          makeInput(label: "Street Address", icon: Icons.home),
                           makeInput(
-                              label: "Street Address 2", icon: Icons.home),
-                          makeInput(label: "Region", icon: Icons.location_city),
+                              label: "Street Address",
+                              icon: Icons.home,
+                              keyboardType: TextInputType.streetAddress),
                           makeInput(
-                              label: "Province", icon: Icons.location_city),
-                          makeInput(label: "City", icon: Icons.location_city),
+                              label: "Street Address 2",
+                              icon: Icons.home,
+                              keyboardType: TextInputType.streetAddress),
                           makeInput(
-                              label: "District", icon: Icons.location_city),
+                              label: "Region",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.streetAddress),
                           makeInput(
-                              label: "Subdistrict", icon: Icons.location_city),
+                              label: "Province",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.streetAddress),
                           makeInput(
-                              label: "Postal Code", icon: Icons.location_city),
+                              label: "City",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.streetAddress),
+                          makeInput(
+                              label: "District",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.streetAddress),
+                          makeInput(
+                              label: "Subdistrict",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.streetAddress),
+                          makeInput(
+                              label: "Postal Code",
+                              icon: Icons.location_city,
+                              keyboardType: TextInputType.number),
                           const SizedBox(
                             height: 20,
                           ),
@@ -234,13 +261,17 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => const Payment()));
+                                          builder: (context) =>
+                                              const Payment()));
                                 } else if (statusCode == 999) {
                                   showAlertDialog(context);
                                 }
                               });
                             } else {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()));
                             }
                           });
                         },
@@ -268,7 +299,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
   }
 }
 
-Widget makeInput({label, obscureText = false, icon}) {
+Widget makeInput({label, obscureText = false, icon, keyboardType}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -295,6 +326,7 @@ Widget makeInput({label, obscureText = false, icon}) {
         child: FormBuilderTextField(
           initialValue: "",
           name: label,
+          keyboardType: keyboardType,
           obscureText: obscureText,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
