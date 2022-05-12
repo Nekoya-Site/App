@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/transaction_box.dart';
+import 'package:nekoya_flutter/data/auth.dart';
 
 class Transactions extends StatefulWidget {
   const Transactions({Key? key}) : super(key: key);
@@ -11,6 +12,17 @@ class Transactions extends StatefulWidget {
 }
 
 class _TransactionsState extends State<Transactions> {
+  var session = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    getSession().then((session) async {
+      session = session;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +33,7 @@ class _TransactionsState extends State<Transactions> {
         backgroundColor: const Color(0xff212226),
       ),
       body: FutureBuilder<dynamic>(
-        future: getTransactions(),
+        future: getTransactions(session),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var data = snapshot.data;
