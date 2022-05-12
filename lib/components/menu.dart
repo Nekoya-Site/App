@@ -46,10 +46,10 @@ class _MenuState extends State<Menu> {
       body: _selectedWidget,
       bottomNavigationBar: Navigation(
         itemIcons: const [
-          Icons.settings_rounded,
+          Icons.settings,
           Icons.list_alt_rounded,
           Icons.shopping_cart,
-          Icons.account_circle,
+          Icons.wysiwyg
         ],
         centerIcon: Icons.home,
         selectedIndex: _selectedIndex,
