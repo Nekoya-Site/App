@@ -111,8 +111,10 @@ class LoginFormState extends State<LoginForm> {
         child: ElevatedButton(
           onPressed: () {},
           style: ButtonStyle(
-              padding:
-                  MaterialStateProperty.all(const EdgeInsets.only(right: 0.0))),
+            backgroundColor: MaterialStateProperty.all(const Color(0xff212226)),
+            padding: MaterialStateProperty.all(const EdgeInsets.only(right: 0.0)),
+            elevation: MaterialStateProperty.all(0.0)
+          ),
           child: const Text(
             'Forgot Password?',
             style: kLabelStyle,
