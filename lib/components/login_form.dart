@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+
+import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/components/login_error.dart';
 import 'package:nekoya_flutter/components/menu.dart';
+import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -11,7 +15,24 @@ class LoginForm extends StatefulWidget {
 }
 
 class LoginFormState extends State<LoginForm> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool _rememberMe = false;
+
+  Future submitForm(BuildContext context) async {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+      return 999;
+    } else {
+      Map<String, dynamic> data = {
+        "email": emailController.text,
+        "password": passwordController.text,
+        "ua": "Nekoya App v1.0.0-beta"
+      };
+
+      var response = await loginPost(data);
+      return {'statusCode': response['statusCode'], 'data': response['data']};
+    }
+  }
 
   Widget _buildEmailTF() {
     return Column(
@@ -26,13 +47,14 @@ class LoginFormState extends State<LoginForm> {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: const TextField(
+            child: TextField(
+              controller: emailController,
               keyboardType: TextInputType.emailAddress,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
@@ -60,13 +82,14 @@ class LoginFormState extends State<LoginForm> {
             alignment: Alignment.centerLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
-            child: const TextField(
+            child: TextField(
+              controller: passwordController,
               obscureText: true,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
@@ -136,7 +159,23 @@ class LoginFormState extends State<LoginForm> {
           )),
           backgroundColor: MaterialStateProperty.all(const Color(0xff8B0000)),
         ),
-        onPressed: () {},
+        onPressed: () {
+          submitForm(context).then((res) {
+            if (res['statusCode'] == 200) {
+              addSession(res['data']['id'], res['data']['session_token']);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Menu(initialScreen: 2)));
+            } else {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const LoginError()));
+            }
+          });
+        },
         child: const Text(
           'Login',
           style: TextStyle(
