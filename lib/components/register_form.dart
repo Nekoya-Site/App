@@ -76,14 +76,22 @@ class RegisterFormState extends State<RegisterForm> {
                           child: Column(
                             children: [
                               makeInput(
-                                  label: "First Name", icon: Icons.person),
-                              makeInput(label: "Last Name", icon: Icons.person),
+                                  label: "First Name",
+                                  icon: Icons.person,
+                                  keyboardType: TextInputType.name),
                               makeInput(
-                                  label: "Email Address", icon: Icons.email),
+                                  label: "Last Name",
+                                  icon: Icons.person,
+                                  keyboardType: TextInputType.name),
+                              makeInput(
+                                  label: "Email Address",
+                                  icon: Icons.email,
+                                  keyboardType: TextInputType.emailAddress),
                               makeInput(
                                   label: "Password",
                                   obscureText: true,
-                                  icon: Icons.lock)
+                                  icon: Icons.lock,
+                                  keyboardType: TextInputType.text)
                             ],
                           ),
                         ),
@@ -148,7 +156,10 @@ class RegisterFormState extends State<RegisterForm> {
                             ),
                             onPressed: () {
                               Navigator.pop(context);
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()));
                             },
                           ),
                         ],
@@ -165,7 +176,7 @@ class RegisterFormState extends State<RegisterForm> {
   }
 }
 
-Widget makeInput({label, obscureText = false, icon}) {
+Widget makeInput({label, obscureText = false, icon, keyboardType}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -192,6 +203,7 @@ Widget makeInput({label, obscureText = false, icon}) {
         child: FormBuilderTextField(
           initialValue: "",
           name: label,
+          keyboardType: keyboardType,
           obscureText: obscureText,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
