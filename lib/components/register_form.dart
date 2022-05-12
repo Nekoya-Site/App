@@ -16,6 +16,38 @@ class RegisterForm extends StatefulWidget {
 final _formKey = GlobalKey<FormBuilderState>();
 
 class RegisterFormState extends State<RegisterForm> {
+  Future submitForm(BuildContext context) async {
+    if (_formKey.currentState!.fields["First Name"]!
+                .value ==
+            '' ||
+        _formKey.currentState!.fields["Last Name"]!
+                .value ==
+            '' ||
+        _formKey.currentState!
+                .fields["Email Address"]!.value ==
+            '' ||
+        _formKey.currentState!.fields["Password"]!
+                .value ==
+            '') {
+      showAlertDialog(context);
+      return 400;
+    } else {
+      Map<String, dynamic> data = {
+        "first_name": _formKey.currentState!
+            .fields["First Name"]!.value,
+        "last_name": _formKey
+            .currentState!.fields["Last Name"]!.value,
+        "email": _formKey.currentState!
+            .fields["Email Address"]!.value,
+        "password": _formKey
+            .currentState!.fields["Password"]!.value
+      };
+
+      var statusCode = await registerPost(data);
+      return statusCode;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -75,34 +107,8 @@ class RegisterFormState extends State<RegisterForm> {
                           child: MaterialButton(
                             minWidth: double.infinity,
                             height: 35,
-                            onPressed: () async {
-                              if (_formKey.currentState!.fields["First Name"]!
-                                          .value ==
-                                      '' ||
-                                  _formKey.currentState!.fields["Last Name"]!
-                                          .value ==
-                                      '' ||
-                                  _formKey.currentState!
-                                          .fields["Email Address"]!.value ==
-                                      '' ||
-                                  _formKey.currentState!.fields["Password"]!
-                                          .value ==
-                                      '') {
-                                showAlertDialog(context);
-                              } else {
-                                Map<String, dynamic> data = {
-                                  "first_name": _formKey.currentState!
-                                      .fields["First Name"]!.value,
-                                  "last_name": _formKey
-                                      .currentState!.fields["Last Name"]!.value,
-                                  "email": _formKey.currentState!
-                                      .fields["Email Address"]!.value,
-                                  "password": _formKey
-                                      .currentState!.fields["Password"]!.value
-                                };
-
-                                var statusCode = await registerPost(data);
-
+                            onPressed: () {
+                              submitForm(context).then((statusCode) {
                                 if (statusCode == 200) {
                                   Navigator.push(
                                       context,
@@ -116,7 +122,7 @@ class RegisterFormState extends State<RegisterForm> {
                                           builder: (context) =>
                                               const RegisterError()));
                                 }
-                              }
+                              });
                             },
                             color: const Color(0xff8B0000),
                             shape: RoundedRectangleBorder(
