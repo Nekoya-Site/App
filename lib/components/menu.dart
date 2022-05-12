@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/data/auth.dart';
 import 'dart:math' as math;
 
+import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
@@ -251,6 +251,9 @@ class Navigation extends StatelessWidget {
                     customBorder: const CircleBorder(),
                     onTap: () {
                       onItemPressed(itemIcons.length == 4 ? 2 : 1);
+                    },
+                    onDoubleTap: () {
+                      removeSession();
                     },
                     child: Container(
                       decoration: BoxDecoration(
