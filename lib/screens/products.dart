@@ -1,4 +1,3 @@
-import 'package:responsify/responsify.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
