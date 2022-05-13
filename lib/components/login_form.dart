@@ -18,7 +18,6 @@ class LoginForm extends StatefulWidget {
 class LoginFormState extends State<LoginForm> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool _rememberMe = false;
 
   Future submitForm(BuildContext context) async {
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
@@ -121,33 +120,6 @@ class LoginFormState extends State<LoginForm> {
             style: kLabelStyle,
           ),
         ));
-  }
-
-  Widget _buildRememberMeCheckBox() {
-    return SizedBox(
-      height: 13.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value!;
-                });
-              },
-            ),
-          ),
-          const Text(
-            'Remember me',
-            style: kLabelStyle,
-          )
-        ],
-      ),
-    );
   }
 
   Widget _buildLoginBtn() {
