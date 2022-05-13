@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/product_box.dart';
 import 'package:nekoya_flutter/components/product_detail.dart';
+import 'package:nekoya_flutter/utils/utils.dart' show kMobileBreakpoint, kTabletBreakpoint, kDesktopBreakPoint;
 
 class Products extends StatefulWidget {
   const Products({Key? key}) : super(key: key);
@@ -22,46 +23,61 @@ class _ProductsState extends State<Products> {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
-      body: ResponsiveUiWidget(
-          targetOlderComputers: true,
-          builder: (context, deviceInformation) {
-            return FutureBuilder<dynamic>(
-              future: getProducts(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  var data = snapshot.data;
-                  return GridView.count(
-                    crossAxisCount:
-                        deviceInformation.orientation == Orientation.portrait
-                            ? 2
-                            : 5,
-                    children: List.generate(data!.length, (index) {
-                      return ProductBox(
-                        imageUrl:
-                            "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
+      body: LayoutBuilder(
+        builder: (context, dimension) {
+          int gridCount = 2;
+          double fontSize = 14.0;
+
+          if (dimension.maxWidth <= kMobileBreakpoint) {
+            gridCount = 2;
+            fontSize = 14.0;
+          } else if (dimension.maxWidth > kMobileBreakpoint &&
+              dimension.maxWidth <= kTabletBreakpoint) {
+            gridCount = 4;
+            fontSize = 15.0;
+          } else if (dimension.maxWidth > kTabletBreakpoint &&
+              dimension.maxWidth <= kDesktopBreakPoint) {
+            gridCount = 5;
+            fontSize = 10.0;
+          } else {
+            gridCount = 6;
+            fontSize = 10.0;
+          }
+
+          return FutureBuilder<dynamic>(
+            future: getProducts(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                var data = snapshot.data;
+                return GridView.count(
+                  crossAxisCount: gridCount,
+                  children: List.generate(data!.length, (index) {
+                    return ProductBox(
+                        imageUrl: "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
                         title: data[index]['TITLE'],
+                        fontSize: fontSize,
                         callback: () {
                           showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
                             context: context,
-                            builder: (context) =>
-                                productDetail(context, data[index]['ID']),
+                            builder: (context) => productDetail(context, data[index]['ID']),
                           );
                         },
-                      );
-                    }),
-                  );
-                }
-
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: Color(0xff8B0000),
-                  ),
+                    );
+                  }),
                 );
-              },
-            );
-          }),
+              }
+
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Color(0xff8B0000),
+                ),
+              );
+            },
+          );
+        }
+      ),
     );
   }
 }
