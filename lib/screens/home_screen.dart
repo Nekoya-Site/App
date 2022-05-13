@@ -13,7 +13,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
+        backgroundColor: const Color(0xff212226),
         leading: IconButton(
           onPressed: () {},
           icon: SvgPicture.asset("assets/icons/menu.svg"),
@@ -21,17 +23,17 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/icons/Location.svg"),
             const SizedBox(width: defaultPadding / 2),
             Text(
-              "15/2 New Texas",
-              style: Theme.of(context).textTheme.bodyText1,
+              "Nekoya",
+              style: TextStyle(fontSize: 20.0, color: Colors.white),
             ),
           ],
         ),
         actions: [
           IconButton(
             icon: SvgPicture.asset("assets/icons/Notification.svg"),
+            color: Colors.white,
             onPressed: () {},
           ),
         ],
@@ -48,11 +50,11 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .headline4!
-                  .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+                  .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
             ),
             const Text(
               "best Outfits for you",
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18, color: Colors.white),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: defaultPadding),
