@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../utils/utils.dart';
 
 const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(12)),

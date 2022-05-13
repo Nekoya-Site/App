@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/screens/productcoba.dart';
 
-import '../../../constants.dart';
+import '../utils/utils.dart';
 import 'product_card.dart';
 import 'section_title.dart';
 

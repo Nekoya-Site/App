@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nekoya_flutter/constants.dart';
+import 'package:nekoya_flutter/utils/utils.dart';
 
 import 'package:nekoya_flutter/components/categories.dart';
 import 'package:nekoya_flutter/components/new_arrival_products.dart';

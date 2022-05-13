@@ -12,6 +12,12 @@ class HideScrollGlow extends ScrollBehavior {
   }
 }
 
+const Color primaryColor = Color(0xFFF67952);
+const Color bgColor = Color(0xFFFBFBFD);
+
+const double defaultPadding = 16.0;
+const double defaultBorderRadius = 12.0;
+
 const kHintTextStyle = TextStyle(
   color: Colors.white54,
   fontFamily: 'OpenSans',
