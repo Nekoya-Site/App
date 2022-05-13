@@ -9,6 +9,7 @@ import 'package:nekoya_flutter/screens/cart.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
+import 'package:nekoya_flutter/screens/home_screen.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key, required this.initialScreen}) : super(key: key);
@@ -65,14 +66,15 @@ class _MenuState extends State<Menu> {
       if (index == 0) {
         checkSessionExist().then((isLoggedIn) {
           if (isLoggedIn) {
-          _selectedWidget = const Sessions();
+            _selectedWidget = const Sessions();
           } else {
             _selectedIndex = oldSelectedIndex;
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Login()));
           }
         });
       } else if (index == 1) {
-        _selectedWidget = const Payment();
+        _selectedWidget = const HomeScreen();
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
@@ -80,13 +82,14 @@ class _MenuState extends State<Menu> {
       } else if (index == 4) {
         checkSessionExist().then((isLoggedIn) {
           if (isLoggedIn) {
-          _selectedWidget = const Transactions();
+            _selectedWidget = const Transactions();
           } else {
             _selectedIndex = oldSelectedIndex;
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Login()));
           }
         });
-      } 
+      }
     });
   }
 }
