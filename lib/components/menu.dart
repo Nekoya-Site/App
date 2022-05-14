@@ -26,9 +26,9 @@ class _MenuState extends State<Menu> {
   @override
   void initState() {
     if (widget.initialScreen == 0) {
-      _selectedWidget = const Login();
+      _selectedWidget = const Sessions();
     } else if (widget.initialScreen == 1) {
-      _selectedWidget = const Register();
+      _selectedWidget = const HomeScreen();
     } else if (widget.initialScreen == 2) {
       _selectedWidget = const Products();
     } else if (widget.initialScreen == 3) {
