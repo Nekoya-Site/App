@@ -29,7 +29,7 @@ class _MenuState extends State<Menu> {
     } else if (widget.initialScreen == 1) {
       _selectedWidget = const Products();
     } else if (widget.initialScreen == 2) {
-      _selectedWidget = const HomeScreen();
+      _selectedWidget = const Home();
     } else if (widget.initialScreen == 3) {
       _selectedWidget = const Cart();
     } else if (widget.initialScreen == 4) {
@@ -72,7 +72,7 @@ class _MenuState extends State<Menu> {
         });
       } else if (index == 1) {
         html.window.history.pushState(null, '', '/products');
-        _selectedWidget = const HomeScreen();
+        _selectedWidget = const Home();
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {

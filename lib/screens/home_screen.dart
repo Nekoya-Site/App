@@ -7,8 +7,8 @@ import 'package:nekoya_flutter/components/new_arrival_products.dart';
 import 'package:nekoya_flutter/components/popular_products.dart';
 import 'package:nekoya_flutter/components/search_form.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
