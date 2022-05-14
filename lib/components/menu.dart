@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'package:universal_html/html.dart' as html;
+import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/screens/products.dart';
@@ -70,10 +71,12 @@ class _MenuState extends State<Menu> {
           }
         });
       } else if (index == 1) {
+        html.window.history.pushState(null, '', '/products');
         _selectedWidget = const HomeScreen();
       } else if (index == 2) {
         _selectedWidget = const Products();
       } else if (index == 3) {
+        html.window.history.pushState(null, '', '/cart');
         _selectedWidget = const Cart();
       } else if (index == 4) {
         checkSessionExist().then((isLoggedIn) {
