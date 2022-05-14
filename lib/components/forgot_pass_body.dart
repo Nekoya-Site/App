@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/otp.dart';
 
 class ForgotPassBody extends StatefulWidget {

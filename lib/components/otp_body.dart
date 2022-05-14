@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 
 class OtpBody extends StatefulWidget {
   const OtpBody({Key? key}) : super(key: key);

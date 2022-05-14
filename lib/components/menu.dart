@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:nekoya_flutter/data/auth.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/cart.dart';
-import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
 import 'package:nekoya_flutter/screens/home_screen.dart';

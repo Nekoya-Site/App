@@ -5,7 +5,6 @@ import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/login_error.dart';
 import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/data/auth.dart';
-import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
