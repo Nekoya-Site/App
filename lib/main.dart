@@ -4,11 +4,12 @@ import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 import 'package:nekoya_flutter/components/menu.dart';
+import 'package:nekoya_flutter/utils/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    usePathUrlStrategy();
     runApp(const Nekoya());
   });
 }
