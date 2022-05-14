@@ -72,9 +72,9 @@ class _MenuState extends State<Menu> {
         });
       } else if (index == 1) {
         html.window.history.pushState(null, '', '/products');
-        _selectedWidget = const Home();
-      } else if (index == 2) {
         _selectedWidget = const Products();
+      } else if (index == 2) {
+        _selectedWidget = const Home();
       } else if (index == 3) {
         html.window.history.pushState(null, '', '/cart');
         _selectedWidget = const Cart();
