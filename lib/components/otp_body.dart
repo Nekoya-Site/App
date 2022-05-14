@@ -251,8 +251,7 @@ class _OtpBodyState extends State<OtpBody> {
                       borderRadius: BorderRadius.circular(18.0),
                       side: const BorderSide(color: Colors.red)))),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.pushNamed(context, '/login');
           },
           child: const Text(
             'Verify',

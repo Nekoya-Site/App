@@ -68,8 +68,7 @@ class _MenuState extends State<Menu> {
             _selectedWidget = const Sessions();
           } else {
             _selectedIndex = oldSelectedIndex;
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.pushNamed(context, '/login');
           }
         });
       } else if (index == 1) {
@@ -84,8 +83,7 @@ class _MenuState extends State<Menu> {
             _selectedWidget = const Transactions();
           } else {
             _selectedIndex = oldSelectedIndex;
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.pushNamed(context, '/login');
           }
         });
       }

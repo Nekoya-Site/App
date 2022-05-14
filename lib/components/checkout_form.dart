@@ -268,10 +268,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                                 }
                               });
                             } else {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Login()));
+                              Navigator.pushNamed(context, '/login');
                             }
                           });
                         },

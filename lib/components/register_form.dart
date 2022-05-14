@@ -156,10 +156,7 @@ class RegisterFormState extends State<RegisterForm> {
                             ),
                             onPressed: () {
                               Navigator.pop(context);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Login()));
+                              Navigator.pushNamed(context, '/login');
                             },
                           ),
                         ],
