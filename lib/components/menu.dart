@@ -7,7 +7,7 @@ import 'package:nekoya_flutter/screens/products.dart';
 import 'package:nekoya_flutter/screens/cart.dart';
 import 'package:nekoya_flutter/screens/sessions.dart';
 import 'package:nekoya_flutter/screens/transactions.dart';
-import 'package:nekoya_flutter/screens/home_screen.dart';
+import 'package:nekoya_flutter/screens/home.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key, required this.initialScreen}) : super(key: key);
