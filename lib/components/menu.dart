@@ -27,9 +27,9 @@ class _MenuState extends State<Menu> {
     if (widget.initialScreen == 0) {
       _selectedWidget = const Sessions();
     } else if (widget.initialScreen == 1) {
-      _selectedWidget = const HomeScreen();
-    } else if (widget.initialScreen == 2) {
       _selectedWidget = const Products();
+    } else if (widget.initialScreen == 2) {
+      _selectedWidget = const HomeScreen();
     } else if (widget.initialScreen == 3) {
       _selectedWidget = const Cart();
     } else if (widget.initialScreen == 4) {
