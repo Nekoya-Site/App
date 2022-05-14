@@ -168,8 +168,7 @@ class LoginFormState extends State<LoginForm> {
     return GestureDetector(
       onTap: () {
         Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Register()));
+        Navigator.pushNamed(context, '/register');
       },
       child: RichText(
         text: const TextSpan(
