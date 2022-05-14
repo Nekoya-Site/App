@@ -22,8 +22,8 @@ class HomeScreen extends StatelessWidget {
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(width: defaultPadding / 2),
+          children: const [
+            SizedBox(width: defaultPadding / 2),
             Text(
               "Nekoya",
               style: TextStyle(fontSize: 20.0, color: Colors.white),
