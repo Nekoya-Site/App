@@ -15,28 +15,9 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
+        title: const Text('Nekoya'),
+        centerTitle: true,
         backgroundColor: const Color(0xff212226),
-        leading: IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            SizedBox(width: defaultPadding / 2),
-            Text(
-              "Nekoya",
-              style: TextStyle(fontSize: 20.0, color: Colors.white),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/Notification.svg"),
-            color: Colors.white,
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(
