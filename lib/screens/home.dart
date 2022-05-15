@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nekoya_flutter/components/bannerimage.dart';
-import 'package:nekoya_flutter/components/carouselwithindicatordemo.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
+import 'package:nekoya_flutter/components/carousel.dart';
 import 'package:nekoya_flutter/components/new_arrival_products.dart';
 import 'package:nekoya_flutter/components/popular_products.dart';
 import 'package:nekoya_flutter/components/search_form.dart';
@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: defaultPadding),
               child: SearchForm(),
             ),
-            CarouselWithIndicatorDemo(),
+            Carousel(),
             const NewArrivalProducts(),
             const Bannerimage(),
             const PopularProducts(),
