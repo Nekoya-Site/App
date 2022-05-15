@@ -44,6 +44,9 @@ class Home extends StatelessWidget {
             ),
             Carousel(),
             const NewArrivalProducts(),
+            const SizedBox(
+              height: 15,
+            ),
             const Bannerimage(),
             const PopularProducts(),
           ],
