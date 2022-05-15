@@ -41,6 +41,20 @@ Future<dynamic> loginPost(data) async {
   return {'statusCode': req.statusCode, 'data': req.data};
 }
 
+Future<dynamic> resetPost(data) async {
+  Response req = await Dio().post(
+    ('$host/request-reset-password'),
+    data: data,
+    options: Options(
+      contentType: Headers.formUrlEncodedContentType,
+      validateStatus: (status) {
+        return status! < 400;
+      },
+    ),
+  );
+  return {'statusCode': req.statusCode, 'data': req.data};
+}
+
 Future<dynamic> getSessions(session) async {
   var req = await Dio()
       .post('$host/sessions', queryParameters: {'session_token': session});

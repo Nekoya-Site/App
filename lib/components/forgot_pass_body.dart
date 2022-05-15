@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/screens/otp.dart';
 
 class ForgotPassBody extends StatefulWidget {
@@ -10,6 +11,8 @@ class ForgotPassBody extends StatefulWidget {
 }
 
 class _ForgotPassBodyState extends State<ForgotPassBody> {
+  TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,12 +44,16 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
           ),
           Container(
             padding: const EdgeInsets.only(bottom: 20),
-            child: const TextField(
+            child: TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)),
                   hintText: 'EMAIL',
-                  fillColor: Colors.white),
+                  fillColor: Colors.white,
+                  hintStyle: TextStyle(color: Colors.white)),
             ),
           ),
           ElevatedButton(
@@ -60,6 +67,10 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.red)))),
             onPressed: () {
+              Map<String, dynamic> data = {
+                "email": emailController.text,
+              };
+              resetPost(data);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Otp()));
             },
