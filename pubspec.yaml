@@ -43,6 +43,7 @@ dependencies:
   page_transition: ^2.0.5
   shared_preferences: ^2.0.13
   universal_html: ^2.0.8
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1
