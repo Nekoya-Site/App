@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
+import 'package:nekoya_flutter/screens/login.dart';
+import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/components/menu.dart';
+import 'package:nekoya_flutter/utils/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    usePathUrlStrategy();
     runApp(const Nekoya());
   });
 }
@@ -36,6 +39,14 @@ class _NekoyaState extends State<Nekoya> {
         nextScreen: const Menu(initialScreen: 2,),
       ),
       debugShowCheckedModeBanner: false,
+      initialRoute: '',
+      routes: {
+        '' : (context) => const Menu(initialScreen: 2,),
+        '/login': (context) => const Login(),
+        '/register': (context) => const Register(),
+        '/products' : (context) => const Menu(initialScreen: 1,),
+        '/cart' : (context) => const Menu(initialScreen: 3,),
+      },
     );
   }
 }

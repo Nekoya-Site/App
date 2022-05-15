@@ -7,36 +7,17 @@ import 'package:nekoya_flutter/components/new_arrival_products.dart';
 import 'package:nekoya_flutter/components/popular_products.dart';
 import 'package:nekoya_flutter/components/search_form.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
+        title: const Text('Nekoya'),
+        centerTitle: true,
         backgroundColor: const Color(0xff212226),
-        leading: IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(width: defaultPadding / 2),
-            Text(
-              "Nekoya",
-              style: TextStyle(fontSize: 20.0, color: Colors.white),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/Notification.svg"),
-            color: Colors.white,
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../utils/utils.dart';
 import 'package:nekoya_flutter/screens/productcoba.dart';
-import 'package:nekoya_flutter/screens/products.dart';
 
 import 'package:nekoya_flutter/components/color_dot.dart';
 
@@ -62,7 +61,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: defaultPadding),
                       Text(
-                        "\$" + product.price.toString(),
+                        "\$${product.price}",
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],

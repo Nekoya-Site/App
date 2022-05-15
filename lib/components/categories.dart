@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nekoya_flutter/components/Category.dart';
+import 'package:nekoya_flutter/components/_category.dart';
 
 import '../utils/utils.dart';
 
@@ -15,10 +15,10 @@ class Categories extends StatelessWidget {
       height: 84,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: demo_categories.length,
+        itemCount: demoCategories.length,
         itemBuilder: (context, index) => CategoryCard(
-          icon: demo_categories[index].icon,
-          title: demo_categories[index].title,
+          icon: demoCategories[index].icon,
+          title: demoCategories[index].title,
           press: () {},
         ),
         separatorBuilder: (context, index) =>

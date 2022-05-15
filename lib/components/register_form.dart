@@ -5,7 +5,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/register_error.dart';
 import 'package:nekoya_flutter/components/register_verify.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -156,10 +155,7 @@ class RegisterFormState extends State<RegisterForm> {
                             ),
                             onPressed: () {
                               Navigator.pop(context);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Login()));
+                              Navigator.pushNamed(context, '/login');
                             },
                           ),
                         ],

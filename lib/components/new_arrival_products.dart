@@ -28,20 +28,20 @@ class NewArrivalProducts extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: List.generate(
-              demo_product.length,
+              demoProduct.length,
               (index) => Padding(
                 padding: const EdgeInsets.only(right: defaultPadding),
                 child: ProductCard(
-                  title: demo_product[index].title,
-                  image: demo_product[index].image,
-                  price: demo_product[index].price,
-                  bgColor: demo_product[index].bgColor,
+                  title: demoProduct[index].title,
+                  image: demoProduct[index].image,
+                  price: demoProduct[index].price,
+                  bgColor: demoProduct[index].bgColor,
                   press: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              DetailsScreen(product: demo_product[index]),
+                              DetailsScreen(product: demoProduct[index]),
                         ));
                   },
                 ),

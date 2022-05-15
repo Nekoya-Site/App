@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 
 class OtpBody extends StatefulWidget {
   const OtpBody({Key? key}) : super(key: key);
@@ -20,8 +19,8 @@ class _OtpBodyState extends State<OtpBody> {
           child: Lottie.asset('assets/lottieanims/otp.json'),
         ),
         Container(
-          padding: EdgeInsets.only(top: 15),
-          child: Text(
+          padding: const EdgeInsets.only(top: 15),
+          child: const Text(
             'A String of OTP Code Has Been Sent to 08080808080808',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 15, color: Colors.white),
@@ -29,7 +28,7 @@ class _OtpBodyState extends State<OtpBody> {
         ),
         Form(
             child: Container(
-          padding: EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,18 +44,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -76,18 +75,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -107,18 +106,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -138,18 +137,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -169,18 +168,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -200,18 +199,18 @@ class _OtpBodyState extends State<OtpBody> {
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
-                      } else if (value.length == 0) {
+                      } else if (value.isEmpty) {
                         FocusScope.of(context).previousFocus();
                       }
                     },
                     onSaved: (pin1) {},
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "0",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(1),
@@ -224,12 +223,12 @@ class _OtpBodyState extends State<OtpBody> {
           ),
         )),
         Container(
-          padding: EdgeInsets.only(top: 15, bottom: 15),
+          padding: const EdgeInsets.only(top: 15, bottom: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "didn't get the code? \t",
                 style: TextStyle(color: Colors.white),
               ),
@@ -251,8 +250,7 @@ class _OtpBodyState extends State<OtpBody> {
                       borderRadius: BorderRadius.circular(18.0),
                       side: const BorderSide(color: Colors.red)))),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Login()));
+            Navigator.pushNamed(context, '/login');
           },
           child: const Text(
             'Verify',

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/otp.dart';
 
 class ForgotPassBody extends StatefulWidget {
@@ -80,8 +79,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.red)))),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Login()));
+              Navigator.pushNamed(context, '/login');
             },
             child: const Text(
               'Back to Login',
