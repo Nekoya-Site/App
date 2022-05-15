@@ -17,7 +17,7 @@ class SectionTitle extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
         ),
@@ -25,7 +25,7 @@ class SectionTitle extends StatelessWidget {
           onPressed: pressSeeAll,
           child: const Text(
             "See All",
-            style: TextStyle(color: Colors.black54),
+            style: TextStyle(color: Colors.white),
           ),
         )
       ],
