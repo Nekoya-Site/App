@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/screens/productcoba.dart';
-import 'package:nekoya_flutter/components/details_screen.dart';
 
 import '../utils/utils.dart';
 import 'product_card.dart';
