@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:nekoya_flutter/screens/otp.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
@@ -74,7 +75,7 @@ class _MenuState extends State<Menu> {
         html.window.history.pushState(null, '', '/products');
         _selectedWidget = const Products();
       } else if (index == 2) {
-        _selectedWidget = const Home();
+        _selectedWidget = const Otp();
       } else if (index == 3) {
         html.window.history.pushState(null, '', '/cart');
         _selectedWidget = const Cart();
