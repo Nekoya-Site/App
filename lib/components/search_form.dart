@@ -20,15 +20,17 @@ class SearchForm extends StatelessWidget {
         onSaved: (value) {},
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: const Color(0xff212226),
           hintText: "Search items...",
+          hintStyle: TextStyle(color: Colors.white),
           border: outlineInputBorder,
           enabledBorder: outlineInputBorder,
           focusedBorder: outlineInputBorder,
           errorBorder: outlineInputBorder,
           prefixIcon: Padding(
             padding: const EdgeInsets.all(14),
-            child: SvgPicture.asset("assets/icons/Search.svg"),
+            child: SvgPicture.asset("assets/icons/Search.svg",
+                color: Colors.white),
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(
