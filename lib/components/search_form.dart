@@ -36,7 +36,7 @@ class SearchForm extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
                 horizontal: defaultPadding, vertical: defaultPadding / 2),
             child: SizedBox(
-              width: 48,
+              width: 100,
               height: 48,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -46,7 +46,7 @@ class SearchForm extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {},
-                child: SvgPicture.asset("assets/icons/Filter.svg"),
+                child: const Text('Search'),
               ),
             ),
           ),
