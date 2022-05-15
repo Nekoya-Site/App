@@ -38,7 +38,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                   Icons.mail_sharp,
                   color: Colors.white,
                 ),
-                Text('  EMAIL', style: TextStyle(color: Colors.white)),
+                Text('  Email', style: TextStyle(color: Colors.white)),
               ],
             ),
           ),
@@ -49,11 +49,17 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               keyboardType: TextInputType.emailAddress,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white)),
-                  hintText: 'EMAIL',
-                  fillColor: Colors.white,
-                  hintStyle: TextStyle(color: Colors.white)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.white60,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
+              ),
             ),
           ),
           ElevatedButton(
@@ -65,7 +71,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Colors.red)))),
+                        side: const BorderSide(color: Colors.black)))),
             onPressed: () {
               Map<String, dynamic> data = {
                 "email": emailController.text,
@@ -88,7 +94,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Colors.red)))),
+                        side: const BorderSide(color: Colors.black)))),
             onPressed: () {
               Navigator.pushNamed(context, '/login');
             },
