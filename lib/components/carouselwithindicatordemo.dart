@@ -13,32 +13,27 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   final CarouselController _controller = CarouselController();
   final List<Widget> imgList = [
     Container(
-        width: 12.0,
-        height: 12.0,
         decoration: BoxDecoration(
             image:
-                DecorationImage(image: AssetImage('/asset/Carousel_1.webp'))))
+                DecorationImage(image: AssetImage('assets/Carousel_1.webp'))))
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Carousel with indicator controller demo')),
-      body: Column(children: [
-        Expanded(
-          child: CarouselSlider(
-            items: imgList,
-            carouselController: _controller,
-            options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                aspectRatio: 2.0,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                }),
-          ),
+    return Column(
+      children: [
+        CarouselSlider(
+          items: imgList,
+          carouselController: _controller,
+          options: CarouselOptions(
+              autoPlay: true,
+              enlargeCenterPage: true,
+              aspectRatio: 2.0,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _current = index;
+                });
+              }),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +54,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
             );
           }).toList(),
         ),
-      ]),
+      ],
     );
   }
 
