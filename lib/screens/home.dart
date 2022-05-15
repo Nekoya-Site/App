@@ -43,7 +43,7 @@ class Home extends StatelessWidget {
               child: SearchForm(),
             ),
             const Categories(),
-            const CarouselWithIndicatorDemo(),
+            CarouselWithIndicatorDemo(),
             const NewArrivalProducts(),
             const PopularProducts(),
           ],
