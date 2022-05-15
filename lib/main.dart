@@ -39,7 +39,6 @@ class _NekoyaState extends State<Nekoya> {
         nextScreen: const Menu(initialScreen: 2,),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '',
       routes: {
         '' : (context) => const Menu(initialScreen: 2,),
         '/login': (context) => const Login(),
