@@ -8,11 +8,12 @@ class Bannerimage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(0.0),
         child: new Image.asset(
           'assets/Carousel_1.webp',
-          width: 100.0,
+          width: 600.0,
           height: 200.0,
+          fit: BoxFit.fill,
         ));
   }
 }
