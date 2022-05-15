@@ -4,6 +4,7 @@ import '../utils/utils.dart';
 import 'product_card.dart';
 import 'section_title.dart';
 import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/components/product_detail.dart';
 
 class NewArrivalProducts extends StatelessWidget {
   const NewArrivalProducts({
@@ -42,7 +43,14 @@ class NewArrivalProducts extends StatelessWidget {
                         imageUrl: "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
                         price: 99,
                         bgColor: const Color(0xFFFEFBF9),
-                        press: () {},
+                        press: () {
+                          showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) => productDetail(context, data[index]['ID']),
+                          );
+                        },
                       ),
                     ),
                   ),
