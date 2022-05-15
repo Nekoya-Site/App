@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nekoya_flutter/components/bannerimage.dart';
 import 'package:nekoya_flutter/components/carouselwithindicatordemo.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
@@ -45,6 +46,7 @@ class Home extends StatelessWidget {
             const Categories(),
             CarouselWithIndicatorDemo(),
             const NewArrivalProducts(),
+            const Bannerimage(),
             const PopularProducts(),
           ],
         ),

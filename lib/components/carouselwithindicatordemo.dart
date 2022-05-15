@@ -15,7 +15,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
     Container(
         decoration: BoxDecoration(
             image:
-                DecorationImage(image: AssetImage('assets/Carousel_1.webp'))))
+                DecorationImage(image: AssetImage("assets/Carousel_1.webp"))))
   ];
 
   @override
@@ -26,6 +26,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
           items: imgList,
           carouselController: _controller,
           options: CarouselOptions(
+              height: 202,
               autoPlay: true,
               enlargeCenterPage: true,
               aspectRatio: 2.0,
@@ -48,7 +49,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
                     shape: BoxShape.circle,
                     color: (Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
-                            : Colors.black)
+                            : Colors.white)
                         .withOpacity(_current == entry.key ? 0.9 : 0.4)),
               ),
             );
