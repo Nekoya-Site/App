@@ -5,6 +5,7 @@ import 'package:nekoya_flutter/components/details_screen.dart';
 import '../utils/utils.dart';
 import 'product_card.dart';
 import 'section_title.dart';
+import 'package:nekoya_flutter/api/api.dart';
 
 class NewArrivalProducts extends StatelessWidget {
   const NewArrivalProducts({
@@ -22,32 +23,56 @@ class NewArrivalProducts extends StatelessWidget {
             pressSeeAll: () {},
           ),
         ),
-        SingleChildScrollView(
-          physics: const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics()),
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: List.generate(
-              demoProduct.length,
-              (index) => Padding(
-                padding: const EdgeInsets.only(right: defaultPadding),
-                child: ProductCard(
-                  title: demoProduct[index].title,
-                  image: demoProduct[index].image,
-                  price: demoProduct[index].price,
-                  bgColor: demoProduct[index].bgColor,
-                  press: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              DetailsScreen(product: demoProduct[index]),
-                        ));
-                  },
+        FutureBuilder<dynamic>(
+          future: getProducts(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var sourceData = snapshot.data;
+              sourceData.shuffle();
+              var data = sourceData.take(6).toList();
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    data.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: defaultPadding),
+                      child: ProductCard(
+                        title: data[index]['TITLE'],
+                        imageUrl: "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
+                        price: 99,
+                        bgColor: const Color(0xFFFEFBF9),
+                        press: () {},
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              );
+            } else {
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    6,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: defaultPadding),
+                      child: ProductCard(
+                        title: 'Loading...',
+                        imageUrl: "https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp",
+                        price: 99,
+                        bgColor: const Color(0xFFFEFBF9),
+                        press: () {},
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
+          }
         )
       ],
     );
