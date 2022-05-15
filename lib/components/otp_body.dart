@@ -21,7 +21,7 @@ class _OtpBodyState extends State<OtpBody> {
         Container(
           padding: const EdgeInsets.only(top: 15),
           child: const Text(
-            'A String of OTP Code Has Been Sent to 08080808080808',
+            'Check your Telegram app for 2FA code',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 15, color: Colors.white),
           ),
@@ -50,7 +50,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -81,7 +81,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -112,7 +112,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -143,7 +143,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -174,7 +174,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -205,7 +205,7 @@ class _OtpBodyState extends State<OtpBody> {
                     },
                     onSaved: (pin1) {},
                     decoration: const InputDecoration(
-                      hintText: "0",
+                      hintText: "",
                       focusColor: Colors.white,
                       hintStyle: TextStyle(color: Colors.white),
                     ),
@@ -229,12 +229,12 @@ class _OtpBodyState extends State<OtpBody> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "didn't get the code? \t",
+                "Didn't get it?? \t",
                 style: TextStyle(color: Colors.white),
               ),
               Text(
-                'Resend code',
-                style: TextStyle(color: Colors.blue.shade800),
+                'Resend Code',
+                style: TextStyle(color: Colors.red),
               ),
             ],
           ),
@@ -248,12 +248,12 @@ class _OtpBodyState extends State<OtpBody> {
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
-                      side: const BorderSide(color: Colors.red)))),
+                      side: const BorderSide(color: Colors.black)))),
           onPressed: () {
             Navigator.pushNamed(context, '/login');
           },
           child: const Text(
-            'Verify',
+            'Submit',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         )
