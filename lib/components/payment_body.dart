@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/data/cart.dart';
+import 'package:intl/intl.dart';
 
 import 'package:nekoya_flutter/components/menu.dart';
 
@@ -12,6 +15,19 @@ class PaymentBody extends StatefulWidget {
 class _PaymentBodyState extends State<PaymentBody> {
   @override
   Widget build(BuildContext context) {
+    Future<dynamic> getTotal() async {
+      dynamic totalPrice = 0;
+      var orderData = await viewCart();
+      await orderData.forEach((x) async {
+        var product = await getProduct(x['product_id']);
+        totalPrice += product[0]['PRICE'] * x['quantity'];
+      });
+
+      return Future.delayed(const Duration(seconds: 2), () {
+        return totalPrice;
+      });
+    }
+
     return Container(
       decoration: const BoxDecoration(color: Colors.transparent),
       child: ListView(
@@ -104,16 +120,41 @@ class _PaymentBodyState extends State<PaymentBody> {
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(18),
               color: const Color(0xff8B0000),
             ),
-            child: const Text(
-              '13000000',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+            child: FutureBuilder<dynamic>(
+              future: getTotal(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  var price = snapshot.data;
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  );
+                }
+
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Count total price on process!",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600),
+                    )
+                  ],
+                );
+              },
             ),
           ),
           Container(
