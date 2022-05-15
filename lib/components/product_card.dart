@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';
@@ -5,13 +6,13 @@ import '../utils/utils.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
-    required this.image,
+    required this.imageUrl,
     required this.title,
     required this.price,
     required this.press,
     required this.bgColor,
   }) : super(key: key);
-  final String image, title;
+  final String imageUrl, title;
   final VoidCallback press;
   final int price;
   final Color bgColor;
@@ -36,9 +37,25 @@ class ProductCard extends StatelessWidget {
                 borderRadius: const BorderRadius.all(
                     Radius.circular(defaultBorderRadius)),
               ),
-              child: Image.asset(
-                image,
-                height: 132,
+              // child: Image.asset(
+              //   image,
+              //   height: 132,
+              // ),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(
+                  color: Color(0xff8B0000),
+                ),
+                errorWidget: (context, url, error) =>
+                    Image.asset('assets/image-error.webp'),
+                fadeOutDuration: const Duration(milliseconds: 5),
+                imageBuilder: (context, imageProvider) => Container(
+                  height: 132,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: imageProvider, fit: BoxFit.cover)),
+                ),
               ),
             ),
             const SizedBox(height: defaultPadding / 2),
