@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
                   .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
             ),
             const Text(
-              "Best outfits for you",
+              "Best Looking Sneakers For You...",
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
             const Padding(
