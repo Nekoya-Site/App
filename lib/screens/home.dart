@@ -20,36 +20,38 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()),
-        padding: const EdgeInsets.all(defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Explore",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4!
-                  .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
-            ),
-            const Text(
-              "Best Looking Sneakers For You...",
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: defaultPadding),
-              child: SearchForm(),
-            ),
-            Carousel(),
-            const NewArrivalProducts(),
-            const SizedBox(
-              height: 15,
-            ),
-            const Bannerimage(),
-            const PopularProducts(),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
+          padding: const EdgeInsets.all(defaultPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Explore",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
+              ),
+              const Text(
+                "Best Looking Sneakers For You...",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: defaultPadding),
+                child: SearchForm(),
+              ),
+              Carousel(),
+              const NewArrivalProducts(),
+              const SizedBox(
+                height: 15,
+              ),
+              const Bannerimage(),
+              const PopularProducts(),
+            ],
+          ),
         ),
       ),
     );
