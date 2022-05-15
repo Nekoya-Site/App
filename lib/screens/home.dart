@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nekoya_flutter/components/carouselwithindicatordemo.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 import 'package:nekoya_flutter/components/categories.dart';
@@ -42,6 +43,7 @@ class Home extends StatelessWidget {
               child: SearchForm(),
             ),
             const Categories(),
+            const CarouselWithIndicatorDemo(),
             const NewArrivalProducts(),
             const PopularProducts(),
           ],
