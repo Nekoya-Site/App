@@ -1,3 +1,4 @@
+import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/data/auth.dart';
@@ -19,6 +20,7 @@ class NavigationAuth extends StatelessWidget {
           if (data) {
             return route;
           } else {
+            html.window.history.pushState(null, '', '/login');
             return const Login();
           }
         } else {
