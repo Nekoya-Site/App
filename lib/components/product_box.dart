@@ -51,7 +51,7 @@ class _ProductBoxState extends State<ProductBox> {
                 ),
               ),
               Flexible(
-                flex: 1,
+                flex: 2,
                 child: Container(
                   margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
                   child: Text(
