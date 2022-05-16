@@ -16,7 +16,7 @@ class _OtpBodyState extends State<OtpBody> {
       padding: const EdgeInsets.all(25),
       child: ListView(children: [
         Container(
-          child: Lottie.asset('assets/lottieanims/otp.json'),
+          child: Lottie.asset('assets/lottie/otp.json'),
         ),
         Container(
           padding: const EdgeInsets.only(top: 15),

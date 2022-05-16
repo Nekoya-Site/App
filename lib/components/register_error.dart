@@ -47,7 +47,7 @@ class RegisterErrorState extends State<RegisterError> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Lottie.asset(
-                            "assets/lottieanims/register_error.json",
+                            "assets/lottie/register_error.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             height: 350,

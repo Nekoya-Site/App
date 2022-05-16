@@ -60,7 +60,7 @@ class RegisterFormState extends State<RegisterForm> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Lottie.asset(
-                            "assets/lottieanims/register_form.json",
+                            "assets/lottie/register_form.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             fit: BoxFit.fitHeight,

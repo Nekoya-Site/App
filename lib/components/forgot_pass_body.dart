@@ -21,7 +21,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
       child: ListView(
         children: [
           Container(
-            child: Lottie.asset('assets/lottieanims/forgot_pass_body.json'),
+            child: Lottie.asset('assets/lottie/forgot_pass_body.json'),
           ),
           Container(
             padding: const EdgeInsets.only(top: 25),

@@ -47,7 +47,7 @@ class LoginErrorState extends State<LoginError> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Lottie.asset(
-                            "assets/lottieanims/login_error.json",
+                            "assets/lottie/login_error.json",
                             frameRate: FrameRate.max,
                             alignment: Alignment.center,
                             height: 350,

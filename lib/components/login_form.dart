@@ -214,7 +214,7 @@ class LoginFormState extends State<LoginForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      "assets/lottieanims/login_form.json",
+                      "assets/lottie/login_form.json",
                       frameRate: FrameRate.max,
                       alignment: Alignment.center,
                       fit: BoxFit.fitHeight,
