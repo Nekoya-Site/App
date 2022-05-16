@@ -78,7 +78,7 @@ Widget productDetail(context, id) {
                             ),
                             const SizedBox(height: 20.0),
                             Text(
-                              "Price\t: Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}",
+                              "Price : Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}",
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 18.0,
