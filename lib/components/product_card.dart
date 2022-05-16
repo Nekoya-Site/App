@@ -50,7 +50,7 @@ class ProductCard extends StatelessWidget {
                 ),
                     ),
                 errorWidget: (context, url, error) =>
-                    Image.asset('assets/images/image-error.webp'),
+                    Image.asset('assets/images/image_error.webp'),
                 fadeOutDuration: const Duration(milliseconds: 5),
                 imageBuilder: (context, imageProvider) => Container(
                   height: 132,

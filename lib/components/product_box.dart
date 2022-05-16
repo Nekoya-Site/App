@@ -39,7 +39,7 @@ class _ProductBoxState extends State<ProductBox> {
                     color: Color(0xff8B0000),
                   ),
                   errorWidget: (context, url, error) =>
-                      Image.asset('assets/images/image-error.webp'),
+                      Image.asset('assets/images/image_error.webp'),
                   fadeOutDuration: const Duration(milliseconds: 5),
                   imageBuilder: (context, imageProvider) => Container(
                     width: 300,
