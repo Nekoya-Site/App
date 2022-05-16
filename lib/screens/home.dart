@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/components/bannerimage.dart';
 import 'package:nekoya_flutter/components/carousel.dart';
 import 'package:nekoya_flutter/components/new_arrival_products.dart';
+import 'package:nekoya_flutter/components/newsletter.dart';
 import 'package:nekoya_flutter/components/popular_products.dart';
 import 'package:nekoya_flutter/components/search_form.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
@@ -50,6 +51,7 @@ class Home extends StatelessWidget {
               ),
               const Bannerimage(),
               const PopularProducts(),
+              const Newsletter(),
             ],
           ),
         ),
