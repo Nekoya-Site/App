@@ -47,6 +47,7 @@ class _NekoyaState extends State<Nekoya> {
         '/products' : (context) => const Menu(initialScreen: 1,),
         '/cart' : (context) => const Menu(initialScreen: 3,),
         '/sessions': (context) => const NavigationAuth(route: Menu(initialScreen: 0,)),
+        '/transactions': (context) => const NavigationAuth(route: Menu(initialScreen: 4,)),
       },
     );
   }
