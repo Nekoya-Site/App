@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
         title: const Text('Nekoya'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
