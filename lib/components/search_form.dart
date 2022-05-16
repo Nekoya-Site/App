@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nekoya_flutter/components/search_page.dart';
 
 import 'package:nekoya_flutter/utils/utils.dart';
 
@@ -8,16 +9,21 @@ const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
   borderSide: BorderSide.none,
 );
 
-class SearchForm extends StatelessWidget {
-  const SearchForm({
-    Key? key,
-  }) : super(key: key);
+class SearchForm extends StatefulWidget {
+  const SearchForm({Key? key}) : super(key: key);
+
+  @override
+  State<SearchForm> createState() => _SearchFormState();
+}
+
+class _SearchFormState extends State<SearchForm> {
+  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Form(
       child: TextFormField(
-        onSaved: (value) {},
+        controller: searchController,
         decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xff212226),
@@ -45,7 +51,11 @@ class SearchForm extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => SearchPage(query: searchController.text)
+                  ));
+                },
                 child: const Text('Search'),
               ),
             ),
