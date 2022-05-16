@@ -74,6 +74,7 @@ class _MenuState extends State<Menu> {
         html.window.history.pushState(null, '', '/products');
         _selectedWidget = const Products();
       } else if (index == 2) {
+        html.window.history.pushState(null, '', '');
         _selectedWidget = const Home();
       } else if (index == 3) {
         html.window.history.pushState(null, '', '/cart');
