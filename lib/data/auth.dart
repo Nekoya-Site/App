@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:nekoya_flutter/api/api.dart';
+
 String getEncodedSession(userId, sessionToken) {
   var sessionData = {
     "user_id": userId,
@@ -23,7 +25,12 @@ Future<bool> checkSessionExist() async {
   final prefs = await SharedPreferences.getInstance();
 
   if (prefs.containsKey('session')) {
-    return true;
+    var res = await getSessions(await getSession());
+
+    if (res['statusCode'] == 200) {
+      return true;
+    }
+    return false;
   }
 
   return false;
