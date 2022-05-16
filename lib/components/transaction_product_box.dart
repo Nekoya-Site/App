@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 
 class TransactionProductBox extends StatefulWidget {
   const TransactionProductBox({Key? key, required this.imageUrl, required this.title, required this.quantity}) : super(key: key);

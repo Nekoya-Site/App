@@ -1,8 +1,9 @@
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
 import 'package:nekoya_flutter/components/cart_box.dart';
-import 'package:intl/intl.dart';
 
 class CheckoutItems extends StatefulWidget {
   const CheckoutItems({Key? key}) : super(key: key);

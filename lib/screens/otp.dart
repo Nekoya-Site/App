@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:nekoya_flutter/components/otp_body.dart';
 
 class Otp extends StatefulWidget {

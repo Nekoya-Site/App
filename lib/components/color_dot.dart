@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/utils.dart';
+import 'package:nekoya_flutter/utils/utils.dart';
 
 class ColorDot extends StatelessWidget {
   const ColorDot({

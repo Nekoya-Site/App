@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter/material.dart';
 
 class RegisterVerify extends StatefulWidget {
   const RegisterVerify({Key? key}) : super(key: key);

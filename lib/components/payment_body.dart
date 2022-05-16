@@ -1,8 +1,8 @@
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
-import 'package:intl/intl.dart';
-
 import 'package:nekoya_flutter/components/menu.dart';
 
 class PaymentBody extends StatefulWidget {
