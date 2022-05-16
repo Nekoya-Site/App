@@ -23,6 +23,7 @@ class _SearchFormState extends State<SearchForm> {
   Widget build(BuildContext context) {
     return Form(
       child: TextFormField(
+        style: TextStyle(color: Colors.white),
         controller: searchController,
         decoration: InputDecoration(
           filled: true,
@@ -52,9 +53,11 @@ class _SearchFormState extends State<SearchForm> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => SearchPage(query: searchController.text)
-                  ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              SearchPage(query: searchController.text)));
                 },
                 child: const Text('Search'),
               ),
