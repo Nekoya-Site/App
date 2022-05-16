@@ -21,7 +21,7 @@ class Newsletter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Newsletter',
                 style: TextStyle(
                   color: Colors.white,
@@ -29,7 +29,7 @@ class Newsletter extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
+              const Text(
                 'Subscribe to Our Newsletter and get 20% off your first purchase',
                 style: TextStyle(
                   color: Colors.white,
@@ -39,6 +39,7 @@ class Newsletter extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(top: 25.0),
                   child: TextFormField(
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xff212226),
