@@ -11,7 +11,7 @@ class Carousel extends StatefulWidget {
 final List<String> imgList = [
   'assets/images/carousel_1.webp',
   'assets/images/carousel_2.webp',
-  'assets/images/carousel_3.webp'
+  'assets/images/carousel_3.webp',
 ];
 
 class _CarouselState extends State<Carousel> {
