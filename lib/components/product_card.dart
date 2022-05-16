@@ -8,13 +8,11 @@ class ProductCard extends StatelessWidget {
     Key? key,
     required this.imageUrl,
     required this.title,
-    required this.price,
     required this.press,
     required this.bgColor,
   }) : super(key: key);
   final String imageUrl, title;
   final VoidCallback press;
-  final int price;
   final Color bgColor;
 
   @override
@@ -64,12 +62,7 @@ class ProductCard extends StatelessWidget {
                     title,
                     style: const TextStyle(color: Colors.white),
                   ),
-                ),
-                const SizedBox(width: defaultPadding / 4),
-                Text(
-                  "\$$price",
-                  style: const TextStyle(color: Colors.white),
-                ),
+                )
               ],
             )
           ],

@@ -41,7 +41,6 @@ class NewArrivalProducts extends StatelessWidget {
                       child: ProductCard(
                         title: data[index]['TITLE'],
                         imageUrl: "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
-                        price: 99,
                         bgColor: const Color(0xFFFEFBF9),
                         press: () {
                           showModalBottomSheet(
@@ -69,7 +68,6 @@ class NewArrivalProducts extends StatelessWidget {
                       child: ProductCard(
                         title: 'Loading...',
                         imageUrl: "https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp",
-                        price: 99,
                         bgColor: const Color(0xFFFEFBF9),
                         press: () {},
                       ),
