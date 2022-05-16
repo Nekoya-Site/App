@@ -7,6 +7,7 @@ import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/utils/url_strategy.dart';
+import 'package:nekoya_flutter/utils/navigation_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +46,7 @@ class _NekoyaState extends State<Nekoya> {
         '/register': (context) => const Register(),
         '/products' : (context) => const Menu(initialScreen: 1,),
         '/cart' : (context) => const Menu(initialScreen: 3,),
+        '/sessions': (context) => const NavigationAuth(route: Menu(initialScreen: 0,)),
       },
     );
   }
