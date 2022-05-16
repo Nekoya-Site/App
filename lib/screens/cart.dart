@@ -42,6 +42,7 @@ class _CartState extends State<Cart> {
         title: const Text('Cart'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         margin: const EdgeInsets.only(bottom: 80.0),

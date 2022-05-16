@@ -21,6 +21,7 @@ class _ProductsState extends State<Products> {
         title: const Text('Nekoya'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
+        automaticallyImplyLeading: false,
       ),
       body: LayoutBuilder(
         builder: (context, dimension) {
