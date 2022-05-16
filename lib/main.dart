@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/register.dart';
+import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/utils/url_strategy.dart';
 import 'package:nekoya_flutter/utils/navigation_auth.dart';
@@ -48,6 +49,7 @@ class _NekoyaState extends State<Nekoya> {
         '/cart' : (context) => const Menu(initialScreen: 3,),
         '/sessions': (context) => const NavigationAuth(route: Menu(initialScreen: 0,)),
         '/transactions': (context) => const NavigationAuth(route: Menu(initialScreen: 4,)),
+        '/payment': (context) => const NavigationAuth(route: Payment()),
       },
     );
   }
