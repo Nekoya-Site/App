@@ -29,6 +29,7 @@ environment:
 dependencies:
   animated_splash_screen: ^1.2.0
   cached_network_image: ^3.2.0
+  carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
   flutter:
@@ -43,8 +44,6 @@ dependencies:
   page_transition: ^2.0.5
   shared_preferences: ^2.0.13
   universal_html: ^2.0.8
-  carousel_slider: ^4.1.1
-  app: ^0.0.3
 
 dev_dependencies:
   flutter_lints: ^2.0.1
