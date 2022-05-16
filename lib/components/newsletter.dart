@@ -12,6 +12,7 @@ class Newsletter extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [

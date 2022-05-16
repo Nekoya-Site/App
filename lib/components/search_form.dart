@@ -23,7 +23,7 @@ class _SearchFormState extends State<SearchForm> {
   Widget build(BuildContext context) {
     return Form(
       child: TextFormField(
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         controller: searchController,
         decoration: InputDecoration(
           filled: true,
