@@ -44,7 +44,6 @@ dependencies:
   page_transition: ^2.0.5
   shared_preferences: ^2.0.13
   universal_html: ^2.0.8
-  #google_maps_flutter: ^2.1.5
 
 dev_dependencies:
   flutter_lints: ^2.0.1
