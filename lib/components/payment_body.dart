@@ -40,17 +40,17 @@ class _PaymentBodyState extends State<PaymentBody> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Image.asset(
-                  'assets/bca.webp',
+                  'assets/images/bca.webp',
                   cacheHeight: 40,
                   cacheWidth: 100,
                 ),
                 Image.asset(
-                  'assets/bni.webp',
+                  'assets/images/bni.webp',
                   cacheHeight: 40,
                   cacheWidth: 100,
                 ),
                 Image.asset(
-                  'assets/bri.webp',
+                  'assets/images/bri.webp',
                   cacheHeight: 40,
                   cacheWidth: 100,
                 ),

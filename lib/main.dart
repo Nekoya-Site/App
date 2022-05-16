@@ -32,7 +32,7 @@ class _NekoyaState extends State<Nekoya> {
           colorScheme:
               ColorScheme.fromSwatch(accentColor: const Color(0xff8B0000))),
       home: AnimatedSplashScreen(
-        splash: 'assets/logo_transparent.webp',
+        splash: 'assets/images/logo_transparent.webp',
         pageTransitionType: PageTransitionType.fade,
         backgroundColor: const Color(0xff1b1c1e),
         splashIconSize: 150,
