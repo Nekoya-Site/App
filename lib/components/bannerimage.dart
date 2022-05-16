@@ -46,7 +46,9 @@ class Bannerimage extends StatelessWidget {
                       height: 8.0,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/products');
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: Colors.red,
                           textStyle: const TextStyle(
