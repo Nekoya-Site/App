@@ -84,6 +84,7 @@ class _NewsletterState extends State<Newsletter> {
                               onPressed: () {
                                 if (emailController.text.isNotEmpty) {
                                   subscribe(emailController.text).then((status) {
+                                    emailController.clear();
                                     if (status == 200) {
                                       return showDialog(
                                         context: context,
@@ -112,8 +113,6 @@ class _NewsletterState extends State<Newsletter> {
                                           );
                                         }
                                       );
-                                    } else {
-
                                     }
                                   });
                                 }

@@ -58,6 +58,7 @@ class _SearchFormState extends State<SearchForm> {
                       MaterialPageRoute(
                           builder: (context) =>
                               SearchPage(query: searchController.text)));
+                  searchController.clear();
                 },
                 child: const Text('Search'),
               ),
