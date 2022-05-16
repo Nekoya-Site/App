@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
@@ -7,10 +9,15 @@ const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
   borderSide: BorderSide.none,
 );
 
-class Newsletter extends StatelessWidget {
-  const Newsletter({
-    Key? key,
-  }) : super(key: key);
+class Newsletter extends StatefulWidget {
+  const Newsletter({Key? key}) : super(key: key);
+
+  @override
+  State<Newsletter> createState() => _NewsletterState();
+}
+
+class _NewsletterState extends State<Newsletter> {
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +47,7 @@ class Newsletter extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.only(top: 25.0),
                   child: TextFormField(
+                    controller: emailController,
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         filled: true,
@@ -73,7 +81,43 @@ class Newsletter extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(12)),
                                   )),
-                              onPressed: () {},
+                              onPressed: () {
+                                if (emailController.text.isNotEmpty) {
+                                  subscribe(emailController.text).then((status) {
+                                    if (status == 200) {
+                                      return showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: const Text('Thank You', style: TextStyle(color: Colors.white),),
+                                            backgroundColor: const Color(0xff212226),
+                                            content: SingleChildScrollView(
+                                              child: ListBody(
+                                                children: const <Widget>[
+                                                  Text('You have successfully subscribed to the newsletter.', style: TextStyle(
+                                                    color: Colors.white
+                                                  )),
+                                                ],
+                                              ),
+                                            ),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                child: const Text('Close', style: TextStyle(color: Colors.white),),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        }
+                                      );
+                                    } else {
+
+                                    }
+                                  });
+                                }
+                              },
                               child: const Text(
                                 'SUBSCRIBE',
                                 style: TextStyle(

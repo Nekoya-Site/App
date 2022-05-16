@@ -83,3 +83,8 @@ Future<dynamic> checkoutPost(session, data) async {
   );
   return req.statusCode;
 }
+
+Future<dynamic> subscribe(email) async {
+  var req = await Dio().get('$host/subscribe', queryParameters: {'email': email});
+  return req.statusCode;
+}
