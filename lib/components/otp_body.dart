@@ -227,8 +227,8 @@ class _OtpBodyState extends State<OtpBody> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 "Didn't get it?? \t",
                 style: TextStyle(color: Colors.white),
               ),

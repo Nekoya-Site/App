@@ -47,7 +47,7 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
             child: TextField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                     borderSide: const BorderSide(

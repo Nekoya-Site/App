@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nekoya_flutter/components/bannerimage.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
@@ -43,7 +42,7 @@ class Home extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: defaultPadding),
                 child: SearchForm(),
               ),
-              Carousel(),
+              const Carousel(),
               const NewArrivalProducts(),
               const SizedBox(
                 height: 15,

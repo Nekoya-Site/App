@@ -25,16 +25,16 @@ class ProductCard extends StatelessWidget {
         width: 154,
         padding: const EdgeInsets.all(defaultPadding / 2),
         decoration: const BoxDecoration(
-          color: const Color(0xff212226),
+          color: Color(0xff212226),
           borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
         ),
         child: Column(
           children: [
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: const Color(0xff212226),
-                borderRadius: const BorderRadius.all(
+              decoration: const BoxDecoration(
+                color: Color(0xff212226),
+                borderRadius: BorderRadius.all(
                     Radius.circular(defaultBorderRadius)),
               ),
               // child: Image.asset(

@@ -22,7 +22,7 @@ class SearchForm extends StatelessWidget {
           filled: true,
           fillColor: const Color(0xff212226),
           hintText: "Search items...",
-          hintStyle: TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white),
           border: outlineInputBorder,
           enabledBorder: outlineInputBorder,
           focusedBorder: outlineInputBorder,
