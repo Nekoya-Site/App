@@ -12,13 +12,14 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           title,
           style: Theme.of(context).textTheme.subtitle1!.copyWith(
                 color: Colors.white,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
               ),
         )
       ],
