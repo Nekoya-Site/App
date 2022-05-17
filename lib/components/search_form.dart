@@ -53,11 +53,12 @@ class _SearchFormState extends State<SearchForm> {
                   ),
                 ),
                 onPressed: () {
+                  var searchQuery = searchController.text;
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              SearchPage(query: searchController.text)));
+                              SearchPage(query: searchQuery)));
                   searchController.clear();
                 },
                 child: const Text('Search'),
