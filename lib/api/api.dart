@@ -35,7 +35,7 @@ Future<dynamic> loginPost(data) async {
     options: Options(
       contentType: Headers.formUrlEncodedContentType,
       validateStatus: (status) {
-        return status! < 400;
+        return status! < 500;
       },
     ),
   );
@@ -85,6 +85,7 @@ Future<dynamic> checkoutPost(session, data) async {
 }
 
 Future<dynamic> subscribe(email) async {
-  var req = await Dio().get('$host/subscribe', queryParameters: {'email': email});
+  var req =
+      await Dio().get('$host/subscribe', queryParameters: {'email': email});
   return req.statusCode;
 }
