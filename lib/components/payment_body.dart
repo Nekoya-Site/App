@@ -62,11 +62,17 @@ class _PaymentBodyState extends State<PaymentBody> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: const ExpansionTile(
-                backgroundColor: Color(0xff8B0000),
-                collapsedBackgroundColor: Color(0xff8B0000),
+                backgroundColor: const Color(0xff212226),
+                collapsedBackgroundColor: const Color(0xff212226),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: Text('BCA'),
+                title: Text(
+                  'BCA',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
                 children: [
                   ListTile(
                     textColor: Colors.white,
@@ -82,11 +88,17 @@ class _PaymentBodyState extends State<PaymentBody> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: const ExpansionTile(
-                backgroundColor: Color(0xff8B0000),
-                collapsedBackgroundColor: Color(0xff8B0000),
+                backgroundColor: const Color(0xff212226),
+                collapsedBackgroundColor: const Color(0xff212226),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
-                title: Text('BNI'),
+                title: Text(
+                  'BNI',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
                 children: [
                   ListTile(
                     textColor: Colors.white,
@@ -100,11 +112,17 @@ class _PaymentBodyState extends State<PaymentBody> {
           ClipRRect(
             borderRadius: BorderRadius.circular(18),
             child: const ExpansionTile(
-              backgroundColor: Color(0xff8B0000),
-              collapsedBackgroundColor: Color(0xff8B0000),
+              backgroundColor: const Color(0xff212226),
+              collapsedBackgroundColor: const Color(0xff212226),
               textColor: Colors.white,
               collapsedTextColor: Colors.white,
-              title: Text('BRI'),
+              title: Text(
+                'BRI',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
               children: [
                 ListTile(
                   textColor: Colors.white,
@@ -120,8 +138,9 @@ class _PaymentBodyState extends State<PaymentBody> {
           ),
           Container(
             decoration: BoxDecoration(
+              border: Border.all(color: Colors.orange.shade800),
               borderRadius: BorderRadius.circular(18),
-              color: const Color(0xff8B0000),
+              //color: const Color.fromARGB(255, 38, 173, 54),
             ),
             child: FutureBuilder<dynamic>(
               future: getTotal(),
@@ -135,7 +154,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                         "Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
                         style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 25,
+                            fontSize: 30,
                             fontWeight: FontWeight.w600),
                       )
                     ],
@@ -161,23 +180,26 @@ class _PaymentBodyState extends State<PaymentBody> {
             padding: const EdgeInsets.only(top: 40),
             color: Colors.transparent,
           ),
-          ElevatedButton(
-            style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all(const Color(0xff8B0000)),
-                backgroundColor:
-                    MaterialStateProperty.all(const Color(0xff8B0000)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Color(0xff8B0000))))),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const Menu(initialScreen: 4)));
-            },
-            child: const Text(
-              'Transaction',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+          Padding(
+            padding: const EdgeInsets.only(right: 30, left: 30),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all(const Color(0xff8B0000)),
+                  backgroundColor:
+                      MaterialStateProperty.all(const Color(0xff8B0000)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: const BorderSide(color: Color(0xff8B0000))))),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const Menu(initialScreen: 4)));
+              },
+              child: const Text(
+                'Transaction',
+                style: TextStyle(color: Colors.white, fontSize: 30),
+              ),
             ),
           ),
         ],
