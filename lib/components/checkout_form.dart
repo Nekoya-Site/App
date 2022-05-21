@@ -5,7 +5,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/data/cart.dart';
-import 'package:nekoya_flutter/screens/payment.dart';
 
 class CheckoutForm extends StatefulWidget {
   const CheckoutForm({Key? key}) : super(key: key);
@@ -257,11 +256,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                             if (isLoggedIn) {
                               submitForm(context).then((statusCode) {
                                 if (statusCode == 201) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Payment()));
+                                  Navigator.pushReplacementNamed(context, '/payment');
                                 } else if (statusCode == 999) {
                                   showAlertDialog(context);
                                 }

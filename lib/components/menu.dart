@@ -71,13 +71,13 @@ class _MenuState extends State<Menu> {
           }
         });
       } else if (index == 1) {
-        html.window.history.pushState(null, '', '/products');
+        html.window.history.pushState(null, '', '/#/products');
         _selectedWidget = const Products();
       } else if (index == 2) {
         html.window.history.pushState(null, '', '');
         _selectedWidget = const Home();
       } else if (index == 3) {
-        html.window.history.pushState(null, '', '/cart');
+        html.window.history.pushState(null, '', '/#/cart');
         _selectedWidget = const Cart();
       } else if (index == 4) {
         checkSessionExist().then((isLoggedIn) {

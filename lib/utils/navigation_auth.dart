@@ -20,7 +20,7 @@ class NavigationAuth extends StatelessWidget {
           if (data) {
             return route;
           } else {
-            html.window.history.pushState(null, '', '/login');
+            html.window.history.pushState(null, '', '/#/login');
             return const Login();
           }
         } else {

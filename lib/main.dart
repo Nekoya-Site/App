@@ -7,13 +7,11 @@ import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/components/menu.dart';
-import 'package:nekoya_flutter/utils/url_strategy.dart';
 import 'package:nekoya_flutter/utils/navigation_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
-    usePathUrlStrategy();
     runApp(const Nekoya());
   });
 }
@@ -33,16 +31,16 @@ class _NekoyaState extends State<Nekoya> {
       theme: ThemeData(
           colorScheme:
               ColorScheme.fromSwatch(accentColor: const Color(0xff8B0000))),
-      home: AnimatedSplashScreen(
-        splash: 'assets/images/logo_transparent.webp',
-        pageTransitionType: PageTransitionType.fade,
-        backgroundColor: const Color(0xff1b1c1e),
-        splashIconSize: 150,
-        nextScreen: const Menu(initialScreen: 2,),
-      ),
       debugShowCheckedModeBanner: false,
+      initialRoute: '',
       routes: {
-        '' : (context) => const Menu(initialScreen: 2,),
+        '' : (context) => AnimatedSplashScreen(
+          splash: 'assets/images/logo_transparent.webp',
+          pageTransitionType: PageTransitionType.fade,
+          backgroundColor: const Color(0xff1b1c1e),
+          splashIconSize: 150,
+          nextScreen: const Menu(initialScreen: 2,),
+        ),
         '/login': (context) => const Login(),
         '/register': (context) => const Register(),
         '/products' : (context) => const Menu(initialScreen: 1,),

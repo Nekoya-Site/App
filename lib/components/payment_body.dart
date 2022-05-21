@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
-import 'package:nekoya_flutter/components/menu.dart';
 
 class PaymentBody extends StatefulWidget {
   const PaymentBody({Key? key}) : super(key: key);
@@ -64,8 +63,8 @@ class _PaymentBodyState extends State<PaymentBody> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: const ExpansionTile(
-                  backgroundColor: const Color(0xff212226),
-                  collapsedBackgroundColor: const Color(0xff212226),
+                  backgroundColor: Color(0xff212226),
+                  collapsedBackgroundColor: Color(0xff212226),
                   textColor: Colors.white,
                   collapsedTextColor: Colors.white,
                   title: Text(
@@ -93,8 +92,8 @@ class _PaymentBodyState extends State<PaymentBody> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: const ExpansionTile(
-                  backgroundColor: const Color(0xff212226),
-                  collapsedBackgroundColor: const Color(0xff212226),
+                  backgroundColor: Color(0xff212226),
+                  collapsedBackgroundColor: Color(0xff212226),
                   textColor: Colors.white,
                   collapsedTextColor: Colors.white,
                   title: Text(
@@ -120,8 +119,8 @@ class _PaymentBodyState extends State<PaymentBody> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: const ExpansionTile(
-                backgroundColor: const Color(0xff212226),
-                collapsedBackgroundColor: const Color(0xff212226),
+                backgroundColor: Color(0xff212226),
+                collapsedBackgroundColor: Color(0xff212226),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
                 title: Text(
@@ -205,8 +204,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                           borderRadius: BorderRadius.circular(18.0),
                           side: const BorderSide(color: Color(0xff8B0000))))),
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const Menu(initialScreen: 4)));
+                Navigator.pushReplacementNamed(context, '');
               },
               child: const Text(
                 'Transaction',
