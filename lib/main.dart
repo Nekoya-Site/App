@@ -7,12 +7,10 @@ import 'package:nekoya_flutter/screens/login.dart';
 import 'package:nekoya_flutter/screens/register.dart';
 import 'package:nekoya_flutter/screens/payment.dart';
 import 'package:nekoya_flutter/components/menu.dart';
-import 'package:nekoya_flutter/utils/url_strategy.dart';
 import 'package:nekoya_flutter/utils/navigation_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  usePathUrlStrategy();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(const Nekoya());
   });
