@@ -14,6 +14,19 @@ class ForgotPassBody extends StatefulWidget {
 class _ForgotPassBodyState extends State<ForgotPassBody> {
   TextEditingController emailController = TextEditingController();
 
+  Future forgotForm(BuildContext context) async {
+    if (emailController.text.isEmpty) {
+      return 999;
+    } else {
+      Map<String, dynamic> data = {
+        "email": emailController.text,
+      };
+
+      var response = await resetPost(data);
+      return {'statusCode': response['statusCode'], 'data': response['data']};
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,15 +87,19 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.black)))),
             onPressed: () {
-              Map<String, dynamic> data = {
-                "email": emailController.text,
-              };
               if (emailController.text.isEmpty) {
                 showAlertDialog(context);
               } else {
-                resetPost(data);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Otp()));
+                forgotForm(context).then((res) {
+                  if (res['statusCode'] == 200) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Otp()));
+                  } else if (res['statusCode'] == 205) {
+                    showEmailWarn(context);
+                  } else {
+                    showBad(context);
+                  }
+                });
               }
             },
             child: const Text(
@@ -131,7 +148,71 @@ showAlertDialog(BuildContext context) {
       style: TextStyle(color: Colors.white),
     ),
     content: const Text(
-      "Make sure to fill all text fields",
+      "Make sure you have email",
+      style: TextStyle(color: Colors.white70),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showEmailWarn(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("OK", style: TextStyle(color: Colors.red)),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    backgroundColor: const Color(0xff1b1c1e),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    title: const Text(
+      "Error",
+      style: TextStyle(color: Colors.white),
+    ),
+    content: const Text(
+      "Sorry your email not registered yet",
+      style: TextStyle(color: Colors.white70),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showBad(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("OK", style: TextStyle(color: Colors.red)),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    backgroundColor: const Color(0xff1b1c1e),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    title: const Text(
+      "Error",
+      style: TextStyle(color: Colors.white),
+    ),
+    content: const Text(
+      "Server Down",
       style: TextStyle(color: Colors.white70),
     ),
     actions: [
