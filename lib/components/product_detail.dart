@@ -23,7 +23,7 @@ Widget productDetail(context, id) {
       child: DraggableScrollableSheet(
           initialChildSize: 0.7,
           minChildSize: 0.5,
-          maxChildSize: 1,
+          maxChildSize: 0.965,
           builder: (_, controller) => FutureBuilder<dynamic>(
               future: getProduct(id),
               builder: (context, snapshot) {
