@@ -205,8 +205,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                           borderRadius: BorderRadius.circular(18.0),
                           side: const BorderSide(color: Color(0xff8B0000))))),
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const Menu(initialScreen: 4)));
+                Navigator.pushReplacementNamed(context, '');
               },
               child: const Text(
                 'Transaction',
