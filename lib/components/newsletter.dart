@@ -86,6 +86,7 @@ class _NewsletterState extends State<Newsletter> {
                                   var emailQuery = emailController.text;
                                   subscribe(emailQuery).then((status) {
                                     if (status == 200) {
+                                      emailController.clear();
                                       return showDialog(
                                         context: context,
                                         barrierDismissible: false,
@@ -114,8 +115,6 @@ class _NewsletterState extends State<Newsletter> {
                                         }
                                       );
                                     }
-
-                                    emailController.clear();
                                   });
                                 }
                               },
