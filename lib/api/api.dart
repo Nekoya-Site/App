@@ -49,7 +49,7 @@ Future<dynamic> resetPost(data) async {
     options: Options(
       contentType: Headers.formUrlEncodedContentType,
       validateStatus: (status) {
-        return status! < 400;
+        return status! < 500;
       },
     ),
   );
