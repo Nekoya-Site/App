@@ -57,123 +57,135 @@ class _PaymentBodyState extends State<PaymentBody> {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: const ExpansionTile(
-                backgroundColor: const Color(0xff212226),
-                collapsedBackgroundColor: const Color(0xff212226),
-                textColor: Colors.white,
-                collapsedTextColor: Colors.white,
-                title: Text(
-                  'BCA',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-                children: [
-                  ListTile(
-                    textColor: Colors.white,
-                    title: Text(
-                        '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: const ExpansionTile(
-                backgroundColor: const Color(0xff212226),
-                collapsedBackgroundColor: const Color(0xff212226),
-                textColor: Colors.white,
-                collapsedTextColor: Colors.white,
-                title: Text(
-                  'BNI',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-                children: [
-                  ListTile(
-                    textColor: Colors.white,
-                    title: Text(
-                        '1. Login pada alamat Internet Banking BNI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
-                  )
-                ],
-              ),
-            ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(18),
-            child: const ExpansionTile(
-              backgroundColor: const Color(0xff212226),
-              collapsedBackgroundColor: const Color(0xff212226),
-              textColor: Colors.white,
-              collapsedTextColor: Colors.white,
-              title: Text(
-                'BRI',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
-              ),
-              children: [
-                ListTile(
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15),
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(18),
+                child: const ExpansionTile(
+                  backgroundColor: const Color(0xff212226),
+                  collapsedBackgroundColor: const Color(0xff212226),
                   textColor: Colors.white,
+                  collapsedTextColor: Colors.white,
                   title: Text(
-                      '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
-                )
-              ],
+                    'BCA',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  children: [
+                    ListTile(
+                      textColor: Colors.white,
+                      title: Text(
+                          '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15),
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(18),
+                child: const ExpansionTile(
+                  backgroundColor: const Color(0xff212226),
+                  collapsedBackgroundColor: const Color(0xff212226),
+                  textColor: Colors.white,
+                  collapsedTextColor: Colors.white,
+                  title: Text(
+                    'BNI',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  children: [
+                    ListTile(
+                      textColor: Colors.white,
+                      title: Text(
+                          '1. Login pada alamat Internet Banking BNI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: const ExpansionTile(
+                backgroundColor: const Color(0xff212226),
+                collapsedBackgroundColor: const Color(0xff212226),
+                textColor: Colors.white,
+                collapsedTextColor: Colors.white,
+                title: Text(
+                  'BRI',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+                children: [
+                  ListTile(
+                    textColor: Colors.white,
+                    title: Text(
+                        '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                  )
+                ],
+              ),
             ),
           ),
           Container(
             padding: const EdgeInsets.only(top: 40),
             color: Colors.transparent,
           ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.orange.shade800),
-              borderRadius: BorderRadius.circular(18),
-              //color: const Color.fromARGB(255, 38, 173, 54),
-            ),
-            child: FutureBuilder<dynamic>(
-              future: getTotal(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  var price = snapshot.data;
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.orange.shade800),
+                borderRadius: BorderRadius.circular(18),
+                //color: const Color.fromARGB(255, 38, 173, 54),
+              ),
+              child: FutureBuilder<dynamic>(
+                future: getTotal(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var price = snapshot.data;
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    );
+                  }
+
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
-                        "Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
-                        style: const TextStyle(
+                        "Count total price on process!",
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 30,
+                            fontSize: 25,
                             fontWeight: FontWeight.w600),
                       )
                     ],
                   );
-                }
-
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Count total price on process!",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.w600),
-                    )
-                  ],
-                );
-              },
+                },
+              ),
             ),
           ),
           Container(
