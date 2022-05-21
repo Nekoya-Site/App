@@ -60,6 +60,7 @@ class _SearchFormState extends State<SearchForm> {
                           builder: (context) =>
                               SearchPage(query: searchQuery)));
                   searchController.clear();
+                  FocusScope.of(context).requestFocus(FocusNode());
                 },
                 child: const Text('Search'),
               ),
