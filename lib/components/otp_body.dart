@@ -1,6 +1,6 @@
 import 'package:lottie/lottie.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 
 class OtpBody extends StatefulWidget {
   const OtpBody({Key? key}) : super(key: key);
