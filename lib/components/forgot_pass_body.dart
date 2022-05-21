@@ -77,9 +77,13 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               Map<String, dynamic> data = {
                 "email": emailController.text,
               };
-              resetPost(data);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Otp()));
+              if (emailController.text.isEmpty) {
+                showAlertDialog(context);
+              } else {
+                resetPost(data);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Otp()));
+              }
             },
             child: const Text(
               'Reset Password',
@@ -108,4 +112,36 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("OK", style: TextStyle(color: Colors.red)),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    backgroundColor: const Color(0xff1b1c1e),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    title: const Text(
+      "Error",
+      style: TextStyle(color: Colors.white),
+    ),
+    content: const Text(
+      "Make sure to fill all text fields",
+      style: TextStyle(color: Colors.white70),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
