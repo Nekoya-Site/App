@@ -64,8 +64,8 @@ class _PaymentBodyState extends State<PaymentBody> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: const ExpansionTile(
-                  backgroundColor: const Color(0xff212226),
-                  collapsedBackgroundColor: const Color(0xff212226),
+                  backgroundColor: Color(0xff212226),
+                  collapsedBackgroundColor: Color(0xff212226),
                   textColor: Colors.white,
                   collapsedTextColor: Colors.white,
                   title: Text(
@@ -93,8 +93,8 @@ class _PaymentBodyState extends State<PaymentBody> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: const ExpansionTile(
-                  backgroundColor: const Color(0xff212226),
-                  collapsedBackgroundColor: const Color(0xff212226),
+                  backgroundColor: Color(0xff212226),
+                  collapsedBackgroundColor: Color(0xff212226),
                   textColor: Colors.white,
                   collapsedTextColor: Colors.white,
                   title: Text(
@@ -120,8 +120,8 @@ class _PaymentBodyState extends State<PaymentBody> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(18),
               child: const ExpansionTile(
-                backgroundColor: const Color(0xff212226),
-                collapsedBackgroundColor: const Color(0xff212226),
+                backgroundColor: Color(0xff212226),
+                collapsedBackgroundColor: Color(0xff212226),
                 textColor: Colors.white,
                 collapsedTextColor: Colors.white,
                 title: Text(
