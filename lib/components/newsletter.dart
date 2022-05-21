@@ -87,6 +87,7 @@ class _NewsletterState extends State<Newsletter> {
                                   subscribe(emailQuery).then((status) {
                                     if (status == 200) {
                                       emailController.clear();
+                                      FocusScope.of(context).requestFocus(FocusNode());
                                       return showDialog(
                                         context: context,
                                         barrierDismissible: false,
