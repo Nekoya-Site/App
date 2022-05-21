@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/data/cart.dart';
-import 'package:nekoya_flutter/components/menu.dart';
 
 class PaymentBody extends StatefulWidget {
   const PaymentBody({Key? key}) : super(key: key);
