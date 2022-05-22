@@ -15,7 +15,7 @@ class _OtpState extends State<Otp> {
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
-        title: const Text('Nekoya'),
+        title: const Text('OTP'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
