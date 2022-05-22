@@ -148,7 +148,7 @@ showAlertDialog(BuildContext context) {
       style: TextStyle(color: Colors.white),
     ),
     content: const Text(
-      "Make sure you have email",
+      "Please input your email !",
       style: TextStyle(color: Colors.white70),
     ),
     actions: [
@@ -180,7 +180,7 @@ showEmailWarn(BuildContext context) {
       style: TextStyle(color: Colors.white),
     ),
     content: const Text(
-      "Sorry your email not registered yet",
+      "Sorry, Make sure your email has been registered before !",
       style: TextStyle(color: Colors.white70),
     ),
     actions: [
@@ -212,7 +212,7 @@ showBad(BuildContext context) {
       style: TextStyle(color: Colors.white),
     ),
     content: const Text(
-      "Server Down",
+      "Bad Connection",
       style: TextStyle(color: Colors.white70),
     ),
     actions: [
