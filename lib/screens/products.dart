@@ -18,7 +18,7 @@ class _ProductsState extends State<Products> {
     return Scaffold(
       backgroundColor: const Color(0xff1b1c1e),
       appBar: AppBar(
-        title: const Text('Nekoya'),
+        title: const Text('Products'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
         automaticallyImplyLeading: false,
