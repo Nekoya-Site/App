@@ -13,9 +13,13 @@ class Transactions extends StatefulWidget {
 
 class _TransactionsState extends State<Transactions> {
   Future<dynamic> loadTransaction() async {
-    var session = await getSession();
-    var data = await getTransactions(session);
-    return data;
+    try {
+      var session = await getSession();
+      var data = await getTransactions(session);
+      return data;
+    } catch(e) {
+      return [];
+    }
   }
 
   @override
