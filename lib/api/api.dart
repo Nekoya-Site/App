@@ -71,8 +71,15 @@ Future<dynamic> resetPost(data) async {
 }
 
 Future<dynamic> getSessions(session) async {
-  var req = await Dio()
-      .post('$host/sessions', queryParameters: {'session_token': session});
+  var req = await Dio().post(
+    '$host/sessions',
+    queryParameters: {'session_token': session},
+    options: Options(
+      validateStatus: (status) {
+        return status! < 500;
+      },
+    ),
+  );
   return {'statusCode': req.statusCode, 'data': req.data};
 }
 
