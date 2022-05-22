@@ -52,8 +52,17 @@ class LoginFormState extends State<LoginForm> {
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
-              decoration: const InputDecoration(
-                border: InputBorder.none,
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.white60,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
                   Icons.email,
@@ -87,7 +96,17 @@ class LoginFormState extends State<LoginForm> {
                 color: Colors.white,
                 fontFamily: 'OpenSans',
               ),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.white60,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0)),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(
@@ -222,7 +241,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Enter Your Email Or Password",
+        "Enter Your Email Or Password !",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -254,7 +273,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Sorry your email not registered yet",
+        "Sorry your email not registered yet !",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -286,7 +305,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Sorry Then Email Or Password You Entered Is Wrong",
+        "Sorry Then Email Or Password You Entered Is Wrong !",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -398,7 +417,6 @@ class LoginFormState extends State<LoginForm> {
                     ),
                     _buildPasswordTF(),
                     _buildForgotPasswordBtn(),
-                    // _buildRememberMeCheckBox(),
                     _buildLoginBtn(),
                     _buildSignupBtn(),
                   ],
