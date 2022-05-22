@@ -2,7 +2,6 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/login_error.dart';
 import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/data/auth.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
@@ -138,19 +137,28 @@ class LoginFormState extends State<LoginForm> {
           backgroundColor: MaterialStateProperty.all(const Color(0xff8B0000)),
         ),
         onPressed: () {
-          submitForm(context).then((res) {
-            if (res['statusCode'] == 200) {
-              addSession(res['data']['id'], res['data']['session_token']);
-              Navigator.pop(context);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Menu(initialScreen: 2)));
-            } else {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LoginError()));
-            }
-          });
+          if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+            showAlertDialog(context);
+          } else {
+            submitForm(context).then((res) {
+              if (res['statusCode'] == 200) {
+                addSession(res['data']['id'], res['data']['session_token']);
+                Navigator.pop(context);
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Menu(initialScreen: 2)));
+              } else if (res['statusCode'] == 204) {
+                showEmailNotRegister(context);
+              } else if (res['statusCode'] == 205) {
+                showEmailWarn(context);
+              } else if (res['statusCode'] == 400) {
+                showBad(context);
+              } else if (res['statusCode'] == 401) {
+                showUnautorized(context);
+              }
+            });
+          }
         },
         child: const Text(
           'Login',
@@ -194,6 +202,166 @@ class LoginFormState extends State<LoginForm> {
           ],
         ),
       ),
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      backgroundColor: const Color(0xff1b1c1e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: const Text(
+        "Error",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: const Text(
+        "Enter Your Email Or Password",
+        style: TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showEmailNotRegister(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      backgroundColor: const Color(0xff1b1c1e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: const Text(
+        "Error",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: const Text(
+        "Sorry your email not registered yet",
+        style: TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showEmailWarn(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      backgroundColor: const Color(0xff1b1c1e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: const Text(
+        "Error",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: const Text(
+        "Sorry Then Email Or Password You Entered Is Wrong",
+        style: TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showBad(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      backgroundColor: const Color(0xff1b1c1e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: const Text(
+        "Error",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: const Text(
+        "Bad Connection",
+        style: TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  showUnautorized(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      backgroundColor: const Color(0xff1b1c1e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: const Text(
+        "Error",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: const Text(
+        "Blalaala",
+        style: TextStyle(color: Colors.white70),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 
