@@ -1,6 +1,8 @@
+import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/components/session_box.dart';
 import 'package:nekoya_flutter/data/auth.dart';
 
@@ -52,7 +54,10 @@ class _SessionsState extends State<Sessions> {
                         child: const Text('Close', style: TextStyle(color: Colors.white),),
                         onPressed: () {
                           Navigator.of(context).pop();
-                          Navigator.pushReplacementNamed(context, '');
+                          html.window.history.pushState(null, '', '');
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => const Menu(initialScreen: 2))
+                          );
                         },
                       ),
                     ],
