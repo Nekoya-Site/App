@@ -26,6 +26,42 @@ class _SessionsState extends State<Sessions> {
         title: const Text('Active Sessions'),
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              removeSession();
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Log out', style: TextStyle(color: Colors.white),),
+                    backgroundColor: const Color(0xff212226),
+                    content: SingleChildScrollView(
+                      child: ListBody(
+                        children: const <Widget>[
+                          Text('You have successfully logged out', style: TextStyle(
+                            color: Colors.white
+                          )),
+                        ],
+                      ),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        child: const Text('Close', style: TextStyle(color: Colors.white),),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          Navigator.pushReplacementNamed(context, '');
+                        },
+                      ),
+                    ],
+                  );
+                }
+              );
+            },
+          )
+        ],
       ),
       body: FutureBuilder<dynamic>(
         future: loadSessions(),
