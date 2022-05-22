@@ -131,24 +131,6 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               'Reset Password',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all(const Color(0xff8B0000)),
-                backgroundColor:
-                    MaterialStateProperty.all(const Color(0xff8B0000)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: const BorderSide(color: Colors.black)))),
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            },
-            child: const Text(
-              'Back to Login',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
           )
         ],
       ),
