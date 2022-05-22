@@ -92,8 +92,33 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               } else {
                 forgotForm(context).then((res) {
                   if (res['statusCode'] == 200) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Otp()));
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Forgot Password', style: TextStyle(color: Colors.white),),
+                          backgroundColor: const Color(0xff212226),
+                          content: SingleChildScrollView(
+                            child: ListBody(
+                              children: const <Widget>[
+                                Text('Please check your email to reset your password', style: TextStyle(
+                                  color: Colors.white
+                                )),
+                              ],
+                            ),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('Close', style: TextStyle(color: Colors.white),),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      }
+                    );
                   } else if (res['statusCode'] == 205) {
                     showEmailWarn(context);
                   } else {
