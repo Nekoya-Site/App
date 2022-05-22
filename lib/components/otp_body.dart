@@ -2,14 +2,41 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
+import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_flutter/components/menu.dart';
+import 'package:nekoya_flutter/data/auth.dart';
+
 class OtpBody extends StatefulWidget {
-  const OtpBody({Key? key}) : super(key: key);
+  const OtpBody({Key? key, required this.otpToken}) : super(key: key);
+
+  final String otpToken;
 
   @override
   State<OtpBody> createState() => _OtpBodyState();
 }
 
 class _OtpBodyState extends State<OtpBody> {
+  TextEditingController otpCode1 = TextEditingController();
+  TextEditingController otpCode2 = TextEditingController();
+  TextEditingController otpCode3 = TextEditingController();
+  TextEditingController otpCode4 = TextEditingController();
+  TextEditingController otpCode5 = TextEditingController();
+  TextEditingController otpCode6 = TextEditingController();
+
+  Future submitForm(BuildContext context) async {
+    if (otpCode1.text.isEmpty || otpCode2.text.isEmpty || otpCode3.text.isEmpty || otpCode4.text.isEmpty || otpCode5.text.isEmpty || otpCode6.text.isEmpty) {
+      return 999;
+    } else {
+      Map<String, dynamic> data = {
+        "token": widget.otpToken,
+        "code": "${otpCode1.text}${otpCode2.text}${otpCode3.text}${otpCode4.text}${otpCode5.text}${otpCode6.text}"
+      };
+
+      var response = await otpPost(data);
+      return {'statusCode': response['statusCode'], 'data': response['data']};
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,6 +68,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode1,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -72,6 +100,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode2,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -103,6 +132,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode3,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -134,6 +164,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode4,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -165,6 +196,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode5,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -196,6 +228,7 @@ class _OtpBodyState extends State<OtpBody> {
                   height: 50,
                   width: 50,
                   child: TextFormField(
+                    controller: otpCode6,
                     onChanged: (value) {
                       if (value.length == 1) {
                         FocusScope.of(context).nextFocus();
@@ -222,23 +255,6 @@ class _OtpBodyState extends State<OtpBody> {
             ],
           ),
         )),
-        Container(
-          padding: const EdgeInsets.only(top: 15, bottom: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Text(
-                "Didn't get it?? \t",
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                'Resend Code',
-                style: TextStyle(color: Colors.red),
-              ),
-            ],
-          ),
-        ),
         ElevatedButton(
           style: ButtonStyle(
               foregroundColor:
@@ -250,7 +266,16 @@ class _OtpBodyState extends State<OtpBody> {
                       borderRadius: BorderRadius.circular(18.0),
                       side: const BorderSide(color: Colors.black)))),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            submitForm(context).then((res) {
+              if (res['statusCode'] == 200) {
+                addSession(res['data']['id'], res['data']['session_token']);
+                Navigator.pop(context);
+                Navigator.pop(context);
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) => const Menu(initialScreen: 2)
+                ));
+              }
+            });
           },
           child: const Text(
             'Submit',

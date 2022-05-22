@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/menu.dart';
 import 'package:nekoya_flutter/data/auth.dart';
+import 'package:nekoya_flutter/screens/otp.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
@@ -161,12 +162,17 @@ class LoginFormState extends State<LoginForm> {
           } else {
             submitForm(context).then((res) {
               if (res['statusCode'] == 200) {
-                addSession(res['data']['id'], res['data']['session_token']);
-                Navigator.pop(context);
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Menu(initialScreen: 2)));
+                if (!res['data']['otp']) {
+                  addSession(res['data']['id'], res['data']['session_token']);
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) => const Menu(initialScreen: 2)
+                  ));
+                } else {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Otp(otpToken: res['data']['token'])
+                  ));
+                }
               } else if (res['statusCode'] == 204) {
                 showEmailNotRegister(context);
               } else if (res['statusCode'] == 205) {

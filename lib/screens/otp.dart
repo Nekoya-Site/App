@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/components/otp_body.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({Key? key}) : super(key: key);
+  const Otp({Key? key, required this.otpToken}) : super(key: key);
+
+  final String otpToken;
 
   @override
   State<Otp> createState() => _OtpState();
@@ -19,7 +21,7 @@ class _OtpState extends State<Otp> {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
-      body: const OtpBody(),
+      body: OtpBody(otpToken: widget.otpToken,),
     );
   }
 }
