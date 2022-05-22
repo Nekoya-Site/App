@@ -127,7 +127,6 @@ class LoginFormState extends State<LoginForm> {
         alignment: Alignment.centerRight,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context);
             Navigator.pushNamed(context, '/forgotpassword');
           },
           style: ButtonStyle(
