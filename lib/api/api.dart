@@ -63,8 +63,15 @@ Future<dynamic> getSessions(session) async {
 }
 
 Future<dynamic> getTransactions(session) async {
-  var req = await Dio()
-      .post('$host/transaction', queryParameters: {'session_token': session});
+  var req = await Dio().post(
+    '$host/transaction',
+    queryParameters: {'session_token': session},
+    options: Options(
+      validateStatus: (status) {
+        return status! < 500;
+      },
+    ),
+  );
   var res = req.data;
   return res;
 }
