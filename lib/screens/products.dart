@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nekoya_flutter/api/api.dart';
 import 'package:nekoya_flutter/components/product_box.dart';
 import 'package:nekoya_flutter/components/product_detail.dart';
+import 'package:nekoya_flutter/screens/faq.dart';
 import 'package:nekoya_flutter/utils/utils.dart' show kMobileBreakpoint, kTabletBreakpoint, kDesktopBreakPoint;
 
 class Products extends StatefulWidget {
@@ -22,6 +23,16 @@ class _ProductsState extends State<Products> {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.question_mark),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const FAQ()
+              ));
+            },
+          )
+        ],
       ),
       body: LayoutBuilder(
         builder: (context, dimension) {
