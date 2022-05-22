@@ -62,11 +62,13 @@ class _MenuState extends State<Menu> {
       var oldSelectedIndex = _selectedIndex;
       _selectedIndex = index;
       if (index == 0) {
+        _selectedWidget = const Sessions();
         checkSessionExist().then((isLoggedIn) {
-          if (isLoggedIn) {
-            _selectedWidget = const Sessions();
-          } else {
+          if (!isLoggedIn) {
             _selectedIndex = oldSelectedIndex;
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => const Menu(initialScreen: 2))
+            );
             Navigator.pushNamed(context, '/login');
           }
         });
@@ -80,11 +82,13 @@ class _MenuState extends State<Menu> {
         html.window.history.pushState(null, '', '/#/cart');
         _selectedWidget = const Cart();
       } else if (index == 4) {
+        _selectedWidget = const Transactions();
         checkSessionExist().then((isLoggedIn) {
-          if (isLoggedIn) {
-            _selectedWidget = const Transactions();
-          } else {
+          if (!isLoggedIn) {
             _selectedIndex = oldSelectedIndex;
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => const Menu(initialScreen: 2))
+            );
             Navigator.pushNamed(context, '/login');
           }
         });
