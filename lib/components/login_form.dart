@@ -107,7 +107,10 @@ class LoginFormState extends State<LoginForm> {
     return Container(
         alignment: Alignment.centerRight,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/forgotpassword');
+          },
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all(const Color(0xff212226)),

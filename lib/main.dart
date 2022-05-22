@@ -1,3 +1,4 @@
+import 'package:nekoya_flutter/screens/forgotpassword.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +12,8 @@ import 'package:nekoya_flutter/utils/navigation_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
     runApp(const Nekoya());
   });
 }
@@ -24,7 +26,6 @@ class Nekoya extends StatefulWidget {
 }
 
 class _NekoyaState extends State<Nekoya> {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,20 +35,33 @@ class _NekoyaState extends State<Nekoya> {
       debugShowCheckedModeBanner: false,
       initialRoute: '',
       routes: {
-        '' : (context) => AnimatedSplashScreen(
-          splash: 'assets/images/logo_transparent.webp',
-          pageTransitionType: PageTransitionType.fade,
-          backgroundColor: const Color(0xff1b1c1e),
-          splashIconSize: 150,
-          nextScreen: const Menu(initialScreen: 2,),
-        ),
+        '': (context) => AnimatedSplashScreen(
+              splash: 'assets/images/logo_transparent.webp',
+              pageTransitionType: PageTransitionType.fade,
+              backgroundColor: const Color(0xff1b1c1e),
+              splashIconSize: 150,
+              nextScreen: const Menu(
+                initialScreen: 2,
+              ),
+            ),
         '/login': (context) => const Login(),
         '/register': (context) => const Register(),
-        '/products' : (context) => const Menu(initialScreen: 1,),
-        '/cart' : (context) => const Menu(initialScreen: 3,),
-        '/sessions': (context) => const NavigationAuth(route: Menu(initialScreen: 0,)),
-        '/transactions': (context) => const NavigationAuth(route: Menu(initialScreen: 4,)),
+        '/products': (context) => const Menu(
+              initialScreen: 1,
+            ),
+        '/cart': (context) => const Menu(
+              initialScreen: 3,
+            ),
+        '/sessions': (context) => const NavigationAuth(
+                route: Menu(
+              initialScreen: 0,
+            )),
+        '/transactions': (context) => const NavigationAuth(
+                route: Menu(
+              initialScreen: 4,
+            )),
         '/payment': (context) => const NavigationAuth(route: Payment()),
+        '/forgotpassword': (context) => const ForgotPassword(),
       },
     );
   }
