@@ -254,9 +254,6 @@ class Navigation extends StatelessWidget {
                     onTap: () {
                       onItemPressed(itemIcons.length == 4 ? 2 : 1);
                     },
-                    onDoubleTap: () {
-                      removeSession();
-                    },
                     child: Container(
                       decoration: BoxDecoration(
                         boxShadow: [
