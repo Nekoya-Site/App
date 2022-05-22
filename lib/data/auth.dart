@@ -29,9 +29,10 @@ Future<bool> checkSessionExist() async {
 
     if (res['statusCode'] == 200) {
       return true;
+    } else {
+      removeSession();
+      return false;
     }
-    removeSession();
-    return false;
   }
 
   return false;
