@@ -15,9 +15,13 @@ class Sessions extends StatefulWidget {
 
 class _SessionsState extends State<Sessions> {
   Future<dynamic> loadSessions() async {
-    var session = await getSession();
-    var data = await getSessions(session);
-    return data;
+    try {
+      var session = await getSession();
+      var data = await getSessions(session);
+      return data;
+    } catch(e) {
+      return [];
+    }
   }
 
   @override
