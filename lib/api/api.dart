@@ -42,6 +42,20 @@ Future<dynamic> loginPost(data) async {
   return {'statusCode': req.statusCode, 'data': req.data};
 }
 
+Future<dynamic> otpPost(data) async {
+  Response req = await Dio().post(
+    ('$host/otp-submit'),
+    data: data,
+    options: Options(
+      contentType: Headers.formUrlEncodedContentType,
+      validateStatus: (status) {
+        return status! < 500;
+      },
+    ),
+  );
+  return {'statusCode': req.statusCode, 'data': req.data};
+}
+
 Future<dynamic> resetPost(data) async {
   Response req = await Dio().post(
     ('$host/request-reset-password'),
