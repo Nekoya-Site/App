@@ -241,7 +241,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Enter Your Email Or Password !",
+        "Make sure to fill all text fields!!",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -273,7 +273,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Sorry your email not registered yet !",
+        "Sorry, But You Haven't Verified Your Email Address !!",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -305,7 +305,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Sorry Then Email Or Password You Entered Is Wrong !",
+        "Sorry, Your Email Isn't Registered in Our System !!",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -337,7 +337,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Bad Connection",
+        "Bad Request!!!",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
@@ -369,7 +369,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "The Password You Entered Is Wrong !",
+        "Sorry, The Password You've Entered Is Wrong !",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
