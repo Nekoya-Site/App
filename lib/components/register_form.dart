@@ -105,7 +105,7 @@ class RegisterFormState extends State<RegisterForm> {
                             onPressed: () {
                               submitForm(context).then((statusCode) {
                                 if (statusCode == 200) {
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
