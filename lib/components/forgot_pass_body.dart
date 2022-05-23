@@ -75,8 +75,10 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               ),
             ),
           ),
+          const SizedBox(height: 10,),
           ElevatedButton(
             style: ButtonStyle(
+                padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
                 foregroundColor:
                     MaterialStateProperty.all(const Color(0xff8B0000)),
                 backgroundColor:
