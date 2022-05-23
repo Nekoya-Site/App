@@ -100,6 +100,7 @@ class RegisterFormState extends State<RegisterForm> {
                         child: Container(
                           padding: const EdgeInsets.only(top: 3, left: 3),
                           child: MaterialButton(
+                            padding: const EdgeInsets.all(15.0),
                             minWidth: double.infinity,
                             height: 35,
                             onPressed: () {
@@ -129,14 +130,14 @@ class RegisterFormState extends State<RegisterForm> {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 15,
+                                fontSize: 20,
                               ),
                             ),
                           ),
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 15,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
