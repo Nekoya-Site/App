@@ -255,8 +255,10 @@ class _OtpBodyState extends State<OtpBody> {
             ],
           ),
         )),
+        const SizedBox(height: 30,),
         ElevatedButton(
           style: ButtonStyle(
+              padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
               foregroundColor:
                   MaterialStateProperty.all(const Color(0xff8B0000)),
               backgroundColor:
