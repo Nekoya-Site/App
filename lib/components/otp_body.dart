@@ -272,10 +272,10 @@ class _OtpBodyState extends State<OtpBody> {
               if (res['statusCode'] == 200) {
                 addSession(res['data']['id'], res['data']['session_token']);
                 Navigator.pop(context);
-                Navigator.pop(context);
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) => const Menu(initialScreen: 2)
                 ));
+                Navigator.pop(context);
               }
             });
           },
