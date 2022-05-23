@@ -238,7 +238,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                         ],
                       ),
@@ -257,7 +257,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                             if (isLoggedIn) {
                               submitForm(context).then((statusCode) {
                                 if (statusCode == 201) {
-                                  Navigator.pushReplacementNamed(context, '/payment');
+                                  Navigator.pushReplacementNamed(
+                                      context, '/payment');
                                 } else if (statusCode == 999) {
                                   showAlertDialog(context);
                                 }
@@ -301,7 +302,7 @@ Widget makeInput({label, obscureText = false, icon, keyboardType}) {
             fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
       ),
       const SizedBox(
-        height: 5,
+        height: 10,
       ),
       Container(
         decoration: BoxDecoration(
