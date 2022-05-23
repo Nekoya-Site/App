@@ -67,8 +67,7 @@ class _MenuState extends State<Menu> {
           if (!isLoggedIn) {
             _selectedIndex = oldSelectedIndex;
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const Menu(initialScreen: 2))
-            );
+                builder: (context) => const Menu(initialScreen: 2)));
             Navigator.pushNamed(context, '/login');
           }
         });
@@ -87,8 +86,7 @@ class _MenuState extends State<Menu> {
           if (!isLoggedIn) {
             _selectedIndex = oldSelectedIndex;
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const Menu(initialScreen: 2))
-            );
+                builder: (context) => const Menu(initialScreen: 2)));
             Navigator.pushNamed(context, '/login');
           }
         });

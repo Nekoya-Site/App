@@ -56,7 +56,7 @@ class RegisterVerifyState extends State<RegisterVerify> {
                         ],
                       ),
                       const SizedBox(
-                        height: 75,
+                        height: 50,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -73,18 +73,23 @@ class RegisterVerifyState extends State<RegisterVerify> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 30,),
+                      const SizedBox(
+                        height: 25,
+                      ),
                       ElevatedButton(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
-                            foregroundColor:
-                                MaterialStateProperty.all(const Color(0xff8B0000)),
-                            backgroundColor:
-                                MaterialStateProperty.all(const Color(0xff8B0000)),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.all(15.0)),
+                            foregroundColor: MaterialStateProperty.all(
+                                const Color(0xff8B0000)),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color(0xff8B0000)),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                    side: const BorderSide(color: Colors.black)))),
+                                    side: const BorderSide(
+                                        color: Colors.black)))),
                         onPressed: () {
                           Navigator.pushReplacementNamed(context, '/login');
                         },
