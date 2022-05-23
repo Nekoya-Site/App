@@ -38,20 +38,32 @@ class _PaymentBodyState extends State<PaymentBody> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset(
-                  'assets/images/bca.webp',
-                  cacheHeight: 40,
-                  cacheWidth: 100,
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Image.asset(
+                      'assets/images/bca.webp',
+                    ),
+                  ),
                 ),
-                Image.asset(
-                  'assets/images/bni.webp',
-                  cacheHeight: 40,
-                  cacheWidth: 100,
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Image.asset(
+                      'assets/images/bni.webp',
+                    ),
+                  ),
                 ),
-                Image.asset(
-                  'assets/images/bri.webp',
-                  cacheHeight: 40,
-                  cacheWidth: 100,
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Image.asset(
+                      'assets/images/bri.webp'
+                    ),
+                  ),
                 ),
               ],
             ),
