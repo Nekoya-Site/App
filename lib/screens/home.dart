@@ -6,6 +6,7 @@ import 'package:nekoya_flutter/components/new_arrival_products.dart';
 import 'package:nekoya_flutter/components/newsletter.dart';
 import 'package:nekoya_flutter/components/popular_products.dart';
 import 'package:nekoya_flutter/components/search_form.dart';
+import 'package:nekoya_flutter/screens/about_us.dart';
 import 'package:nekoya_flutter/screens/faq.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
 
@@ -21,14 +22,21 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.question_mark),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => const FAQ()));
+          },
+        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.question_mark),
+            icon: const Icon(Icons.tips_and_updates),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const FAQ()));
+                  MaterialPageRoute(builder: (context) => const AboutUs()));
             },
-          )
+          ),
         ],
       ),
       body: SafeArea(
