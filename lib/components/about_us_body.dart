@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/components/menu.dart';
 
 class AboutUsBody extends StatefulWidget {
   const AboutUsBody({Key? key}) : super(key: key);
@@ -11,93 +10,111 @@ class AboutUsBody extends StatefulWidget {
 class _AboutUsBodyState extends State<AboutUsBody> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.all(10),
+          alignment: Alignment.center,
+          child: Stack(
             children: [
               Center(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     'assets/images/AboutUs.gif',
-                    height: 243,
-                    width: 432,
-                    alignment: Alignment.center,
                   ),
                 ),
               ),
               Center(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(10),
                   child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 18, 18, 19)
-                          .withOpacity(0.4),
-                    ),
-                    height: 243,
-                    width: 432,
-                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height / 3.85,
+                    color:
+                        const Color.fromARGB(255, 18, 18, 19).withOpacity(0.4),
                   ),
                 ),
               ),
               Center(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 25),
-                  child: const Text(
-                    'About Us',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 252, 252, 252),
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 75),
-                  child: const Text(
-                    'Nekoya is your place for getting shoes for the entire family \nfrom many name brands. You’ll discover styles for ladies, men and children\n from brands like Nike, Converse, Vans, Skechers, ASICS and many more!\n Nekoya is a goal for the popular footwear brands you know and love.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 252, 252, 252),
-                      fontSize: 12,
-                    ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 135),
-                  child: const Text(
-                    'Contact Us',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 252, 252, 252),
-                      fontSize: 40,
-                    ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 185),
-                  child: const Text(
-                    'moe@chocola.dev',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 252, 252, 252),
-                      fontSize: 20,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 3.85,
+                    child: Flexible(
+                      child: Column(
+                        children: const [
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: Flexible(
+                              child: Text(
+                                'About Us',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Center(
+                            child: Flexible(
+                              child: Text(
+                                "Nekoya is your place for getting shoes for the entire family from many name brands. You'll discover styles for ladies, men and children from brands like Nike, Converse, Vans, Skechers, ASICS and many more! Nekoya is a goal for the popular footwear brands you know and love.",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Center(
+                            child: Flexible(
+                              child: Text(
+                                'Contact Us',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Center(
+                            child: Flexible(
+                              child: Text(
+                                "moe@chocola.dev",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.5,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
