@@ -9,6 +9,7 @@ import 'package:nekoya_flutter/components/search_form.dart';
 import 'package:nekoya_flutter/screens/about_us.dart';
 import 'package:nekoya_flutter/screens/faq.dart';
 import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:flutter/cupertino.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class Home extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.tips_and_updates),
+            icon: const Icon(Icons.info_outline),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const AboutUs()));
