@@ -1,3 +1,5 @@
+image: cirrusci/flutter:stable
+
 variables:
   IOS_XCODE_PROJECT_NAME: "nekoya"
   FLAVOR: "production"
