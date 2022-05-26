@@ -7,20 +7,6 @@ variables:
 stages:
   - archive
 
-android:debug:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter doctor --android-licenses
-    - flutter build apk --debug
-  artifacts:
-    paths:
-      - "**/**/**/**/**/**/*.apk"
-    expire_in: 1 day
-
 android:release:
   stage: archive
   before_script:
@@ -33,26 +19,6 @@ android:release:
   artifacts:
     paths:
       - "**/**/**/**/**/**/*.apk"
-    expire_in: 1 day
-
-ios:debug:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build ipa
-    - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
-    - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
-    - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/debug"
-    - cd ios
-    - pod install;
-    - xcodebuild clean archive -quiet -workspace ${IOS_XCODE_PROJECT_NAME}.xcworkspace -scheme ${FLAVOR} -archivePath "../archive/${IOS_XCODE_PROJECT_NAME}.xcarchive";
-    - xcodebuild -quiet -exportArchive -archivePath  "../archive/${IOS_XCODE_PROJECT_NAME}.xcarchive" -exportPath ../artifact/ -exportOptionsPlist ${PLIST_DIRECTORY}/*.plist
-  artifacts:
-    paths:
-      - "artifact/*.ipa"
     expire_in: 1 day
 
 ios:release:
@@ -84,20 +50,41 @@ web:release:
   script:
     - flutter build web --release
 
-windows:debug:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build windows --debug
-
 windows:release:
+  extends:
+    - .shared_windows_runners
   stage: archive
   before_script:
+    - choco install visualstudio2019community -y
+    - choco install vcredist-all -y
+    - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+    - refreshenv
     - flutter create .
     - flutter packages get
     - flutter clean
   script:
     - flutter build windows --release
+
+macos:release:
+  extends:
+    - .macos_saas_runners
+  stage: archive
+  before_script:
+    - gem install cocoapods
+    - flutter create .
+    - cd macos
+    - pod install
+    - pod update
+    - flutter packages get
+    - flutter clean
+  script:
+    - flutter build macos --release
+
+linux:release:
+  stage: archive
+  before_script:
+    - flutter create .
+    - flutter packages get
+    - flutter clean
+  script:
+    - flutter build linux --release
