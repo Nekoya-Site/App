@@ -51,8 +51,8 @@ web:release:
     - flutter build web --release
 
 windows:release:
-  extends:
-    - .shared_windows_runners
+  tags:
+    - shared-windows
   stage: archive
   before_script:
     - choco install visualstudio2019community -y
@@ -66,8 +66,8 @@ windows:release:
     - flutter build windows --release
 
 macos:release:
-  extends:
-    - .macos_saas_runners
+  tags:
+    - shared-macos-amd64
   stage: archive
   before_script:
     - gem install cocoapods
