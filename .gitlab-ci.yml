@@ -1,9 +1,5 @@
 image: cirrusci/flutter:stable
 
-variables:
-  IOS_XCODE_PROJECT_NAME: "nekoya"
-  FLAVOR: "production"
-
 stages:
   - archive
 
@@ -21,26 +17,6 @@ android:release:
       - "**/**/**/**/**/**/*.apk"
     expire_in: 1 day
 
-ios:release:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build ipa
-    - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
-    - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
-    - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/release"
-    - cd ios
-    - pod install;
-    - xcodebuild clean archive -quiet -workspace ${IOS_XCODE_PROJECT_NAME}.xcworkspace -scheme ${FLAVOR} -archivePath "../archive/${IOS_XCODE_PROJECT_NAME}.xcarchive";
-    - xcodebuild -quiet -exportArchive -archivePath  "../archive/${IOS_XCODE_PROJECT_NAME}.xcarchive" -exportPath ../artifact/ -exportOptionsPlist ${PLIST_DIRECTORY}/*.plist
-  artifacts:
-    paths:
-      - "artifact/*.ipa"
-    expire_in: 1 day
-
 web:release:
   stage: archive
   before_script:
@@ -49,42 +25,3 @@ web:release:
     - flutter clean
   script:
     - flutter build web --release
-
-windows:release:
-  tags:
-    - shared-windows
-  stage: archive
-  before_script:
-    - choco install visualstudio2019community -y
-    - choco install vcredist-all -y
-    - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-    - refreshenv
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build windows --release
-
-macos:release:
-  tags:
-    - shared-macos-amd64
-  stage: archive
-  before_script:
-    - gem install cocoapods
-    - flutter create .
-    - cd macos
-    - pod install
-    - pod update
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build macos --release
-
-linux:release:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build linux --release
