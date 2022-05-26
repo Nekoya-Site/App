@@ -15,7 +15,7 @@ android:debug:
     - flutter clean
   script:
     - flutter doctor --android-licenses
-    - flutter build apk --flavor ${FLAVOR} --debug
+    - flutter build apk --debug
   artifacts:
     paths:
       - "**/**/**/**/**/**/*.apk"
@@ -29,7 +29,7 @@ android:release:
     - flutter clean
   script:
     - flutter doctor --android-licenses
-    - flutter build apk --flavor ${FLAVOR} --release
+    - flutter build apk --release
   artifacts:
     paths:
       - "**/**/**/**/**/**/*.apk"
@@ -42,7 +42,7 @@ ios:debug:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build ios --flavor ${FLAVOR}
+    - flutter build ios
     - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
     - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
     - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/debug"
@@ -62,7 +62,7 @@ ios:release:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build ios --flavor ${FLAVOR}
+    - flutter build ios
     - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
     - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
     - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/release"
@@ -82,7 +82,7 @@ web:debug:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build web --flavor ${FLAVOR} --debug
+    - flutter build web --debug
 
 web:release:
   stage: archive
@@ -91,4 +91,4 @@ web:release:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build web --flavor ${FLAVOR} --release
+    - flutter build web --release
