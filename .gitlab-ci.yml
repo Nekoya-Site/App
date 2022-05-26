@@ -92,3 +92,21 @@ web:release:
     - flutter clean
   script:
     - flutter build web --release
+
+windows:debug:
+  stage: archive
+  before_script:
+    - flutter create .
+    - flutter packages get
+    - flutter clean
+  script:
+    - flutter build windows --debug
+
+windows:release:
+  stage: archive
+  before_script:
+    - flutter create .
+    - flutter packages get
+    - flutter clean
+  script:
+    - flutter build windows --release
