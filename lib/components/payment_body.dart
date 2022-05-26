@@ -60,9 +60,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Image.asset(
-                      'assets/images/bri.webp'
-                    ),
+                    child: Image.asset('assets/images/bri.webp'),
                   ),
                 ),
               ],
@@ -90,7 +88,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                     ListTile(
                       textColor: Colors.white,
                       title: Text(
-                          '1. Login pada alamat Internet Banking BCA (***) \n2. Pilih menu Pembayaran Tagihan > Pembayaran \n3. Pada Ke Rekening masukkan Rekening perusahaan \n4. Masukkan Jumlah Nominal yang akan ditransfer \n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                          '1. Login pada alamat Internet Banking BCA \n2. Pilih menu m-Transfer \n3. Pada Input No. Virtual Account masukkan kode Virtual Account (80777089676869186)\n4. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                     )
                   ],
                 ),
@@ -119,7 +117,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                     ListTile(
                       textColor: Colors.white,
                       title: Text(
-                          '1. Login pada alamat Internet Banking BNI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                          '1. Login pada alamat Internet Banking BNI \n2. Pilih menu m-Transfer \n3. Pada Input No. Virtual Account masukkan kode Virtual Account (8277089676869186)\n4. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                     )
                   ],
                 ),
@@ -146,7 +144,7 @@ class _PaymentBodyState extends State<PaymentBody> {
                   ListTile(
                     textColor: Colors.white,
                     title: Text(
-                        '1. Login pada alamat Internet Banking BRI (***)\n2. Pilih menu Pembayaran Tagihan > Pembayaran > Antar Rekening\n3. Pada Ke Rekening masukkan Rekening perusahaan\n4. Masukkan Jumlah Nominal yang akan ditransfer\n5. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
+                        '1. Login pada alamat Internet Banking BRI \n2. Pilih menu m-Transfer \n3. Pada Input No. Virtual Account masukkan kode Virtual Account (8077089676869186)\n4. Kemudian tekan send. Cetak/simpan stuck Transfer sebagai bukti pembayaran'),
                   )
                 ],
               ),
