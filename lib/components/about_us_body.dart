@@ -40,7 +40,7 @@ class _AboutUsBodyState extends State<AboutUsBody> {
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height / 3.85,
                     child: Flexible(
                       child: Column(
