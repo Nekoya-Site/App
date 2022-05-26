@@ -42,7 +42,7 @@ ios:debug:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build ios
+    - flutter build ipa
     - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
     - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
     - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/debug"
@@ -62,7 +62,7 @@ ios:release:
     - flutter packages get
     - flutter clean
   script:
-    - flutter build ios
+    - flutter build ipa
     - if [ -d archive ]; then rm -rf archive; fi && mkdir archive
     - if [ -d artifact ]; then rm -rf artifact; fi && mkdir artifact
     - export PLIST_DIRECTORY="ci-cd/iOS/${FLAVOR}/release"
@@ -74,15 +74,6 @@ ios:release:
     paths:
       - "artifact/*.ipa"
     expire_in: 1 day
-
-web:debug:
-  stage: archive
-  before_script:
-    - flutter create .
-    - flutter packages get
-    - flutter clean
-  script:
-    - flutter build web --debug
 
 web:release:
   stage: archive
