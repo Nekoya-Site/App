@@ -1,5 +1,6 @@
 // ignore_for_file: dead_code
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,9 @@ class Carousel extends StatefulWidget {
 }
 
 final List<String> imgList = [
-  'assets/images/carousel_1.webp',
-  'assets/images/carousel_2.webp',
-  'assets/images/carousel_3.webp',
+  'https://nekoya.moe.team/img/Carousel_1.webp',
+  'https://nekoya.moe.team/img/Carousel_2.webp',
+  'https://nekoya.moe.team/img/Carousel_3.webp',
 ];
 
 class _CarouselState extends State<Carousel> {
@@ -27,7 +28,24 @@ class _CarouselState extends State<Carousel> {
               borderRadius: const BorderRadius.all(Radius.circular(5.0)),
               child: Stack(
                 children: <Widget>[
-                  Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                  CachedNetworkImage(
+                    imageUrl: item,
+                    placeholder: (context, url) => Container(
+                      width: 1000,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/image_empty.webp'), fit: BoxFit.cover)),
+                    ),
+                    errorWidget: (context, url, error) =>
+                        Image.asset('assets/images/image_error.webp'),
+                    fadeOutDuration: const Duration(milliseconds: 5),
+                    imageBuilder: (context, imageProvider) => Container(
+                      width: 1000,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: imageProvider, fit: BoxFit.cover)),
+                    ),
+                  ),
                   Positioned(
                     bottom: 0.0,
                     left: 0.0,
