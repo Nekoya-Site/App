@@ -110,7 +110,7 @@ class _CartState extends State<Cart> {
                   child: Container(
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/cart_empty.webp')
+                        image: AssetImage('assets/images/image_empty.webp')
                       )
                     ),
                   ),
