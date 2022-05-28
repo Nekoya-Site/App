@@ -15,7 +15,7 @@ class Bannerimage extends StatelessWidget {
               Container(
                   padding: const EdgeInsets.all(0.0),
                   child: Image.asset(
-                    'assets/images/slider_1.webp',
+                    'assets/images/image_banner.webp',
                     width: 600.0,
                     height: 180.0,
                     fit: BoxFit.cover,
