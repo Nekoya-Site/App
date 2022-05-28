@@ -1,5 +1,3 @@
-// ignore_for_file: dead_code
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +16,6 @@ final List<String> imgList = [
 ];
 
 class _CarouselState extends State<Carousel> {
-  int _current = 0;
   final CarouselController _controller = CarouselController();
   final List<Widget> imageSliders = imgList
       .map(
@@ -83,32 +80,8 @@ class _CarouselState extends State<Carousel> {
           enlargeCenterPage: true,
           enableInfiniteScroll: false,
           initialPage: 2,
-          autoPlay: true,
-          onPageChanged: (index, reason) {
-            setState(() {
-              _current = index;
-            });
-          }),
-    );
-    Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: imgList.asMap().entries.map((entry) {
-        return GestureDetector(
-            onTap: () => _controller.animateToPage(entry.key),
-            child: Container(
-              width: 12.0,
-              height: 12.0,
-              margin:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: (Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.white
-                        .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-              ),
-            ));
-      }).toList(),
+          autoPlay: true
+      )
     );
   }
 }
