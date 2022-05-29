@@ -164,13 +164,16 @@ class LoginFormState extends State<LoginForm> {
                 if (!res['data']['otp']) {
                   addSession(res['data']['id'], res['data']['session_token']);
                   Navigator.pop(context);
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) => const Menu(initialScreen: 2)
-                  ));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Menu(initialScreen: 2)));
                 } else {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => Otp(otpToken: res['data']['token'])
-                  ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Otp(otpToken: res['data']['token'])));
                 }
               } else if (res['statusCode'] == 204) {
                 showEmailNotRegister(context);
@@ -246,7 +249,7 @@ class LoginFormState extends State<LoginForm> {
         style: TextStyle(color: Colors.white),
       ),
       content: const Text(
-        "Make sure to fill all text fields!!",
+        "Please Enter Your Email and Password !",
         style: TextStyle(color: Colors.white70),
       ),
       actions: [
