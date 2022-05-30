@@ -88,8 +88,9 @@ class _AboutUsBodyState extends State<AboutUsBody> {
                 ),
                 onPressed: () async {
                   if (!await launchUrl(
-                      Uri.parse('mailto:nekoya@chocola.dev')))
+                      Uri.parse('mailto:nekoya@chocola.dev'))) {
                     throw 'Could not launch';
+                  }
                 },
               ),
             ),
@@ -98,8 +99,9 @@ class _AboutUsBodyState extends State<AboutUsBody> {
             flex: 1,
             child: GestureDetector(
                 onTap: () async {
-                  if (!await launchUrl(Uri.parse('https://nekoya.moe.team')))
+                  if (!await launchUrl(Uri.parse('https://nekoya.moe.team'))) {
                     throw 'Could not launch';
+                  }
                 },
                 child: const Text(
                   '© 2021-2022 Nekoya Co. Ltd.',
