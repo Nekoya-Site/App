@@ -104,7 +104,7 @@ class _AboutUsBodyState extends State<AboutUsBody> {
                   }
                 },
                 child: const Text(
-                  '© 2021-2022 Nekoya Co. Ltd.',
+                  '© 2021-2023 Nekoya Co. Ltd.',
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 )),
           ),
