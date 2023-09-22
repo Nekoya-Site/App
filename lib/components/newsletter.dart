@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -62,7 +62,8 @@ class _NewsletterState extends State<Newsletter> {
                           padding: const EdgeInsets.all(14),
                           child: SvgPicture.asset(
                             "assets/icons/email.svg",
-                            color: Colors.white,
+                            colorFilter: const ColorFilter.mode(
+                                Colors.white, BlendMode.srcIn),
                             width: 21.5,
                             height: 21.5,
                           ),
@@ -76,7 +77,7 @@ class _NewsletterState extends State<Newsletter> {
                             height: 48,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: const Color(0xff8B0000),
+                                  backgroundColor: const Color(0xff8B0000),
                                   shape: const RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(12)),
@@ -87,34 +88,46 @@ class _NewsletterState extends State<Newsletter> {
                                   subscribe(emailQuery).then((status) {
                                     if (status == 200) {
                                       emailController.clear();
-                                      FocusScope.of(context).requestFocus(FocusNode());
+                                      FocusScope.of(context)
+                                          .requestFocus(FocusNode());
                                       return showDialog(
-                                        context: context,
-                                        barrierDismissible: false,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: const Text('Thank You', style: TextStyle(color: Colors.white),),
-                                            backgroundColor: const Color(0xff212226),
-                                            content: SingleChildScrollView(
-                                              child: ListBody(
-                                                children: const <Widget>[
-                                                  Text('You have successfully subscribed to the newsletter.', style: TextStyle(
-                                                    color: Colors.white
-                                                  )),
-                                                ],
+                                          context: context,
+                                          barrierDismissible: false,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: const Text(
+                                                'Thank You',
+                                                style: TextStyle(
+                                                    color: Colors.white),
                                               ),
-                                            ),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                child: const Text('Close', style: TextStyle(color: Colors.white),),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
+                                              backgroundColor:
+                                                  const Color(0xff212226),
+                                              content:
+                                                  const SingleChildScrollView(
+                                                child: ListBody(
+                                                  children: <Widget>[
+                                                    Text(
+                                                        'You have successfully subscribed to the newsletter.',
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                  ],
+                                                ),
                                               ),
-                                            ],
-                                          );
-                                        }
-                                      );
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  child: const Text(
+                                                    'Close',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                              ],
+                                            );
+                                          });
                                     }
                                   });
                                 }

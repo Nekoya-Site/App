@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nekoya_flutter/components/about_us_body.dart';
+import 'package:nekoya_app/components/about_us_body.dart';
 
 class AboutUs extends StatefulWidget {
   const AboutUs({Key? key}) : super(key: key);

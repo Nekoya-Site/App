@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nekoya_flutter/components/search_page.dart';
+import 'package:nekoya_app/components/search_page.dart';
 
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 const OutlineInputBorder outlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -37,7 +37,8 @@ class _SearchFormState extends State<SearchForm> {
           prefixIcon: Padding(
             padding: const EdgeInsets.all(14),
             child: SvgPicture.asset("assets/icons/Search.svg",
-                color: Colors.white),
+                colorFilter:
+                    const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(
@@ -47,7 +48,7 @@ class _SearchFormState extends State<SearchForm> {
               height: 48,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff8B0000),
+                  backgroundColor: const Color(0xff8B0000),
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/components/forgot_pass_body.dart';
+import 'package:nekoya_app/components/forgot_pass_body.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);

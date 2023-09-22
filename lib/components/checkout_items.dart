@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/data/cart.dart';
-import 'package:nekoya_flutter/components/cart_box.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/data/cart.dart';
+import 'package:nekoya_app/components/cart_box.dart';
 
 class CheckoutItems extends StatefulWidget {
   const CheckoutItems({Key? key}) : super(key: key);
@@ -13,7 +13,6 @@ class CheckoutItems extends StatefulWidget {
 }
 
 class _CheckoutItemsState extends State<CheckoutItems> {
-
   @override
   Widget build(BuildContext context) {
     Future<dynamic> getTotal() async {
@@ -69,7 +68,8 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                             if (productData != null) {
                               return CartBox(
                                   controller: false,
-                                  imageUrl: "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
+                                  imageUrl:
+                                      "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                                   title: productData[0]['TITLE'],
                                   quantity: data[index]["quantity"],
                                   plus: () {},
@@ -123,9 +123,9 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                     );
                   }
 
-                  return Row(
+                  return const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
+                    children: [
                       Text(
                         "Total : -",
                         style: TextStyle(

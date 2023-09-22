@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/data/cart.dart';
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/data/cart.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 Widget makeDismissible({required context, required Widget child}) =>
     GestureDetector(

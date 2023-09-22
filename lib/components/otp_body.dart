@@ -2,9 +2,9 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/menu.dart';
-import 'package:nekoya_flutter/data/auth.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/menu.dart';
+import 'package:nekoya_app/data/auth.dart';
 
 class OtpBody extends StatefulWidget {
   const OtpBody({Key? key, required this.otpToken}) : super(key: key);
@@ -24,12 +24,18 @@ class _OtpBodyState extends State<OtpBody> {
   TextEditingController otpCode6 = TextEditingController();
 
   Future submitForm(BuildContext context) async {
-    if (otpCode1.text.isEmpty || otpCode2.text.isEmpty || otpCode3.text.isEmpty || otpCode4.text.isEmpty || otpCode5.text.isEmpty || otpCode6.text.isEmpty) {
+    if (otpCode1.text.isEmpty ||
+        otpCode2.text.isEmpty ||
+        otpCode3.text.isEmpty ||
+        otpCode4.text.isEmpty ||
+        otpCode5.text.isEmpty ||
+        otpCode6.text.isEmpty) {
       return 999;
     } else {
       Map<String, dynamic> data = {
         "token": widget.otpToken,
-        "code": "${otpCode1.text}${otpCode2.text}${otpCode3.text}${otpCode4.text}${otpCode5.text}${otpCode6.text}"
+        "code":
+            "${otpCode1.text}${otpCode2.text}${otpCode3.text}${otpCode4.text}${otpCode5.text}${otpCode6.text}"
       };
 
       var response = await otpPost(data);
@@ -255,7 +261,9 @@ class _OtpBodyState extends State<OtpBody> {
             ],
           ),
         )),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         ElevatedButton(
           style: ButtonStyle(
               padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
@@ -272,9 +280,10 @@ class _OtpBodyState extends State<OtpBody> {
               if (res['statusCode'] == 200) {
                 addSession(res['data']['id'], res['data']['session_token']);
                 Navigator.pop(context);
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) => const Menu(initialScreen: 2)
-                ));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Menu(initialScreen: 2)));
                 Navigator.pop(context);
               }
             });

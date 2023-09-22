@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/components/login_form.dart';
+import 'package:nekoya_app/components/login_form.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);

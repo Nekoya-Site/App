@@ -1,11 +1,11 @@
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/menu.dart';
-import 'package:nekoya_flutter/data/auth.dart';
-import 'package:nekoya_flutter/screens/otp.dart';
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/menu.dart';
+import 'package:nekoya_app/data/auth.dart';
+import 'package:nekoya_app/screens/otp.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);

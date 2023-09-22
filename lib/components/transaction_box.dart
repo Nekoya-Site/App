@@ -2,26 +2,26 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/transaction_product_box.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/transaction_product_box.dart';
 
 class TransactionBox extends StatefulWidget {
-  const TransactionBox({
-    Key? key, 
-    required this.orderId,
-    required this.status,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.streetAddress1,
-    required this.district,
-    required this.subDistrict,
-    required this.province,
-    required this.region,
-    required this.postalCode,
-    required this.logistic,
-    required this.data
-  }) : super(key: key);
+  const TransactionBox(
+      {Key? key,
+      required this.orderId,
+      required this.status,
+      required this.firstName,
+      required this.lastName,
+      required this.phoneNumber,
+      required this.streetAddress1,
+      required this.district,
+      required this.subDistrict,
+      required this.province,
+      required this.region,
+      required this.postalCode,
+      required this.logistic,
+      required this.data})
+      : super(key: key);
 
   final int orderId;
   final String status;
@@ -54,7 +54,7 @@ class _TransactionBoxState extends State<TransactionBox> {
         totalPrice += product[0]['PRICE'] * x['quantity'];
       });
 
-      return Future.delayed(const Duration(seconds: 2), (){
+      return Future.delayed(const Duration(seconds: 2), () {
         return totalPrice;
       });
     }
@@ -66,8 +66,14 @@ class _TransactionBoxState extends State<TransactionBox> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('#${widget.orderId}', style: const TextStyle(color: Colors.white),),
-          Text(widget.status, style: const TextStyle(color: Colors.white),)
+          Text(
+            '#${widget.orderId}',
+            style: const TextStyle(color: Colors.white),
+          ),
+          Text(
+            widget.status,
+            style: const TextStyle(color: Colors.white),
+          )
         ],
       ),
       children: [
@@ -78,15 +84,31 @@ class _TransactionBoxState extends State<TransactionBox> {
               Flexible(
                 flex: 2,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Sender Details', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
-                    const SizedBox(height: 5,),
-                    Text("${widget.firstName} ${widget.lastName}", style: const TextStyle(color: Colors.white),),
-                    Text(widget.phoneNumber, style: const TextStyle(color: Colors.white),),
-                    Text("${widget.streetAddress1}, ${widget.district}, ${widget.subDistrict}, ${widget.province}, ${widget.region}, ${widget.postalCode}", style: const TextStyle(color: Colors.white),),
-                  ]
-                ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Sender Details',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "${widget.firstName} ${widget.lastName}",
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        widget.phoneNumber,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "${widget.streetAddress1}, ${widget.district}, ${widget.subDistrict}, ${widget.province}, ${widget.region}, ${widget.postalCode}",
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ]),
               ),
               Flexible(
                 flex: 1,
@@ -96,9 +118,20 @@ class _TransactionBoxState extends State<TransactionBox> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text('Logistic', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),),
-                      const SizedBox(height: 5,),
-                      Text(widget.logistic, style: const TextStyle(color: Colors.white),),
+                      const Text(
+                        'Logistic',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        widget.logistic,
+                        style: const TextStyle(color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -106,7 +139,6 @@ class _TransactionBoxState extends State<TransactionBox> {
             ],
           ),
         ),
-
         Container(
           margin: const EdgeInsets.all(15.0),
           child: Card(
@@ -117,77 +149,73 @@ class _TransactionBoxState extends State<TransactionBox> {
             child: Column(
               children: [
                 ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: orderData.length,
-                  itemBuilder: (context, index) {
-                    return FutureBuilder<dynamic>(
-                      future: getProduct(orderData[index]['product_id']),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          var productData = snapshot.data;
-                          return TransactionProductBox(
-                            imageUrl: 'https://nekoya.moe.team/img/${productData[0]['IMAGE']}',
-                            title: productData[0]['TITLE'],
-                            quantity: orderData[index]["quantity"],
-                          );
-                        }
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: orderData.length,
+                    itemBuilder: (context, index) {
+                      return FutureBuilder<dynamic>(
+                          future: getProduct(orderData[index]['product_id']),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              var productData = snapshot.data;
+                              return TransactionProductBox(
+                                imageUrl:
+                                    'https://nekoya.moe.team/img/${productData[0]['IMAGE']}',
+                                title: productData[0]['TITLE'],
+                                quantity: orderData[index]["quantity"],
+                              );
+                            }
 
-                        return const TransactionProductBox(
-                          imageUrl: 'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
-                          title: 'Loading...',
-                          quantity: 0,
-                        );
-                      }
-                    );
-                  }
-                ),
-
+                            return const TransactionProductBox(
+                              imageUrl:
+                                  'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
+                              title: 'Loading...',
+                              quantity: 0,
+                            );
+                          });
+                    }),
                 Container(
                   margin: const EdgeInsets.only(left: 15.0, right: 15.0),
                   child: const Divider(
                     color: Colors.white,
                   ),
                 ),
-
                 Container(
-                  margin: const EdgeInsets.only(top: 15.0, right: 15.0, bottom: 20.0),
+                  margin: const EdgeInsets.only(
+                      top: 15.0, right: 15.0, bottom: 20.0),
                   child: FutureBuilder<dynamic>(
-                    future: getTotal(),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        var price = snapshot.data;
-                        return Row(
+                      future: getTotal(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          var price = snapshot.data;
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Total : Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600),
+                              )
+                            ],
+                          );
+                        }
+
+                        return const Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Total : Rp ${NumberFormat('#,##0.00', 'ID').format(price)}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600
-                              ),
+                              "Total : -",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         );
-                      }
-              
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          Text(
-                            "Total : -",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600
-                            ),
-                          )
-                        ],
-                      );
-                    }
-                  ),
+                      }),
                 ),
               ],
             ),

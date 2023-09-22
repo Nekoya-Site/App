@@ -8,7 +8,7 @@ android:release:
   before_script:
     - flutter create .
     - flutter pub get
-    - flutter pub run flutter_launcher_icons_maker:main
+    - flutter pub run flutter_launcher_icons
     - flutter clean
   script:
     - flutter doctor --android-licenses

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/components/checkout_form.dart';
-import 'package:nekoya_flutter/components/checkout_items.dart';
+import 'package:nekoya_app/components/checkout_form.dart';
+import 'package:nekoya_app/components/checkout_items.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({Key? key}) : super(key: key);
@@ -20,10 +20,10 @@ class _CheckoutState extends State<Checkout> {
         centerTitle: true,
         backgroundColor: const Color(0xff212226),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               CheckoutItems(),
               CheckoutForm(),
             ],

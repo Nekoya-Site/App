@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/components/register_form.dart';
+import 'package:nekoya_app/components/register_form.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);

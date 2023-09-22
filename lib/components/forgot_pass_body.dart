@@ -1,7 +1,7 @@
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_app/api/api.dart';
 
 class ForgotPassBody extends StatefulWidget {
   const ForgotPassBody({Key? key}) : super(key: key);
@@ -45,8 +45,8 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
           ),
           Container(
             padding: const EdgeInsets.only(top: 25, bottom: 20),
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(
                   Icons.mail_sharp,
                   color: Colors.white,
@@ -75,7 +75,9 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
               ),
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           ElevatedButton(
             style: ButtonStyle(
                 padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
@@ -94,32 +96,37 @@ class _ForgotPassBodyState extends State<ForgotPassBody> {
                 forgotForm(context).then((res) {
                   if (res['statusCode'] == 200) {
                     showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Forgot Password', style: TextStyle(color: Colors.white),),
-                          backgroundColor: const Color(0xff212226),
-                          content: SingleChildScrollView(
-                            child: ListBody(
-                              children: const <Widget>[
-                                Text('Please check your email to reset your password', style: TextStyle(
-                                  color: Colors.white
-                                )),
-                              ],
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text(
+                              'Forgot Password',
+                              style: TextStyle(color: Colors.white),
                             ),
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              child: const Text('Close', style: TextStyle(color: Colors.white),),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
+                            backgroundColor: const Color(0xff212226),
+                            content: const SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  Text(
+                                      'Please check your email to reset your password',
+                                      style: TextStyle(color: Colors.white)),
+                                ],
+                              ),
                             ),
-                          ],
-                        );
-                      }
-                    );
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text(
+                                  'Close',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        });
                   } else if (res['statusCode'] == 205) {
                     showEmailWarn(context);
                   } else {

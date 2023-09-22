@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/product_box.dart';
-import 'package:nekoya_flutter/components/product_detail.dart';
-import 'package:nekoya_flutter/utils/utils.dart'
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/product_box.dart';
+import 'package:nekoya_app/components/product_detail.dart';
+import 'package:nekoya_app/utils/utils.dart'
     show kMobileBreakpoint, kTabletBreakpoint, kDesktopBreakPoint;
 
 class Products extends StatefulWidget {

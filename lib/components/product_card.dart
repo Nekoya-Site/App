@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -32,17 +32,16 @@ class ProductCard extends StatelessWidget {
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Color(0xff212226),
-                borderRadius: BorderRadius.all(
-                    Radius.circular(defaultBorderRadius)),
+                borderRadius:
+                    BorderRadius.all(Radius.circular(defaultBorderRadius)),
               ),
               child: CachedNetworkImage(
                 imageUrl: imageUrl,
-                placeholder: (context, url) =>
-                    const Center(
-                      child: CircularProgressIndicator(
-                  color: Color(0xff8B0000),
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(
+                    color: Color(0xff8B0000),
+                  ),
                 ),
-                    ),
                 errorWidget: (context, url, error) =>
                     Image.asset('assets/images/image_error.webp'),
                 fadeOutDuration: const Duration(milliseconds: 5),

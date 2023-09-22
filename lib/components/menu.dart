@@ -2,12 +2,12 @@ import 'dart:math' as math;
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/data/auth.dart';
-import 'package:nekoya_flutter/screens/products.dart';
-import 'package:nekoya_flutter/screens/cart.dart';
-import 'package:nekoya_flutter/screens/sessions.dart';
-import 'package:nekoya_flutter/screens/transactions.dart';
-import 'package:nekoya_flutter/screens/home.dart';
+import 'package:nekoya_app/data/auth.dart';
+import 'package:nekoya_app/screens/products.dart';
+import 'package:nekoya_app/screens/cart.dart';
+import 'package:nekoya_app/screens/sessions.dart';
+import 'package:nekoya_app/screens/transactions.dart';
+import 'package:nekoya_app/screens/home.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key, required this.initialScreen}) : super(key: key);

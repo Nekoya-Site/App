@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'package:nekoya_flutter/api/config.dart';
+import 'package:nekoya_app/api/config.dart';
 
 Future<dynamic> getProducts() async {
   var req = await Dio().get('$host/getproducts');

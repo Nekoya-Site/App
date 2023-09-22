@@ -1,14 +1,14 @@
-import 'package:nekoya_flutter/screens/forgotpassword.dart';
+import 'package:nekoya_app/screens/forgotpassword.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/screens/login.dart';
-import 'package:nekoya_flutter/screens/register.dart';
-import 'package:nekoya_flutter/screens/payment.dart';
-import 'package:nekoya_flutter/components/menu.dart';
-import 'package:nekoya_flutter/utils/navigation_auth.dart';
+import 'package:nekoya_app/screens/login.dart';
+import 'package:nekoya_app/screens/register.dart';
+import 'package:nekoya_app/screens/payment.dart';
+import 'package:nekoya_app/components/menu.dart';
+import 'package:nekoya_app/utils/navigation_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

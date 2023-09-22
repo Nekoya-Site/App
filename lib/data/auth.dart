@@ -1,13 +1,10 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
+import 'package:nekoya_app/api/api.dart';
 
 String getEncodedSession(userId, sessionToken) {
-  var sessionData = {
-    "user_id": userId,
-    "session_token": sessionToken
-  };
+  var sessionData = {"user_id": userId, "session_token": sessionToken};
   var sessionRaw = jsonEncode(sessionData).toString();
   var sessionEncoded = base64.encode(utf8.encode(sessionRaw));
   return sessionEncoded;

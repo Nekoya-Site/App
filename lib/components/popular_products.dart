@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/product_card.dart';
-import 'package:nekoya_flutter/components/product_detail.dart';
-import 'package:nekoya_flutter/components/section_title.dart';
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/product_card.dart';
+import 'package:nekoya_app/components/product_detail.dart';
+import 'package:nekoya_app/components/section_title.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({

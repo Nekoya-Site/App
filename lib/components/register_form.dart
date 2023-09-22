@@ -2,9 +2,9 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/components/register_error.dart';
-import 'package:nekoya_flutter/components/register_verify.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/components/register_error.dart';
+import 'package:nekoya_app/components/register_verify.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -144,7 +144,7 @@ class RegisterFormState extends State<RegisterForm> {
                         children: [
                           TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.transparent,
+                              foregroundColor: Colors.transparent,
                             ),
                             child: const Text(
                               "Already have an account?? \nClick here to Sign In !!",

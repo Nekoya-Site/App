@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/data/auth.dart';
-import 'package:nekoya_flutter/data/cart.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/data/auth.dart';
+import 'package:nekoya_app/data/cart.dart';
 
 class CheckoutForm extends StatefulWidget {
   const CheckoutForm({Key? key}) : super(key: key);
@@ -102,8 +102,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Row(
-                            children: const [
+                          const Row(
+                            children: [
                               Text(
                                 "Contact Information",
                                 style: TextStyle(
@@ -131,8 +131,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Row(
-                            children: const [
+                          const Row(
+                            children: [
                               Text(
                                 "Address",
                                 style: TextStyle(
@@ -180,8 +180,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Row(
-                            children: const [
+                          const Row(
+                            children: [
                               Text(
                                 "Shipping Methods",
                                 style: TextStyle(

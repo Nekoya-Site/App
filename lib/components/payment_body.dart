@@ -1,8 +1,8 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/api/api.dart';
-import 'package:nekoya_flutter/data/cart.dart';
+import 'package:nekoya_app/api/api.dart';
+import 'package:nekoya_app/data/cart.dart';
 
 class PaymentBody extends StatefulWidget {
   const PaymentBody({Key? key}) : super(key: key);
@@ -181,9 +181,9 @@ class _PaymentBodyState extends State<PaymentBody> {
                     );
                   }
 
-                  return Row(
+                  return const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         "Count total price on process!",
                         style: TextStyle(

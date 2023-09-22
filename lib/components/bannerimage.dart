@@ -51,7 +51,7 @@ class Bannerimage extends StatelessWidget {
                           Navigator.pushReplacementNamed(context, '/products');
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.red,
+                            backgroundColor: Colors.red,
                             textStyle: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
                         child: const Text('SHOP NOW'),

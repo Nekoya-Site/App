@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:nekoya_flutter/components/bannerimage.dart';
-import 'package:nekoya_flutter/components/carousel.dart';
-import 'package:nekoya_flutter/components/new_arrival_products.dart';
-import 'package:nekoya_flutter/components/newsletter.dart';
-import 'package:nekoya_flutter/components/popular_products.dart';
-import 'package:nekoya_flutter/components/search_form.dart';
-import 'package:nekoya_flutter/screens/about_us.dart';
-import 'package:nekoya_flutter/screens/faq.dart';
-import 'package:nekoya_flutter/utils/utils.dart';
+import 'package:nekoya_app/components/bannerimage.dart';
+import 'package:nekoya_app/components/carousel.dart';
+import 'package:nekoya_app/components/new_arrival_products.dart';
+import 'package:nekoya_app/components/newsletter.dart';
+import 'package:nekoya_app/components/popular_products.dart';
+import 'package:nekoya_app/components/search_form.dart';
+import 'package:nekoya_app/screens/about_us.dart';
+import 'package:nekoya_app/screens/faq.dart';
+import 'package:nekoya_app/utils/utils.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
                 "Explore",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineMedium!
                     .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
               ),
               const Text(

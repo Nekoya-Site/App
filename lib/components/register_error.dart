@@ -58,9 +58,9 @@ class RegisterErrorState extends State<RegisterError> {
                       const SizedBox(
                         height: 70,
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Flexible(
                             child: Text(
                               "An error has occured Make sure to check if your email has been registered before.",

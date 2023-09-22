@@ -58,9 +58,9 @@ class RegisterVerifyState extends State<RegisterVerify> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Flexible(
                             child: Text(
                               "Before proceeding, please check your email for a verification link to verify your email address.",

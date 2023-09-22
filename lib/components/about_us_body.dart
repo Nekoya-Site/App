@@ -15,14 +15,14 @@ class _AboutUsBodyState extends State<AboutUsBody> {
   @override
   void initState() {
     super.initState();
-    _controller =
-        VideoPlayerController.network('https://nekoya.moe.team/img/AboutUs.mp4')
-          ..initialize().then((_) {
-            setState(() {
-              _controller.play();
-              _controller.setLooping(true);
-            });
-          });
+    _controller = VideoPlayerController.networkUrl(
+        Uri.parse('https://nekoya.moe.team/img/AboutUs.mp4'))
+      ..initialize().then((_) {
+        setState(() {
+          _controller.play();
+          _controller.setLooping(true);
+        });
+      });
   }
 
   @override
