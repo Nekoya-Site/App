@@ -32,6 +32,7 @@ dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.6
   dio: ^5.3.3
+  file: ^6.1.2
   flutter:
     sdk: flutter
   flutter_form_builder: ^9.1.1
