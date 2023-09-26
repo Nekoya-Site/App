@@ -25,7 +25,7 @@
 - [✓] [About Us](https://gitlab.com/nekoya/app/-/issues/14)
 
 ## Download
-<a href='https://play.google.com/store/apps/details?id=team.moe.nekoya&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height=60/></a>
+<a href='https://play.google.com/store/apps/details?id=team.moe.nekoya.app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height=60/></a>
 <a href='https://github.com/Nekoya-Site/App/releases'><img alt='Download APK' src='https://telegra.ph/file/6a06124f0c622b885a546.png' height=40 width=140 style="margin-bottom: 11px;"/></a>
 
 ## Contributors
@@ -34,6 +34,3 @@
 - Kelvin Samuel (535200008) / [@Kelvin2212](https://github.com/Kelvin2212)
 - Donni Suharyanto (535200042) / [@DShrat](https://github.com/DShrat)
 - Hans Edison (535200041) / [@Hansedison02](https://github.com/Hansedison02)
-
-## LIVE PREVIEW
-👉 https://preview.nekoya.moe.team/
