@@ -56,6 +56,7 @@ class _ProductsState extends State<Products> {
                     imageUrl:
                         "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
                     title: data[index]['TITLE'],
+                    discount: data[index]['DISCOUNT'],
                     fontSize: fontSize,
                     callback: () {
                       showModalBottomSheet(
