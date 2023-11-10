@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
 
 import 'package:nekoya_app/api/api.dart';
 
@@ -11,17 +11,17 @@ String getEncodedSession(userId, sessionToken) {
 }
 
 Future<void> addSession(userId, sessionToken) async {
-  final prefs = await SharedPreferences.getInstance();
+  final box = Hive.box();
 
   String session = getEncodedSession(userId, sessionToken);
 
-  await prefs.setString('session', session);
+  box.put('session', session);
 }
 
 Future<bool> checkSessionExist() async {
-  final prefs = await SharedPreferences.getInstance();
+  final box = Hive.box();
 
-  if (prefs.containsKey('session')) {
+  if (box.get('session') != null) {
     var res = await getSessions(await getSession());
 
     if (res['statusCode'] == 200) {
@@ -36,17 +36,17 @@ Future<bool> checkSessionExist() async {
 }
 
 Future<String> getSession() async {
-  final prefs = await SharedPreferences.getInstance();
+  final box = Hive.box();
 
-  if (prefs.containsKey('session')) {
-    return prefs.getString('session') ?? 'null';
+  if (box.get('session') != null) {
+    return box.get('session', defaultValue: 'null');
   }
 
   return 'null';
 }
 
 Future<void> removeSession() async {
-  final prefs = await SharedPreferences.getInstance();
+  final box = Hive.box();
 
-  await prefs.remove('session');
+  box.delete('session');
 }
