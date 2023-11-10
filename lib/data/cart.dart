@@ -37,6 +37,12 @@ Future<void> removeFromCart(productId, bool batch) async {
   box.put('cart', jsonEncode(cart).toString());
 }
 
+Future<dynamic> clearCart() async {
+  final box = Hive.box();
+
+  box.put('cart', '[]');
+}
+
 Future<dynamic> viewCart() async {
   final box = Hive.box();
 

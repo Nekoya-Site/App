@@ -61,6 +61,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
         "data": cartData,
       };
 
+      await clearCart();
+
       var statusCode = await loadCheckout(data);
       return statusCode;
     }
