@@ -110,7 +110,7 @@ class _ProductsState extends State<Products> {
                       children: List.generate(currentData.length, (index) {
                         return ProductBox(
                           imageUrl:
-                              "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
+                              "https://nekoya.moe.team/img/${currentData[index]['IMAGE']}",
                           title: currentData[index]['TITLE'],
                           discount: currentData[index]['DISCOUNT'],
                           fontSize: fontSize,
