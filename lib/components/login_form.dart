@@ -25,7 +25,7 @@ class LoginFormState extends State<LoginForm> {
       Map<String, dynamic> data = {
         "email": emailController.text,
         "password": passwordController.text,
-        "ua": "Nekoya App v1.0.0-beta"
+        "ua": "Nekoya App v1.1.0"
       };
 
       var response = await loginPost(data);
