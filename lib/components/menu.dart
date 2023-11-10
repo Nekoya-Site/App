@@ -62,7 +62,7 @@ class _MenuState extends State<Menu> {
       var oldSelectedIndex = _selectedIndex;
       _selectedIndex = index;
       if (index == 0) {
-        html.window.history.pushState(null, '', '/#/discount');
+        html.window.history.pushState(null, '', '/#/discounts');
         _selectedWidget = const Discounts();
       } else if (index == 1) {
         html.window.history.pushState(null, '', '/#/products');

@@ -27,7 +27,7 @@ class Bannerimage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'SPRING / SUMMER COLLECTION 2022',
+                        'FALL 2023 SALE!',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 10.5,
@@ -37,7 +37,7 @@ class Bannerimage extends StatelessWidget {
                         height: 8.0,
                       ),
                       const Text(
-                        'Get up to 30% off \nNow Arrivals',
+                        'Get up to 30% off \nNew Collections',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
@@ -48,7 +48,7 @@ class Bannerimage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/products');
+                          Navigator.pushReplacementNamed(context, '/discounts');
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red,

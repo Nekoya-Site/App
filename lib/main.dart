@@ -62,7 +62,7 @@ class _NekoyaState extends State<Nekoya> {
         '/products': (context) => const Menu(
               initialScreen: 1,
             ),
-        '/discount': (context) => const Menu(
+        '/discounts': (context) => const Menu(
               initialScreen: 0,
             ),
         '/cart': (context) => const Menu(
