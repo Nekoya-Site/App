@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:nekoya_app/data/auth.dart';
 import 'package:nekoya_app/screens/products.dart';
+import 'package:nekoya_app/screens/discounts.dart';
 import 'package:nekoya_app/screens/cart.dart';
-import 'package:nekoya_app/screens/sessions.dart';
 import 'package:nekoya_app/screens/transactions.dart';
 import 'package:nekoya_app/screens/home.dart';
 
@@ -25,7 +25,7 @@ class _MenuState extends State<Menu> {
   @override
   void initState() {
     if (widget.initialScreen == 0) {
-      _selectedWidget = const Sessions();
+      _selectedWidget = const Discounts();
     } else if (widget.initialScreen == 1) {
       _selectedWidget = const Products();
     } else if (widget.initialScreen == 2) {
@@ -45,7 +45,7 @@ class _MenuState extends State<Menu> {
       body: _selectedWidget,
       bottomNavigationBar: Navigation(
         itemIcons: const [
-          Icons.settings,
+          Icons.percent,
           Icons.list_alt_rounded,
           Icons.shopping_cart,
           Icons.wysiwyg
@@ -62,15 +62,8 @@ class _MenuState extends State<Menu> {
       var oldSelectedIndex = _selectedIndex;
       _selectedIndex = index;
       if (index == 0) {
-        _selectedWidget = const Sessions();
-        checkSessionExist().then((isLoggedIn) {
-          if (!isLoggedIn) {
-            _selectedIndex = oldSelectedIndex;
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const Menu(initialScreen: 2)));
-            Navigator.pushNamed(context, '/login');
-          }
-        });
+        html.window.history.pushState(null, '', '/#/discount');
+        _selectedWidget = const Discounts();
       } else if (index == 1) {
         html.window.history.pushState(null, '', '/#/products');
         _selectedWidget = const Products();
