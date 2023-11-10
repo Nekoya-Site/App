@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nekoya_app/api/api.dart';
@@ -14,6 +15,9 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
+  String selectedCategory = 'All';
+  var currentData = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,30 +49,85 @@ class _ProductsState extends State<Products> {
         }
 
         return FutureBuilder<dynamic>(
+          key: UniqueKey(),
           future: getProducts(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              var data = snapshot.data;
-              return GridView.count(
-                crossAxisCount: gridCount,
-                children: List.generate(data!.length, (index) {
-                  return ProductBox(
-                    imageUrl:
-                        "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
-                    title: data[index]['TITLE'],
-                    discount: data[index]['DISCOUNT'],
-                    fontSize: fontSize,
-                    callback: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (context) =>
-                            productDetail(context, data[index]['ID']),
-                      );
-                    },
-                  );
-                }),
+              List<dynamic> data = snapshot.data;
+
+              List<String> categories = ['All'];
+              var groupedCategories =
+                  groupBy<dynamic, String>(data, (value) => value['BRAND']);
+              groupedCategories.forEach((key, value) {
+                categories.add(key);
+              });
+
+              if (selectedCategory == 'All') {
+                currentData = data;
+              }
+
+              return Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
+                        decoration: const BoxDecoration(
+                            color: Color(0xff212226),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0))),
+                        child: DropdownButton(
+                          isExpanded: true,
+                          value: selectedCategory,
+                          dropdownColor: const Color(0xff212226),
+                          underline: const SizedBox(),
+                          items: categories.map((value) {
+                            return DropdownMenuItem(
+                                value: value,
+                                child: Text(value,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.w600)));
+                          }).toList(),
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectedCategory = newValue ?? 'All';
+                              if (selectedCategory == 'All') {
+                                currentData = data;
+                              } else {
+                                currentData =
+                                    groupedCategories[selectedCategory] ?? [];
+                              }
+                            });
+                          },
+                        )),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child: GridView.count(
+                      crossAxisCount: gridCount,
+                      children: List.generate(currentData.length, (index) {
+                        return ProductBox(
+                          imageUrl:
+                              "https://nekoya.moe.team/img/${data[index]['IMAGE']}",
+                          title: currentData[index]['TITLE'],
+                          discount: currentData[index]['DISCOUNT'],
+                          fontSize: fontSize,
+                          callback: () {
+                            showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) => productDetail(
+                                  context, currentData[index]['ID']),
+                            );
+                          },
+                        );
+                      }),
+                    ),
+                  ),
+                ],
               );
             }
 
