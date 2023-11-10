@@ -27,7 +27,7 @@ class Bannerimage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'SPRING / SUMMER COLLECTION 2022',
+                        'FALL COLLECTION 2023',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 10.5,
