@@ -92,7 +92,7 @@ class _ProductBoxState extends State<ProductBox> {
                                           bottomLeft: Radius.circular(10.0))),
                                   margin: const EdgeInsets.only(top: 10.0),
                                   child: Center(
-                                      child: Text("${widget.discount}%",
+                                      child: Text("${widget.discount}% off",
                                           style: const TextStyle(
                                               color: Colors.white)))),
                             ],

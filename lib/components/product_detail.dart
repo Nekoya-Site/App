@@ -31,6 +31,11 @@ Widget productDetail(context, id) {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     var data = snapshot.data;
+                    var discount = data[0]['DISCOUNT'];
+                    if (discount != 0) {
+                      discount = (100 - discount) / 100 * data[0]['PRICE'];
+                    }
+
                     return Container(
                         decoration: const BoxDecoration(
                             color: Color(0xff1b1c1e),
@@ -97,13 +102,37 @@ Widget productDetail(context, id) {
                                     ),
                                   ),
                                   DataCell(
-                                    Text(
-                                      "Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}",
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                    discount != 0
+                                        ? Column(
+                                            children: [
+                                              Text(
+                                                "Rp ${NumberFormat('#,##0.00', 'ID').format(discount)}",
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 18.0,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                              Text(
+                                                "Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}",
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12.0,
+                                                    fontWeight: FontWeight.w100,
+                                                    decoration: TextDecoration
+                                                        .lineThrough,
+                                                    decorationColor: Colors.red,
+                                                    decorationThickness: 3),
+                                              )
+                                            ],
+                                          )
+                                        : Text(
+                                            "Rp ${NumberFormat('#,##0.00', 'ID').format(data[0]['PRICE'])}",
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w500),
+                                          ),
                                   )
                                 ]),
                                 DataRow(cells: [
