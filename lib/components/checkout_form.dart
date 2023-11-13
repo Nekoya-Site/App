@@ -74,11 +74,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                         onPressed: () {
                           checkSessionExist().then((isLoggedIn) {
                             if (isLoggedIn) {
-                              submitForm(context).then((statusCode) {
-                                Navigator.pop(context);
-                                Navigator.pushReplacementNamed(
-                                    context, '/transactions');
-                              });
+                              clearCart()
+                                  .then((value) => showAlertDialog(context));
                             } else {
                               Navigator.pushNamed(context, '/login');
                             }
@@ -106,4 +103,33 @@ class _CheckoutFormState extends State<CheckoutForm> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  Widget okButton = TextButton(
+    child: const Text("OK", style: TextStyle(color: Colors.white)),
+    onPressed: () {
+      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, '/products');
+    },
+  );
+  AlertDialog alert = AlertDialog(
+    backgroundColor: const Color(0xff1b1c1e),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    content: const Text(
+      "Coming Soon",
+      style: TextStyle(color: Colors.white70),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
