@@ -31,7 +31,9 @@ class _CarouselState extends State<Carousel> {
                       width: 1000,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/images/image_empty.webp'), fit: BoxFit.cover)),
+                              image: AssetImage(
+                                  'assets/images/logo_transparent.webp'),
+                              fit: BoxFit.contain)),
                     ),
                     errorWidget: (context, url, error) =>
                         Image.asset('assets/images/image_error.webp'),
@@ -73,15 +75,13 @@ class _CarouselState extends State<Carousel> {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      items: imageSliders,
-      carouselController: _controller,
-      options: CarouselOptions(
-          aspectRatio: 2.0,
-          enlargeCenterPage: true,
-          enableInfiniteScroll: false,
-          initialPage: 2,
-          autoPlay: true
-      )
-    );
+        items: imageSliders,
+        carouselController: _controller,
+        options: CarouselOptions(
+            aspectRatio: 2.0,
+            enlargeCenterPage: true,
+            enableInfiniteScroll: false,
+            initialPage: 2,
+            autoPlay: true));
   }
 }

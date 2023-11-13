@@ -70,7 +70,7 @@ class NewArrivalProducts extends StatelessWidget {
                         child: ProductCard(
                           title: 'Loading...',
                           imageUrl:
-                              "https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp",
+                              "https://telegra.ph/file/75f075e858198e4e7898a.png",
                           bgColor: const Color(0xFFFEFBF9),
                           press: () {},
                         ),
