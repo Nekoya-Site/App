@@ -95,7 +95,7 @@ class _CartState extends State<Cart> {
                             return CartBox(
                               controller: true,
                               imageUrl:
-                                  'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
+                                  'https://telegra.ph/file/75f075e858198e4e7898a.png',
                               title: 'Loading...',
                               quantity: 0,
                               plus: () {},
@@ -111,8 +111,9 @@ class _CartState extends State<Cart> {
                     child: Container(
                       decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/image_empty.webp'))),
+                              image:
+                                  AssetImage('assets/images/cart_empty.webp'),
+                              fit: BoxFit.contain)),
                     ),
                   );
                 }
