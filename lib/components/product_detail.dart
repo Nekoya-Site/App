@@ -218,7 +218,7 @@ Widget productDetail(context, id) {
                                     color: Colors.white),
                                 child: ElevatedButton.icon(
                                     onPressed: () {
-                                      addToCart(id);
+                                      addToCart(id, selectedSize);
                                       final dynamic cartToolTip_ =
                                           cartToolTipKey_.currentState;
                                       cartToolTip_.ensureTooltipVisible();

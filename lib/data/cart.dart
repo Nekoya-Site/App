@@ -1,14 +1,21 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
 
-Future<void> addToCart(productId) async {
+Future<void> addToCart(productId, size) async {
   final box = Hive.box();
 
   var cart = jsonDecode(box.get('cart', defaultValue: '[]'));
   var filteredCart = cart.where((x) => x["product_id"] == productId).toList();
+
+  var selectedSize = [];
+
   if (filteredCart.length == 0) {
-    cart.add({"product_id": productId, "quantity": 1});
+    selectedSize.add(size);
+    cart.add({"product_id": productId, "quantity": 1, "size": selectedSize});
   } else {
+    selectedSize = filteredCart[0]["size"];
+    selectedSize.add(size);
+    filteredCart[0]["size"] = selectedSize;
     filteredCart[0]["quantity"]++;
     cart = cart.where((x) => x["product_id"] != productId).toList();
     cart.add(filteredCart[0]);
@@ -29,6 +36,7 @@ Future<void> removeFromCart(productId, bool batch) async {
       if (filteredCart[0]["quantity"] == 0) {
         cart = cart.where((x) => x["product_id"] != productId).toList();
       } else {
+        filteredCart[0]["size"].removeLast();
         cart = cart.where((x) => x["product_id"] != productId).toList();
         cart.add(filteredCart[0]);
       }

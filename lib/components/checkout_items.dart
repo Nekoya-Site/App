@@ -72,6 +72,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                                       "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                                   title: productData[0]['TITLE'],
                                   quantity: data[index]["quantity"],
+                                  size: data[index]["size"],
                                   plus: () {},
                                   minus: () {},
                                   remove: () {});
@@ -84,6 +85,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                                 'https://telegra.ph/file/75f075e858198e4e7898a.png',
                             title: 'Loading...',
                             quantity: 0,
+                            size: const [],
                             plus: () {},
                             minus: () {},
                             remove: () {},
