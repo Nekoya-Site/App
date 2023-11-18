@@ -66,8 +66,11 @@ class _CartState extends State<Cart> {
                                         "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                                     title: productData[0]['TITLE'],
                                     quantity: data[index]["quantity"],
+                                    size: data[index]["size"],
                                     plus: () {
-                                      addToCart(data[index]["product_id"]);
+                                      var size = data[index]["size"];
+                                      addToCart(data[index]["product_id"],
+                                          size[size.length - 1]);
                                       setState(() {
                                         _viewCart = viewCart();
                                         getTotal_ = getTotal();
@@ -98,6 +101,7 @@ class _CartState extends State<Cart> {
                                   'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
                               title: 'Loading...',
                               quantity: 0,
+                              size: const [],
                               plus: () {},
                               minus: () {},
                               remove: () {},

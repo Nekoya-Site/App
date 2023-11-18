@@ -72,6 +72,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                                       "https://nekoya.moe.team/img/${productData[0]['IMAGE']}",
                                   title: productData[0]['TITLE'],
                                   quantity: data[index]["quantity"],
+                                  size: data[index]["size"],
                                   plus: () {},
                                   minus: () {},
                                   remove: () {});
@@ -84,6 +85,7 @@ class _CheckoutItemsState extends State<CheckoutItems> {
                                 'https://i.ibb.co/QJFLZC4/La-Darknesss-Portrait.webp',
                             title: 'Loading...',
                             quantity: 0,
+                            size: const [],
                             plus: () {},
                             minus: () {},
                             remove: () {},

@@ -2,21 +2,23 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CartBox extends StatefulWidget {
-  const CartBox({
-    Key? key,
-    required this.controller,
-    required this.imageUrl,
-    required this.title,
-    required this.quantity,
-    required this.plus,
-    required this.minus,
-    required this.remove
-  }) : super(key: key);
+  const CartBox(
+      {Key? key,
+      required this.controller,
+      required this.imageUrl,
+      required this.title,
+      required this.quantity,
+      required this.size,
+      required this.plus,
+      required this.minus,
+      required this.remove})
+      : super(key: key);
 
   final bool controller;
   final String imageUrl;
   final String title;
   final int quantity;
+  final List<dynamic> size;
   final Function() plus;
   final Function() minus;
   final Function() remove;
@@ -26,10 +28,8 @@ class CartBox extends StatefulWidget {
 }
 
 class _CartBoxState extends State<CartBox> {
-
   @override
   Widget build(BuildContext context) {
-
     return Container(
       margin: const EdgeInsets.all(8.0),
       child: Card(
@@ -43,8 +43,7 @@ class _CartBoxState extends State<CartBox> {
               flex: 2,
               child: CachedNetworkImage(
                 imageUrl: widget.imageUrl,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(
+                placeholder: (context, url) => const CircularProgressIndicator(
                   color: Color(0xff8B0000),
                 ),
                 errorWidget: (context, url, error) =>
@@ -64,62 +63,78 @@ class _CartBoxState extends State<CartBox> {
               child: Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(left:10.0, right: 10.0),
+                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                     child: Text(
                       widget.title,
                       style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600),
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
                       textAlign: TextAlign.start,
                     ),
                   ),
-                  const SizedBox(height: 10,),
-                  widget.controller == true ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                          onPressed: (){
-                            widget.minus();
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
-                          ),
-                          child: const Text("-")
-                        ),
-                        Text(widget.quantity.toString(),
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400)
-                        ),
-                        ElevatedButton(
-                          onPressed: (){
-                            widget.plus();
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff8B0000)),
-                          ),
-                          child: const Text("+")
-                        )
-                      ],
-                    )
-                  : Container(
-                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Quantity : ${widget.quantity.toString()}",
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400
-                          ),
-                        ),
-                      ],
-                    ),
+                  const SizedBox(
+                    height: 10,
                   ),
+                  widget.controller == true
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  widget.minus();
+                                },
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          const Color(0xff8B0000)),
+                                ),
+                                child: const Text("-")),
+                            Text(widget.quantity.toString(),
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400)),
+                            ElevatedButton(
+                                onPressed: () {
+                                  widget.plus();
+                                },
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          const Color(0xff8B0000)),
+                                ),
+                                child: const Text("+"))
+                          ],
+                        )
+                      : Container(
+                          margin:
+                              const EdgeInsets.only(left: 10.0, right: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Quantity : ${widget.quantity.toString()}",
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                        ),
+                  Container(
+                    margin: const EdgeInsets.all(5.0),
+                    child: Text(
+                      "Size : ${widget.size.join(', ')}",
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  )
                 ],
               ),
             ),
