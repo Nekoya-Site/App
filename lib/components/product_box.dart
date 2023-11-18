@@ -94,7 +94,8 @@ class _ProductBoxState extends State<ProductBox> {
                                   child: Center(
                                       child: Text("${widget.discount}% off",
                                           style: const TextStyle(
-                                              color: Colors.white)))),
+                                              color: Colors.white,
+                                              fontSize: 11.0)))),
                             ],
                           )
                         ])
